@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>教材库 · 学伴</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #FDF9F0; color: #1f2937; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand-green { color: #1a5d3a; }
+  .bg-brand-green { background-color: #1a5d3a; }
+  .brand-orange { color: #D97706; }
+  .bg-brand-orange { background-color: #D97706; }
+  .book-card { transition: all .2s; }
+  .book-card:hover { transform: translateY(-4px); }
+  .book-cover {
+    aspect-ratio: 3/4;
+    border-radius: 4px 6px 6px 4px;
+    padding: 14px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    color: white;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15), -4px 3px 0 0 rgba(139,92,40,0.2);
+    position: relative;
+  }
+  .book-cover::before {
+    content: ''; position: absolute;
+    left: 0; top: 0; bottom: 0; width: 7px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.35), transparent);
+    border-radius: 4px 0 0 4px;
+  }
+  .chip { cursor: pointer; transition: all .15s; }
+  .chip.active { background: #1a5d3a; color: white; border-color: #1a5d3a; }
+</style>
+</head>
+<body>
+
+<nav class="border-b border-amber-100 bg-white sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-lg bg-brand-green text-white flex items-center justify-center font-bold serif text-xl">学</div>
+      <div class="serif font-bold text-lg brand-green">学伴</div>
+    </a>
+    <div class="hidden md:flex gap-6 text-sm">
+      <a href="index.html" class="text-gray-700">首页</a>
+      <a href="books.html" class="font-semibold brand-green">教材库</a>
+      <a href="dashboard.html" class="text-gray-700">我的学伴</a>
+      <a href="messages.html" class="text-gray-700">消息</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold">王</div>
+    </div>
+  </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-6 py-8">
+
+  <!-- Hero -->
+  <div class="mb-8">
+    <div class="text-xs brand-orange mb-2">📚 已覆盖 120+ 款教材</div>
+    <h1 class="serif text-3xl font-bold mb-2">教材库 · 浏览孩子的课本</h1>
+    <p class="text-sm text-gray-600">所有接入学伴的教辅书目，按学段与版本筛选。点击查看每本书的精准匹配老师。</p>
+  </div>
+
+  <!-- Filters -->
+  <div class="bg-white rounded-2xl p-5 border border-amber-100 mb-6 flex flex-wrap items-center gap-3">
+    <input type="text" placeholder="🔍 搜索教材名称或 ISBN..." class="flex-1 min-w-[240px] px-4 py-2 border border-gray-200 rounded-lg text-sm" />
+    <select class="text-sm border border-gray-200 rounded-lg px-3 py-2">
+      <option>全部版本</option>
+      <option>人教版</option>
+      <option>云教版</option>
+      <option>北师大版</option>
+      <option>苏教版</option>
+    </select>
+    <select class="text-sm border border-gray-200 rounded-lg px-3 py-2">
+      <option>全部学段</option>
+      <option>小学 1-6</option>
+      <option>初中 7-9</option>
+      <option>高中 10-12</option>
+    </select>
+  </div>
+
+  <!-- Quick filters -->
+  <div class="flex flex-wrap gap-2 mb-6">
+    <span class="chip active px-4 py-1.5 border border-gray-200 rounded-full text-sm" data-filter="all">全部 (32)</span>
+    <span class="chip px-4 py-1.5 border border-gray-200 rounded-full text-sm" data-filter="math">数学 (9)</span>
+    <span class="chip px-4 py-1.5 border border-gray-200 rounded-full text-sm" data-filter="chinese">语文 (7)</span>
+    <span class="chip px-4 py-1.5 border border-gray-200 rounded-full text-sm" data-filter="english">英语 (6)</span>
+    <span class="chip px-4 py-1.5 border border-gray-200 rounded-full text-sm" data-filter="physics">物理 (4)</span>
+    <span class="chip px-4 py-1.5 border border-gray-200 rounded-full text-sm" data-filter="chemistry">化学 (3)</span>
+    <span class="chip px-4 py-1.5 border border-gray-200 rounded-full text-sm" data-filter="other">其他 (3)</span>
+  </div>
+
+  <!-- Results -->
+  <div id="bookGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5"></div>
+
+  <!-- Publisher partnership CTA -->
+  <div class="mt-12 bg-gradient-to-br from-green-800 to-green-700 rounded-3xl p-8 text-white flex items-center gap-8">
+    <div class="flex-1">
+      <div class="text-xs opacity-80 mb-2">出版社合作</div>
+      <h2 class="serif text-2xl font-bold mb-3">您的教辅还没有接入？</h2>
+      <p class="text-sm opacity-90 mb-4 leading-relaxed">我们与云南出版集团、人民教育出版社等多家出版社合作。只需印上二维码，您的每一本书就能为读者匹配专业老师，您也获得分成收益。</p>
+      <a href="publisher.html" class="inline-block bg-white text-green-800 px-6 py-2 rounded-lg font-semibold text-sm">查看出版社合作方案 →</a>
+    </div>
+    <div class="text-5xl">📘</div>
+  </div>
+
+</div>
+
+<script>
+const BOOKS = [
+  { subject:"math", title:"小学数学", grade:"五年级上册", publisher:"人教版", color:"linear-gradient(135deg,#F59E0B,#B45309)", tutors:12, hot:true },
+  { subject:"chinese", title:"小学语文", grade:"五年级上册", publisher:"人教版", color:"linear-gradient(135deg,#10B981,#047857)", tutors:8, hot:true },
+  { subject:"english", title:"小学英语", grade:"五年级上册", publisher:"云教版", color:"linear-gradient(135deg,#8B5CF6,#6D28D9)", tutors:6, hot:false },
+  { subject:"math", title:"初中数学", grade:"八年级下册", publisher:"人教版", color:"linear-gradient(135deg,#F59E0B,#B45309)", tutors:15, hot:true },
+  { subject:"physics", title:"初中物理", grade:"八年级下册", publisher:"人教版", color:"linear-gradient(135deg,#3B82F6,#1E40AF)", tutors:9, hot:false },
+  { subject:"chinese", title:"初中语文", grade:"八年级下册", publisher:"人教版", color:"linear-gradient(135deg,#10B981,#047857)", tutors:10, hot:false },
+  { subject:"english", title:"初中英语", grade:"九年级全一册", publisher:"人教版", color:"linear-gradient(135deg,#8B5CF6,#6D28D9)", tutors:11, hot:true },
+  { subject:"math", title:"高中数学", grade:"必修一", publisher:"人教A版", color:"linear-gradient(135deg,#F59E0B,#B45309)", tutors:14, hot:true },
+  { subject:"physics", title:"高中物理", grade:"必修一", publisher:"人教版", color:"linear-gradient(135deg,#3B82F6,#1E40AF)", tutors:13, hot:true },
+  { subject:"chemistry", title:"高中化学", grade:"必修一", publisher:"人教版", color:"linear-gradient(135deg,#EC4899,#9F1239)", tutors:7, hot:false },
+  { subject:"chinese", title:"高中语文", grade:"必修上册", publisher:"统编版", color:"linear-gradient(135deg,#10B981,#047857)", tutors:9, hot:false },
+  { subject:"english", title:"高中英语", grade:"必修一", publisher:"人教版", color:"linear-gradient(135deg,#8B5CF6,#6D28D9)", tutors:12, hot:false },
+  { subject:"math", title:"小学数学", grade:"三年级下册", publisher:"人教版", color:"linear-gradient(135deg,#F59E0B,#B45309)", tutors:10, hot:false },
+  { subject:"chinese", title:"小学语文", grade:"三年级下册", publisher:"人教版", color:"linear-gradient(135deg,#10B981,#047857)", tutors:8, hot:false },
+  { subject:"english", title:"小学英语", grade:"三年级下册", publisher:"外研版", color:"linear-gradient(135deg,#8B5CF6,#6D28D9)", tutors:5, hot:false },
+  { subject:"math", title:"小学数学", grade:"六年级上册", publisher:"人教版", color:"linear-gradient(135deg,#F59E0B,#B45309)", tutors:11, hot:false },
+  { subject:"chinese", title:"小学语文", grade:"六年级上册", publisher:"人教版", color:"linear-gradient(135deg,#10B981,#047857)", tutors:9, hot:false },
+  { subject:"physics", title:"高中物理", grade:"选修3-1", publisher:"人教版", color:"linear-gradient(135deg,#3B82F6,#1E40AF)", tutors:7, hot:false },
+  { subject:"chemistry", title:"初中化学", grade:"九年级上册", publisher:"人教版", color:"linear-gradient(135deg,#EC4899,#9F1239)", tutors:8, hot:false },
+  { subject:"other", title:"小学书法", grade:"入门版", publisher:"云南地方", color:"linear-gradient(135deg,#78350F,#44170B)", tutors:4, hot:false },
+  { subject:"other", title:"少儿编程", grade:"Scratch入门", publisher:"学伴出品", color:"linear-gradient(135deg,#14B8A6,#065F46)", tutors:6, hot:true },
+  { subject:"other", title:"儿童美术", grade:"启蒙篇", publisher:"云艺版", color:"linear-gradient(135deg,#F43F5E,#9F1239)", tutors:5, hot:false },
+  { subject:"math", title:"初中数学", grade:"九年级上册", publisher:"人教版", color:"linear-gradient(135deg,#F59E0B,#B45309)", tutors:13, hot:false },
+  { subject:"chinese", title:"初中语文", grade:"七年级上册", publisher:"统编版", color:"linear-gradient(135deg,#10B981,#047857)", tutors:8, hot:false }
+];
+
+const grid = document.getElementById('bookGrid');
+function render(filter) {
+  grid.innerHTML = '';
+  const list = filter === 'all' ? BOOKS : BOOKS.filter(b => b.subject === filter);
+  list.forEach(b => {
+    const a = document.createElement('a');
+    a.href = 'match.html';
+    a.className = 'book-card block';
+    a.innerHTML = `
+      <div class="book-cover" style="background:${b.color}">
+        <div>
+          <div class="text-[9px] opacity-80">${b.publisher}</div>
+          ${b.hot ? '<div class="absolute top-2 right-2 bg-red-500 text-white text-[9px] px-1.5 py-0.5 rounded">🔥 热门</div>' : ''}
+          <div class="serif text-lg font-bold leading-tight mt-2">${b.title}</div>
+          <div class="text-xs opacity-90 mt-1">${b.grade}</div>
+        </div>
+        <div class="text-[10px] opacity-80">
+          <div>📚 ${b.tutors} 位老师</div>
+          <div>👆 点击匹配</div>
+        </div>
+      </div>
+      <div class="mt-2 text-center">
+        <div class="text-xs font-semibold">${b.title}</div>
+        <div class="text-[11px] text-gray-500">${b.grade}</div>
+      </div>
+    `;
+    grid.appendChild(a);
+  });
+}
+document.querySelectorAll('.chip').forEach(c => {
+  c.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    render(c.dataset.filter);
+  });
+});
+render('all');
+</script>
+</body>
+</html>

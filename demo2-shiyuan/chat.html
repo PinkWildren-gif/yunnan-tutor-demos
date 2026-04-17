@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>聊天 · 师缘</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #0a0a14; color: white; margin: 0; overflow: hidden; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .app-shell { width: 100vw; height: 100vh; display: grid; grid-template-columns: 1fr 420px 1fr; align-items: center; justify-items: center; background: radial-gradient(800px 600px at 20% 30%, rgba(139,92,246,0.25), transparent), #0a0a14; }
+  .phone { width: 420px; height: 92vh; max-height: 880px; background: #0a0a14; border-radius: 48px; border: 10px solid #1f1f2e; box-shadow: 0 30px 80px rgba(0,0,0,0.6); overflow: hidden; position: relative; display: flex; flex-direction: column; }
+  .notch { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 120px; height: 28px; background: #000; border-radius: 20px; z-index: 30; }
+  .chat-me { background: linear-gradient(135deg, #8b5cf6, #ec4899); border-radius: 18px 18px 4px 18px; }
+  .chat-them { background: rgba(255,255,255,0.1); border-radius: 18px 18px 18px 4px; }
+  .sidepanel { color: #e5e7eb; max-width: 300px; padding: 20px; }
+  .sidepanel h3 { color: white; font-weight: 700; margin-bottom: 10px; }
+  .sidepanel p { font-size: 13px; line-height: 1.7; opacity: 0.8; }
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+  <div class="sidepanel">
+    <h3 class="serif text-2xl">聊天界面</h3>
+    <p class="mt-4">老师与家长可以发文字、语音、图片、甚至预约卡片。整个对话流程被完整保留，方便日后回看。</p>
+  </div>
+
+  <div class="phone">
+    <div class="notch"></div>
+
+    <!-- Header -->
+    <div class="pt-14 px-4 pb-3 flex items-center gap-3 border-b border-white/10">
+      <a href="messages.html" class="text-xl">←</a>
+      <a href="tutor-profile.html" class="flex items-center gap-2 flex-1">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center font-bold">李</div>
+        <div>
+          <div class="font-bold text-sm">@李明老师</div>
+          <div class="text-[10px] text-green-400">● 在线</div>
+        </div>
+      </a>
+      <button class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">📞</button>
+      <button class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">⋯</button>
+    </div>
+
+    <!-- Chat -->
+    <div class="flex-1 overflow-y-auto px-4 py-4 space-y-4" style="scrollbar-width: none;">
+      <div class="text-center text-[10px] text-gray-500">您在 4月14日 看到李明老师的视频，点击了联系</div>
+
+      <div class="flex gap-2">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center text-xs font-bold flex-shrink-0">李</div>
+        <div class="chat-them px-4 py-2 max-w-[75%] text-sm">
+          您好王妈妈！感谢关注我~
+          <div class="text-[10px] opacity-60 mt-1">14:22</div>
+        </div>
+      </div>
+
+      <div class="flex gap-2">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center text-xs font-bold flex-shrink-0">李</div>
+        <div class="chat-them px-4 py-2 max-w-[75%] text-sm">
+          我看到您收藏了我关于分数应用题的视频。如果小明这块基础薄弱，我们可以安排一次试听课聊一下。
+          <div class="text-[10px] opacity-60 mt-1">14:23</div>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <div class="chat-me px-4 py-2 max-w-[75%] text-sm">
+          好的老师！这周末可以吗？小明周六下午15点左右有空
+          <div class="text-[10px] opacity-80 mt-1 text-right">14:30</div>
+        </div>
+      </div>
+
+      <div class="flex gap-2">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center text-xs font-bold flex-shrink-0">李</div>
+        <div class="max-w-[85%]">
+          <div class="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-4">
+            <div class="text-xs text-pink-300 mb-2">📅 预约卡片</div>
+            <div class="text-sm font-bold mb-2">周六 4月19日 15:00</div>
+            <div class="text-xs space-y-1 opacity-80">
+              <div>科目：小学数学</div>
+              <div>时长：30 分钟（首课试听）</div>
+              <div>方式：上门 · 五华区</div>
+              <div class="pt-2 border-t border-white/10 mt-2"><span class="text-pink-300 font-bold">🎁 首课免费</span> · 后续 ¥180/课</div>
+            </div>
+            <div class="grid grid-cols-2 gap-2 mt-3">
+              <button class="bg-gradient-to-r from-pink-500 to-purple-600 py-2 rounded-lg text-xs font-bold">✓ 接受预约</button>
+              <button class="bg-white/10 py-2 rounded-lg text-xs">改期</button>
+            </div>
+          </div>
+          <div class="text-[10px] opacity-60 mt-1">14:35</div>
+        </div>
+      </div>
+
+      <div class="text-center text-[10px] text-gray-500">— 今天 —</div>
+
+      <div class="flex justify-end">
+        <div class="chat-me px-4 py-2 max-w-[75%] text-sm">
+          老师今晚19点可以上第7节课吗？
+          <div class="text-[10px] opacity-80 mt-1 text-right">17:20</div>
+        </div>
+      </div>
+
+      <div class="flex gap-2">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center text-xs font-bold flex-shrink-0">李</div>
+        <div class="chat-them px-4 py-2 max-w-[75%] text-sm">
+          好的妈妈，今晚19点我们开始吧 👍
+          <div class="text-[10px] opacity-60 mt-1">17:45</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input bar -->
+    <div class="p-3 border-t border-white/10">
+      <div class="flex items-center gap-2">
+        <button class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-lg">➕</button>
+        <div class="flex-1 bg-white/10 rounded-full px-4 py-2 text-sm text-gray-400">发消息...</div>
+        <button class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-lg">🎤</button>
+        <button class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-lg">😊</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidepanel">
+    <h3 class="serif text-2xl text-right">💎 预约卡片</h3>
+    <p class="mt-4 text-right">老师可以在聊天中直接发送结构化的预约卡片，家长一键接受，流程非常顺畅。</p>
+  </div>
+</div>
+</body>
+</html>

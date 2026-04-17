@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>消息 · 优师荟</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #f9fafb; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand { color: #C8102E; }
+  .bg-brand { background-color: #C8102E; }
+  .seal { display: inline-flex; align-items: center; justify-content: center; background: #C8102E; color: white; font-weight: 700; padding: 4px 10px; border-radius: 4px; letter-spacing: 2px; }
+  .chat-me { background: #FEE2E2; border-radius: 16px 16px 4px 16px; }
+  .chat-them { background: white; border-radius: 16px 16px 16px 4px; border: 1px solid #e5e7eb; }
+</style>
+</head>
+<body>
+
+<nav class="border-b bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="seal serif">优</div>
+      <div class="font-bold serif brand">优师荟</div>
+    </a>
+    <div class="hidden md:flex gap-6 text-sm">
+      <a href="tutors.html" class="text-gray-700">找老师</a>
+      <a href="dashboard-parent.html" class="text-gray-700">家长中心</a>
+      <a href="messages.html" class="brand font-semibold">消息</a>
+    </div>
+    <div class="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold">王</div>
+  </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-6 py-6">
+  <div class="grid grid-cols-[320px_1fr] bg-white rounded-2xl border border-gray-100 overflow-hidden" style="height: calc(100vh - 120px);">
+
+    <aside class="border-r border-gray-200 flex flex-col">
+      <div class="p-4 border-b">
+        <h2 class="serif text-lg font-bold mb-3">对话</h2>
+        <input type="text" placeholder="🔍 搜索..." class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" />
+      </div>
+
+      <div class="flex-1 overflow-y-auto">
+        <div class="p-4 bg-red-50 border-l-4 border-red-500 cursor-pointer">
+          <div class="flex items-start gap-3">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#C8102E,#7f1d1d)">李</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex justify-between"><span class="font-bold text-sm">李明 老师</span><span class="text-xs text-gray-400">刚刚</span></div>
+              <p class="text-xs text-gray-600 truncate">今晚记得让小明准备那套题</p>
+              <div class="text-xs brand mt-1">📐 数学 · 小学五年级</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 hover:bg-gray-50 cursor-pointer border-b">
+          <div class="flex items-start gap-3">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#E91E63,#AD1457)">王</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex justify-between"><span class="font-bold text-sm">王芳 老师</span><span class="text-xs text-gray-400">2h</span></div>
+              <p class="text-xs text-gray-600 truncate">本周英语测验结果已发送</p>
+              <div class="flex items-center mt-1">
+                <span class="text-xs brand">🗣️ 英语 · 小学五年级</span>
+                <span class="bg-red-500 text-white text-[10px] px-1.5 rounded-full ml-auto">2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 hover:bg-gray-50 cursor-pointer border-b">
+          <div class="flex items-start gap-3">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#689F38,#33691E)">赵</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex justify-between"><span class="font-bold text-sm">赵娟 老师</span><span class="text-xs text-gray-400">昨天</span></div>
+              <p class="text-xs text-gray-600 truncate">周日15:00见哈</p>
+              <div class="text-xs brand mt-1">📖 语文 · 小学五年级</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 hover:bg-gray-50 cursor-pointer border-b">
+          <div class="flex items-start gap-3 opacity-60">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white bg-gradient-to-br from-gray-400 to-gray-600">优</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex justify-between"><span class="font-bold text-sm">优师荟官方</span><span class="text-xs text-gray-400">3天前</span></div>
+              <p class="text-xs text-gray-600 truncate">会员续费优惠提醒</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="flex flex-col">
+      <div class="p-4 border-b flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#C8102E,#7f1d1d)">李</div>
+        <div class="flex-1">
+          <div class="flex items-center gap-2">
+            <h2 class="font-bold">李明 老师</h2>
+            <span class="text-xs text-green-600">● 在线</span>
+          </div>
+          <div class="text-xs text-gray-500">云南师范大学 · 数学 · 5年经验</div>
+        </div>
+        <a href="tutor.html?id=1" class="text-xs text-gray-500 hover:brand">查看主页</a>
+        <button class="text-xs bg-brand text-white px-3 py-1.5 rounded-lg">📅 预约新课</button>
+      </div>
+
+      <div class="flex-1 p-5 overflow-y-auto space-y-4 bg-gray-50">
+
+        <div class="text-center text-xs text-gray-400">— 2026年3月20日 您与老师建立了合作 —</div>
+
+        <div class="flex justify-start gap-2">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:linear-gradient(135deg,#C8102E,#7f1d1d)">李</div>
+          <div class="chat-them px-4 py-2.5 max-w-md text-sm">
+            <p>您好王妈妈，我是李明。很高兴通过优师荟认识您。</p>
+            <p class="mt-2">小明的基础测试我看了，主要问题在小数乘除法这一块。建议我们从这里开始，先把基本概念理清。</p>
+            <div class="text-[10px] text-gray-400 mt-1">3-20 14:30</div>
+          </div>
+        </div>
+
+        <div class="flex justify-end">
+          <div class="chat-me px-4 py-2.5 max-w-md text-sm">
+            <p>好的老师！我们配合您。小明比较害羞，希望老师多鼓励他~</p>
+            <div class="text-[10px] text-gray-500 mt-1 text-right">14:35</div>
+          </div>
+        </div>
+
+        <div class="text-center text-xs text-gray-400">— 今天 —</div>
+
+        <div class="flex justify-start gap-2">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:linear-gradient(135deg,#C8102E,#7f1d1d)">李</div>
+          <div class="chat-them px-4 py-2.5 max-w-md text-sm">
+            <p>王妈妈好，今晚是我们第 7 节课。本周主要训练应用题的解题思路。</p>
+            <p class="mt-2">今晚记得让小明准备那套题（上周我发的PDF），我们会当场一起做一遍。</p>
+            <div class="text-[10px] text-gray-400 mt-1">16:42</div>
+          </div>
+        </div>
+
+        <div class="flex justify-start gap-2">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:linear-gradient(135deg,#C8102E,#7f1d1d)">李</div>
+          <div class="chat-them px-3 py-2 max-w-md">
+            <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+              <div class="text-3xl">📄</div>
+              <div>
+                <div class="text-sm font-semibold">第6周练习题.pdf</div>
+                <div class="text-xs text-gray-500">12页 · 应用题精选</div>
+              </div>
+            </div>
+            <div class="text-[10px] text-gray-400 mt-1">16:43</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 border-t">
+        <div class="flex items-end gap-2">
+          <button class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">😊</button>
+          <button class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">📎</button>
+          <textarea class="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm resize-none" rows="1" placeholder="发消息..."></textarea>
+          <button class="bg-brand text-white px-4 py-2 rounded-lg text-sm font-semibold">发送</button>
+        </div>
+        <div class="text-[10px] text-gray-400 mt-2">💎 您和老师直接对接，优师荟承诺不拦截、不抽成</div>
+      </div>
+    </section>
+  </div>
+</div>
+</body>
+</html>

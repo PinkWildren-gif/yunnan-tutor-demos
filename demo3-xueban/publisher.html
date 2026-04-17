@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>出版社合作伙伴后台 · 学伴</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #F9FAFB; color: #1f2937; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand-green { color: #1a5d3a; }
+  .bg-brand-green { background-color: #1a5d3a; }
+  .brand-orange { color: #D97706; }
+  .bg-brand-orange { background-color: #D97706; }
+  .kpi-card { background: white; border-radius: 16px; padding: 20px; border: 1px solid #e5e7eb; }
+  .nav-link { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; color: #4b5563; font-size: 14px; }
+  .nav-link:hover { background: #f3f4f6; }
+  .nav-link.active { background: #1a5d3a; color: white; font-weight: 600; }
+  .chart-bar { transition: all .3s; }
+  .chart-bar:hover { opacity: 0.8; }
+  table { width: 100%; font-size: 13px; }
+  th { text-align: left; padding: 10px 14px; color: #6b7280; font-weight: 600; font-size: 11px; letter-spacing: 1px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; }
+  td { padding: 14px; border-bottom: 1px solid #f3f4f6; }
+  tr:hover td { background: #f9fafb; }
+  .badge-good { background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+  .badge-warn { background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+  .badge-new { background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+</style>
+</head>
+<body>
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-60 bg-white border-r border-gray-200 p-4 flex flex-col">
+    <a href="index.html" class="flex items-center gap-2 mb-8 px-2">
+      <div class="w-10 h-10 rounded-lg bg-brand-green text-white flex items-center justify-center font-bold serif text-xl">学</div>
+      <div>
+        <div class="serif font-bold brand-green">学伴 · B2B</div>
+        <div class="text-[10px] text-gray-500">出版社合作伙伴后台</div>
+      </div>
+    </a>
+
+    <div class="mb-4 bg-green-50 border border-green-100 rounded-lg p-3">
+      <div class="text-xs text-green-900 font-semibold">云南出版集团</div>
+      <div class="text-[11px] text-green-700 mt-1">滇教辅系列 · 官方账户</div>
+    </div>
+
+    <nav class="space-y-1 flex-1">
+      <a href="publisher.html" class="nav-link active">📊 <span>数据概览</span></a>
+      <a href="#" class="nav-link">📘 <span>我的教辅</span></a>
+      <a href="#" class="nav-link">🎯 <span>扫码分析</span></a>
+      <a href="#" class="nav-link">💰 <span>收益结算</span></a>
+      <a href="#" class="nav-link">📍 <span>地域分布</span></a>
+      <a href="#" class="nav-link">👥 <span>合作老师</span></a>
+      <a href="#" class="nav-link">⚙️ <span>账户设置</span></a>
+    </nav>
+
+    <div class="pt-4 border-t border-gray-200 text-xs text-gray-500">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold">陆</div>
+        <div>
+          <div class="text-gray-900 font-semibold">陆总</div>
+          <div>出版社管理员</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="flex-1 p-8 overflow-auto">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <div class="text-xs text-gray-500 mb-1">数据概览 · 2026年第二季度</div>
+        <h1 class="serif text-3xl font-bold">您好，陆总 👋</h1>
+        <p class="text-sm text-gray-600 mt-1">滇教辅系列运营数据</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <select class="text-sm border border-gray-200 rounded-lg px-3 py-2 bg-white">
+          <option>本月 (2026年4月)</option>
+          <option>本季度</option>
+          <option>本年度</option>
+          <option>全部时间</option>
+        </select>
+        <button class="bg-brand-green text-white text-sm px-4 py-2 rounded-lg font-semibold">📥 导出报表</button>
+      </div>
+    </div>
+
+    <!-- Key message banner -->
+    <div class="bg-gradient-to-r from-green-700 to-green-600 rounded-2xl p-5 mb-6 text-white flex items-center gap-4">
+      <div class="text-4xl">🎉</div>
+      <div class="flex-1">
+        <div class="font-bold text-lg">本月新增 <span class="text-3xl">¥89,420</span> 合作收益</div>
+        <div class="text-sm opacity-90">相比上月增长 +34.2% · 已完成 Q2 目标的 67%</div>
+      </div>
+      <a href="#" class="bg-white text-green-700 px-4 py-2 rounded-lg font-semibold text-sm">查看收益明细 →</a>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="grid grid-cols-4 gap-4 mb-6">
+      <div class="kpi-card">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="text-xs text-gray-500 mb-1">本月售书数量</div>
+            <div class="serif text-3xl font-bold">47,820</div>
+            <div class="text-xs text-green-600 mt-1">↑ 12.4% vs 上月</div>
+          </div>
+          <div class="text-2xl">📚</div>
+        </div>
+        <svg viewBox="0 0 100 30" class="mt-3 w-full h-8">
+          <polyline points="0,22 10,18 20,20 30,15 40,17 50,12 60,14 70,10 80,8 90,5 100,6" fill="none" stroke="#1a5d3a" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+      <div class="kpi-card">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="text-xs text-gray-500 mb-1">二维码扫描次数</div>
+            <div class="serif text-3xl font-bold">28,347</div>
+            <div class="text-xs text-green-600 mt-1">↑ 28.7% vs 上月</div>
+          </div>
+          <div class="text-2xl">📱</div>
+        </div>
+        <div class="mt-3">
+          <div class="flex justify-between text-[10px] text-gray-500 mb-1">
+            <span>扫码转化率</span>
+            <span class="font-semibold text-gray-900">59.3%</span>
+          </div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full bg-brand-orange" style="width: 59.3%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="text-xs text-gray-500 mb-1">家长注册用户</div>
+            <div class="serif text-3xl font-bold">12,094</div>
+            <div class="text-xs text-green-600 mt-1">↑ 42.1% vs 上月</div>
+          </div>
+          <div class="text-2xl">👨‍👩‍👧</div>
+        </div>
+        <div class="mt-3 flex gap-1">
+          <div class="h-6 flex-1 bg-green-100 rounded" title="新用户"></div>
+          <div class="h-6 flex-[2] bg-green-400 rounded" title="活跃用户"></div>
+          <div class="h-6 flex-[3] bg-green-700 rounded" title="付费用户"></div>
+        </div>
+        <div class="text-[10px] text-gray-500 mt-1 flex justify-between">
+          <span>新</span><span>活跃</span><span>付费 2,841</span>
+        </div>
+      </div>
+
+      <div class="kpi-card bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="text-xs text-amber-800 mb-1">贵方累计收益</div>
+            <div class="serif text-3xl font-bold brand-orange">¥284,670</div>
+            <div class="text-xs text-amber-700 mt-1">含本月 ¥89,420</div>
+          </div>
+          <div class="text-2xl">💰</div>
+        </div>
+        <div class="text-[11px] text-amber-900 mt-3 bg-white/60 p-2 rounded">
+          💡 每印一本二维码教辅，您平均获得 <b>¥5.95</b> 分成
+        </div>
+      </div>
+    </div>
+
+    <!-- Conversion Funnel -->
+    <div class="grid grid-cols-3 gap-4 mb-6">
+      <div class="col-span-2 bg-white rounded-2xl p-6 border border-gray-200">
+        <div class="flex justify-between items-center mb-5">
+          <h2 class="serif text-lg font-bold">获客漏斗 · 本月</h2>
+          <span class="text-xs text-gray-500">从售书到付费用户的完整链路</span>
+        </div>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-semibold">① 售书（含QR码）</span>
+              <span class="serif font-bold">47,820</span>
+            </div>
+            <div class="h-10 bg-gradient-to-r from-green-600 to-green-500 rounded-lg flex items-center px-3 text-white text-sm">
+              100% · 二维码铺印到每本书
+            </div>
+          </div>
+          <div class="text-center text-xs text-gray-400">↓ 59.3%</div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-semibold">② 扫码触达</span>
+              <span class="serif font-bold">28,347</span>
+            </div>
+            <div class="h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center px-3 text-white text-sm" style="width: 59.3%">
+              59.3% · 家长扫描了二维码
+            </div>
+          </div>
+          <div class="text-center text-xs text-gray-400">↓ 42.7%</div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-semibold">③ 注册账户</span>
+              <span class="serif font-bold">12,094</span>
+            </div>
+            <div class="h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg flex items-center px-3 text-white text-sm" style="width: 42.7%">
+              25.3% · 完成账户注册
+            </div>
+          </div>
+          <div class="text-center text-xs text-gray-400">↓ 52.6%</div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-semibold">④ 匹配老师</span>
+              <span class="serif font-bold">6,359</span>
+            </div>
+            <div class="h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center px-3 text-white text-sm" style="width: 22.4%">
+              13.3% · 对接了至少一位老师
+            </div>
+          </div>
+          <div class="text-center text-xs text-gray-400">↓ 44.7%</div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-semibold">⑤ 付费会员</span>
+              <span class="serif font-bold text-orange-700">2,841</span>
+            </div>
+            <div class="h-10 bg-gradient-to-r from-red-500 to-pink-600 rounded-lg flex items-center px-3 text-white text-sm font-semibold" style="width: 10.8%">
+              5.94% · 转化为付费用户
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROI Comparison -->
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-200">
+        <h2 class="serif text-lg font-bold mb-1">合作 ROI 对比</h2>
+        <p class="text-xs text-amber-900 mb-4">为什么书配老师是结构性优势</p>
+
+        <div class="space-y-4">
+          <div>
+            <div class="text-xs text-gray-600 mb-1">传统抖音广告获客成本</div>
+            <div class="serif text-2xl font-bold text-red-600">¥287 /人</div>
+            <div class="h-2 bg-white rounded-full mt-1"><div class="h-full bg-red-400 rounded-full" style="width: 100%"></div></div>
+          </div>
+
+          <div>
+            <div class="text-xs text-gray-600 mb-1">学伴 · 您的教辅获客成本</div>
+            <div class="serif text-2xl font-bold text-green-700">¥3.95 /人</div>
+            <div class="h-2 bg-white rounded-full mt-1"><div class="h-full bg-green-500 rounded-full" style="width: 1.4%"></div></div>
+          </div>
+
+          <div class="pt-3 border-t border-amber-300">
+            <div class="text-xs text-amber-900 mb-1">成本优势</div>
+            <div class="serif text-3xl font-bold brand-orange">72.6×</div>
+            <p class="text-[11px] text-amber-900 mt-2 leading-relaxed">
+              您的发行渠道是一线平台的 <b>72倍</b> 成本效率。这就是为什么我们能做到 0 抽成。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Books performance + Yunnan map -->
+    <div class="grid grid-cols-3 gap-4 mb-6">
+      <div class="col-span-2 bg-white rounded-2xl p-6 border border-gray-200">
+        <div class="flex justify-between items-center mb-5">
+          <h2 class="serif text-lg font-bold">单本教辅表现</h2>
+          <div class="flex gap-2">
+            <button class="text-xs px-3 py-1 rounded-full bg-gray-100">售量</button>
+            <button class="text-xs px-3 py-1 rounded-full bg-brand-green text-white font-semibold">扫码率</button>
+            <button class="text-xs px-3 py-1 rounded-full bg-gray-100">转化率</button>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>教辅</th>
+              <th>ISBN</th>
+              <th>本月售量</th>
+              <th>扫码率</th>
+              <th>匹配老师</th>
+              <th>收益</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="bookTable"></tbody>
+        </table>
+      </div>
+
+      <!-- Yunnan map -->
+      <div class="bg-white rounded-2xl p-6 border border-gray-200">
+        <h2 class="serif text-lg font-bold mb-4">云南省扫码热度</h2>
+        <svg viewBox="0 0 300 280" class="w-full">
+          <!-- Simplified Yunnan map regions -->
+          <g stroke="white" stroke-width="1.5">
+            <path d="M 120,100 L 170,90 L 180,130 L 140,140 Z" fill="#1a5d3a" opacity="1">
+              <title>昆明 · 18,420次</title>
+            </path>
+            <path d="M 60,120 L 120,100 L 140,140 L 100,160 L 60,150 Z" fill="#1a5d3a" opacity="0.65">
+              <title>大理 · 4,230次</title>
+            </path>
+            <path d="M 170,90 L 220,70 L 230,120 L 180,130 Z" fill="#1a5d3a" opacity="0.85">
+              <title>曲靖 · 3,180次</title>
+            </path>
+            <path d="M 80,80 L 120,100 L 60,120 L 40,90 Z" fill="#1a5d3a" opacity="0.45">
+              <title>丽江 · 1,420次</title>
+            </path>
+            <path d="M 140,140 L 180,130 L 190,180 L 160,200 L 130,180 Z" fill="#1a5d3a" opacity="0.55">
+              <title>玉溪 · 890次</title>
+            </path>
+            <path d="M 60,150 L 100,160 L 130,180 L 100,220 L 60,210 Z" fill="#1a5d3a" opacity="0.35">
+              <title>普洱 · 207次</title>
+            </path>
+            <path d="M 100,220 L 160,200 L 190,180 L 220,220 L 160,240 L 120,250 Z" fill="#1a5d3a" opacity="0.25">
+              <title>西双版纳 · 0次</title>
+            </path>
+            <path d="M 220,70 L 260,100 L 250,150 L 230,120 Z" fill="#1a5d3a" opacity="0.4">
+              <title>昭通 · 0次</title>
+            </path>
+          </g>
+        </svg>
+        <div class="text-xs space-y-2 mt-4">
+          <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-3 h-3 bg-[#1a5d3a]"></span>昆明</span> <b>18,420 次</b></div>
+          <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-3 h-3 bg-[#1a5d3a] opacity-85"></span>曲靖</span> <b>3,180 次</b></div>
+          <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-3 h-3 bg-[#1a5d3a] opacity-65"></span>大理</span> <b>4,230 次</b></div>
+          <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-3 h-3 bg-[#1a5d3a] opacity-55"></span>玉溪</span> <b>890 次</b></div>
+          <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-3 h-3 bg-[#1a5d3a] opacity-45"></span>丽江</span> <b>1,420 次</b></div>
+          <div class="flex justify-between text-gray-400"><span>其他</span> <b>207 次</b></div>
+        </div>
+        <p class="text-[10px] text-gray-500 mt-4">建议：昆明渗透良好，可考虑加大大理 + 曲靖地区的经销网络</p>
+      </div>
+    </div>
+
+    <!-- Monthly trend -->
+    <div class="bg-white rounded-2xl p-6 border border-gray-200 mb-6">
+      <div class="flex justify-between items-center mb-5">
+        <h2 class="serif text-lg font-bold">月度趋势 · 近 12 个月</h2>
+        <div class="flex gap-4 text-xs">
+          <span class="flex items-center gap-1"><span class="w-3 h-3 bg-brand-green rounded"></span> 售书</span>
+          <span class="flex items-center gap-1"><span class="w-3 h-3 bg-brand-orange rounded"></span> 扫码</span>
+          <span class="flex items-center gap-1"><span class="w-3 h-3 bg-amber-500 rounded"></span> 收益(千¥)</span>
+        </div>
+      </div>
+      <svg viewBox="0 0 1200 260" class="w-full">
+        <g id="chart"></g>
+      </svg>
+    </div>
+
+    <!-- Actions & Suggestions -->
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-white rounded-2xl p-6 border border-gray-200">
+        <h2 class="serif text-lg font-bold mb-4">💡 运营建议</h2>
+        <div class="space-y-3">
+          <div class="p-3 bg-green-50 border-l-4 border-green-500 rounded">
+            <div class="text-sm font-semibold text-green-900">✓ 新教辅二维码率先铺印</div>
+            <p class="text-xs text-gray-700 mt-1">《初中物理》五年级上册计划 8月发行，建议提前 45 天接入二维码系统，预计带来新增扫码约 3,800 次/月。</p>
+          </div>
+          <div class="p-3 bg-amber-50 border-l-4 border-amber-500 rounded">
+            <div class="text-sm font-semibold text-amber-900">⚠ 大理地区老师供给不足</div>
+            <p class="text-xs text-gray-700 mt-1">大理扫码 4,230 次但仅匹配成功 380 次。建议联动大理学院招募 20+ 名在校研究生作为兼职老师。</p>
+          </div>
+          <div class="p-3 bg-blue-50 border-l-4 border-blue-500 rounded">
+            <div class="text-sm font-semibold text-blue-900">💎 高利润教辅识别</div>
+            <p class="text-xs text-gray-700 mt-1">《小学数学五年级上》ROI 排名第1，建议在新书腰封上突出 "扫码免费匹配老师" 字样。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 border border-gray-200">
+        <h2 class="serif text-lg font-bold mb-4">📣 最新动态</h2>
+        <div class="space-y-3 text-sm">
+          <div class="flex gap-3 pb-3 border-b border-gray-100">
+            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">📘</div>
+            <div class="flex-1">
+              <p><b>《初中语文八年级下》</b> 完成二维码印制，将于 4月20日 开始发行</p>
+              <div class="text-xs text-gray-500 mt-1">2小时前</div>
+            </div>
+          </div>
+          <div class="flex gap-3 pb-3 border-b border-gray-100">
+            <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">💰</div>
+            <div class="flex-1">
+              <p>3月收益结算完成，已打款 <b class="brand-orange">¥67,290</b> 至贵公司账户</p>
+              <div class="text-xs text-gray-500 mt-1">昨天 16:30</div>
+            </div>
+          </div>
+          <div class="flex gap-3 pb-3 border-b border-gray-100">
+            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">🎯</div>
+            <div class="flex-1">
+              <p>昆明一中合作签约成功，批量采购 1,200 册《高一物理辅导》</p>
+              <div class="text-xs text-gray-500 mt-1">3天前</div>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">👥</div>
+            <div class="flex-1">
+              <p>新增 <b>147 位云师大研究生</b> 加入老师库，匹配能力 +24%</p>
+              <div class="text-xs text-gray-500 mt-1">1周前</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-xs text-gray-400">
+      学伴 × 云南出版集团 · 数据更新于 2026-04-17 01:00 ·
+      <a href="index.html" class="brand-green hover:underline">返回首页</a>
+    </div>
+  </main>
+</div>
+
+<script>
+// Book performance table
+const BOOKS = [
+  { title: "小学数学·五年级上", isbn: "978-7-107-300428", sold: 8420, scanRate: 68.2, matches: 1240, revenue: 15280, status: "good" },
+  { title: "小学语文·五年级上", isbn: "978-7-107-300415", sold: 7890, scanRate: 64.1, matches: 1080, revenue: 13470, status: "good" },
+  { title: "初中英语·八年级下", isbn: "978-7-107-400721", sold: 6120, scanRate: 58.3, matches: 890, revenue: 11240, status: "good" },
+  { title: "初中数学·七年级上", isbn: "978-7-107-400308", sold: 5890, scanRate: 62.7, matches: 820, revenue: 10970, status: "good" },
+  { title: "小学英语·三年级下", isbn: "978-7-107-300612", sold: 4570, scanRate: 51.2, matches: 520, revenue: 7820, status: "warn" },
+  { title: "高一物理·必修一", isbn: "978-7-107-500104", sold: 3890, scanRate: 73.8, matches: 720, revenue: 9140, status: "new" },
+  { title: "小学书法·入门版", isbn: "978-7-107-300923", sold: 2420, scanRate: 42.1, matches: 180, revenue: 3290, status: "warn" },
+  { title: "初中语文·八年级下", isbn: "978-7-107-400818", sold: 0, scanRate: 0, matches: 0, revenue: 0, status: "new" }
+];
+const tbody = document.getElementById('bookTable');
+BOOKS.forEach(b => {
+  const badge = b.status === 'good' ? `<span class="badge-good">表现良好</span>` :
+                b.status === 'warn' ? `<span class="badge-warn">可优化</span>` :
+                `<span class="badge-new">新书/即将</span>`;
+  tbody.innerHTML += `
+    <tr>
+      <td class="font-semibold">${b.title}</td>
+      <td class="text-gray-500 text-xs">${b.isbn}</td>
+      <td class="font-bold serif">${b.sold.toLocaleString()}</td>
+      <td>
+        <div class="flex items-center gap-2">
+          <div class="flex-1 h-1.5 bg-gray-100 rounded-full w-16">
+            <div class="h-full bg-brand-orange rounded-full" style="width:${b.scanRate}%"></div>
+          </div>
+          <span class="text-xs font-semibold">${b.scanRate}%</span>
+        </div>
+      </td>
+      <td class="font-semibold">${b.matches.toLocaleString()}</td>
+      <td class="brand-orange font-bold serif">¥${b.revenue.toLocaleString()}</td>
+      <td>${badge}</td>
+    </tr>
+  `;
+});
+
+// Monthly chart (hand-drawn with SVG)
+const months = ['5月','6月','7月','8月','9月','10月','11月','12月','1月','2月','3月','4月'];
+const sold = [12, 15, 14, 18, 25, 32, 28, 24, 35, 38, 42, 48]; // thousands
+const scans = [4, 6, 6, 8, 13, 18, 17, 15, 22, 24, 27, 28];
+const revenue = [18, 26, 24, 32, 48, 62, 58, 54, 72, 78, 84, 89]; // thousands of yuan
+
+const chartW = 1200, chartH = 240, padL = 40, padR = 20, padT = 20, padB = 30;
+const colW = (chartW - padL - padR) / months.length;
+const maxVal = Math.max(...sold, ...scans, ...revenue.map(r => r/2)) * 1.1;
+const yScale = (chartH - padT - padB) / maxVal;
+
+const chart = document.getElementById('chart');
+let html = '';
+// Y axis lines
+for (let i = 0; i <= 4; i++) {
+  const y = padT + (chartH - padT - padB) * i / 4;
+  const v = Math.round(maxVal * (1 - i / 4));
+  html += `<line x1="${padL}" y1="${y}" x2="${chartW - padR}" y2="${y}" stroke="#f3f4f6"/>`;
+  html += `<text x="${padL - 6}" y="${y + 4}" text-anchor="end" font-size="10" fill="#9ca3af">${v}k</text>`;
+}
+// Bars
+months.forEach((m, i) => {
+  const x = padL + i * colW;
+  const bw = colW * 0.22;
+  const y1 = padT + (chartH - padT - padB) - sold[i] * yScale;
+  const y2 = padT + (chartH - padT - padB) - scans[i] * yScale;
+  html += `<rect x="${x + colW*0.1}" y="${y1}" width="${bw}" height="${sold[i]*yScale}" fill="#1a5d3a" rx="2" class="chart-bar"/>`;
+  html += `<rect x="${x + colW*0.34}" y="${y2}" width="${bw}" height="${scans[i]*yScale}" fill="#D97706" rx="2" class="chart-bar"/>`;
+  html += `<text x="${x + colW/2}" y="${chartH - padB + 16}" text-anchor="middle" font-size="11" fill="#6b7280">${m}</text>`;
+});
+// Revenue line
+let pts = '';
+revenue.forEach((r, i) => {
+  const x = padL + i * colW + colW*0.72;
+  const y = padT + (chartH - padT - padB) - (r/2) * yScale;
+  pts += `${x},${y} `;
+});
+html += `<polyline points="${pts}" fill="none" stroke="#F59E0B" stroke-width="2.5"/>`;
+revenue.forEach((r, i) => {
+  const x = padL + i * colW + colW*0.72;
+  const y = padT + (chartH - padT - padB) - (r/2) * yScale;
+  html += `<circle cx="${x}" cy="${y}" r="4" fill="#F59E0B" stroke="white" stroke-width="2"/>`;
+});
+chart.innerHTML = html;
+</script>
+</body>
+</html>

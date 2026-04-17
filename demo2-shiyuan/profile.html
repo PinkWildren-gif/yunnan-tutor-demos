@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>我 · 师缘</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #0a0a14; color: white; margin: 0; overflow: hidden; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .app-shell { width: 100vw; height: 100vh; display: grid; grid-template-columns: 1fr 420px 1fr; align-items: center; justify-items: center; background: radial-gradient(800px 600px at 20% 30%, rgba(139,92,246,0.25), transparent), radial-gradient(600px 500px at 80% 70%, rgba(236,72,153,0.18), transparent), #0a0a14; }
+  .phone { width: 420px; height: 92vh; max-height: 880px; background: #0a0a14; border-radius: 48px; border: 10px solid #1f1f2e; box-shadow: 0 30px 80px rgba(0,0,0,0.6); overflow: hidden; position: relative; }
+  .notch { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 120px; height: 28px; background: #000; border-radius: 20px; z-index: 30; }
+  .scroll { height: 100%; overflow-y: auto; scrollbar-width: none; padding-bottom: 80px; }
+  .scroll::-webkit-scrollbar { display: none; }
+  .bottom-nav { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 0 26px; background: #0a0a14; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-around; z-index: 20; }
+  .nav-item { text-align: center; color: #9ca3af; font-size: 10px; }
+  .nav-item.active { color: white; }
+  .nav-item .icon { font-size: 22px; display: block; margin-bottom: 2px; }
+  .sidepanel { color: #e5e7eb; max-width: 300px; padding: 20px; }
+  .sidepanel h3 { color: white; font-weight: 700; margin-bottom: 10px; }
+  .sidepanel p { font-size: 13px; line-height: 1.7; opacity: 0.8; }
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+  <div class="sidepanel">
+    <div class="inline-block px-3 py-1 bg-purple-600/30 border border-purple-500/40 rounded-full text-xs text-purple-300 mb-4">用户主页</div>
+    <h3 class="serif text-2xl">家长的个人主页</h3>
+    <p class="mt-4">收藏的老师、关注列表、我的孩子、消费记录——一个完整的用户中心。</p>
+  </div>
+
+  <div class="phone">
+    <div class="notch"></div>
+    <div class="scroll">
+
+      <!-- Banner -->
+      <div class="relative h-36 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 flex items-end p-5">
+        <button class="absolute top-16 right-4 w-9 h-9 rounded-full bg-black/30 backdrop-blur flex items-center justify-center text-sm">⚙️</button>
+      </div>
+
+      <!-- Profile card -->
+      <div class="relative px-5 -mt-12 mb-4">
+        <div class="flex items-end justify-between mb-3">
+          <div class="w-20 h-20 rounded-full bg-amber-500 border-4 border-[#0a0a14] flex items-center justify-center text-3xl font-bold">王</div>
+          <button class="bg-white/10 px-4 py-1.5 rounded-full text-xs mb-2">编辑资料</button>
+        </div>
+        <div class="font-bold text-lg">王女士</div>
+        <div class="text-xs text-gray-400">昆明 · 五华区 · 两个孩子的妈妈</div>
+        <div class="flex gap-4 mt-3 text-xs">
+          <div><span class="font-bold serif">12</span> <span class="text-gray-500">关注</span></div>
+          <div><span class="font-bold serif">3</span> <span class="text-gray-500">粉丝</span></div>
+          <div><span class="font-bold serif">47</span> <span class="text-gray-500">获赞</span></div>
+        </div>
+      </div>
+
+      <!-- Savings banner -->
+      <div class="mx-4 bg-gradient-to-r from-pink-600 to-purple-700 rounded-2xl p-4 mb-5">
+        <div class="flex items-center gap-3">
+          <div class="text-3xl">💰</div>
+          <div class="flex-1">
+            <div class="text-xs opacity-80">本年累计为您节省</div>
+            <div class="serif text-2xl font-bold">¥3,168</div>
+            <div class="text-[10px] opacity-80">vs 30%抽成的平台</div>
+          </div>
+          <div class="text-xs">详情 →</div>
+        </div>
+      </div>
+
+      <!-- Menu grid -->
+      <div class="mx-4 bg-white/5 rounded-2xl p-4 mb-4">
+        <div class="grid grid-cols-4 gap-3 text-xs text-center">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-500 to-pink-500 mx-auto flex items-center justify-center text-xl">❤️</div>
+            <div class="mt-1.5">收藏</div>
+            <div class="text-[10px] text-pink-400 font-bold">8</div>
+          </div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 mx-auto flex items-center justify-center text-xl">📅</div>
+            <div class="mt-1.5">我的课程</div>
+            <div class="text-[10px] text-orange-400 font-bold">28</div>
+          </div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 mx-auto flex items-center justify-center text-xl">👨‍👩‍👧</div>
+            <div class="mt-1.5">孩子档案</div>
+            <div class="text-[10px] text-green-400 font-bold">2</div>
+          </div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 mx-auto flex items-center justify-center text-xl">👑</div>
+            <div class="mt-1.5">会员</div>
+            <div class="text-[10px] text-cyan-400 font-bold">VIP</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu list -->
+      <div class="mx-4 bg-white/5 rounded-2xl overflow-hidden mb-4">
+        <a href="#" class="flex items-center gap-3 px-4 py-3.5 border-b border-white/5">
+          <div class="text-xl">💳</div>
+          <div class="flex-1 text-sm">我的钱包</div>
+          <div class="text-xs text-gray-500">¥ 0</div>
+          <div class="text-gray-500">›</div>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3.5 border-b border-white/5">
+          <div class="text-xl">📊</div>
+          <div class="flex-1 text-sm">孩子学习报告</div>
+          <div class="text-xs text-purple-400">新 3</div>
+          <div class="text-gray-500">›</div>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3.5 border-b border-white/5">
+          <div class="text-xl">🎁</div>
+          <div class="flex-1 text-sm">邀请好友</div>
+          <div class="text-xs text-pink-400">得1个月会员</div>
+          <div class="text-gray-500">›</div>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3.5 border-b border-white/5">
+          <div class="text-xl">🔒</div>
+          <div class="flex-1 text-sm">账号与安全</div>
+          <div class="text-gray-500">›</div>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3.5 border-b border-white/5">
+          <div class="text-xl">❓</div>
+          <div class="flex-1 text-sm">帮助与反馈</div>
+          <div class="text-gray-500">›</div>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3.5">
+          <div class="text-xl">⚙️</div>
+          <div class="flex-1 text-sm">设置</div>
+          <div class="text-gray-500">›</div>
+        </a>
+      </div>
+
+      <!-- Is a teacher? -->
+      <div class="mx-4 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl p-4">
+        <div class="flex items-center gap-3">
+          <div class="text-3xl">🎓</div>
+          <div class="flex-1">
+            <div class="font-bold text-sm">您是老师吗？</div>
+            <div class="text-xs opacity-90">0抽成入驻，发内容获客</div>
+          </div>
+          <button class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold">申请入驻</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bottom-nav">
+      <a href="index.html" class="nav-item"><span class="icon">🏠</span>首页</a>
+      <a href="discover.html" class="nav-item"><span class="icon">🔍</span>发现</a>
+      <a href="#" class="nav-item"><span class="icon">➕</span></a>
+      <a href="messages.html" class="nav-item"><span class="icon">💬</span>消息</a>
+      <a href="profile.html" class="nav-item active"><span class="icon">👤</span>我的</a>
+    </div>
+  </div>
+
+  <div class="sidepanel">
+    <h3 class="serif text-2xl text-right">📊 数据贯通</h3>
+    <p class="mt-4 text-right">家长看到自己为每一位孩子付了多少课时、节省了多少抽成、孩子取得了哪些进步——可视化的ROI让家长长期粘性。</p>
+  </div>
+</div>
+</body>
+</html>

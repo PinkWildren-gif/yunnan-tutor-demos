@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>登录 · 优师荟</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; min-height: 100vh; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand { color: #C8102E; }
+  .bg-brand { background-color: #C8102E; }
+  .seal { display: inline-flex; align-items: center; justify-content: center; background: #C8102E; color: white; font-weight: 700; padding: 4px 10px; border-radius: 4px; letter-spacing: 2px; }
+  .hero-bg {
+    background:
+      radial-gradient(1000px 600px at 20% 30%, rgba(200,16,46,0.08), transparent),
+      radial-gradient(800px 500px at 80% 70%, rgba(212,175,55,0.08), transparent),
+      #fff8f2;
+  }
+  .role-btn { cursor: pointer; transition: all .2s; }
+  .role-btn.active { border-color: #C8102E; background: #FEF2F2; }
+  .role-btn.active .role-title { color: #C8102E; }
+</style>
+</head>
+<body class="hero-bg flex items-center justify-center p-6">
+
+<div class="w-full max-w-5xl grid md:grid-cols-2 bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+
+  <!-- Left: brand panel -->
+  <div class="bg-gradient-to-br from-red-900 via-red-800 to-red-950 text-white p-12 flex flex-col justify-between relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-20 translate-x-20"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-amber-400/10 rounded-full translate-y-20 -translate-x-20"></div>
+
+    <a href="index.html" class="flex items-center gap-2 relative">
+      <div class="seal serif">优</div>
+      <div>
+        <div class="font-bold serif text-lg">优师荟</div>
+        <div class="text-[10px] opacity-70">YOUSHIHUI · 云南</div>
+      </div>
+    </a>
+
+    <div class="relative">
+      <h1 class="serif text-4xl font-bold mb-4 leading-tight">
+        加入云南最值得信赖的<br/>家教社区
+      </h1>
+      <p class="opacity-80 mb-8 leading-relaxed text-sm">
+        10,000+ 家长 · 2,400+ 认证老师<br/>
+        0 平台抽成 · 100% 云南本地
+      </p>
+      <div class="grid grid-cols-3 gap-4 text-center">
+        <div>
+          <div class="serif text-3xl font-bold">0%</div>
+          <div class="text-xs opacity-70">平台抽成</div>
+        </div>
+        <div>
+          <div class="serif text-3xl font-bold">2,400+</div>
+          <div class="text-xs opacity-70">认证老师</div>
+        </div>
+        <div>
+          <div class="serif text-3xl font-bold">4.9</div>
+          <div class="text-xs opacity-70">平均评分</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-xs opacity-60 relative">
+      "用了优师荟三个月，女儿语文从86分提到了95分，关键是老师真心教，没有套路。"
+      <div class="mt-1 opacity-80">— 昆明 · 李妈妈</div>
+    </div>
+  </div>
+
+  <!-- Right: form -->
+  <div class="p-12">
+    <div class="flex justify-end text-xs text-gray-500 mb-8">
+      <a href="index.html" class="hover:text-[#C8102E]">← 返回首页</a>
+    </div>
+
+    <h2 class="serif text-3xl font-bold mb-2">欢迎回来</h2>
+    <p class="text-sm text-gray-500 mb-8">登录您的账户，开始找到合适的老师</p>
+
+    <!-- Role selector -->
+    <div class="grid grid-cols-2 gap-3 mb-6">
+      <div class="role-btn active border-2 border-gray-200 rounded-xl p-4">
+        <div class="text-2xl mb-2">👨‍👩‍👧</div>
+        <div class="role-title font-bold text-sm">我是家长</div>
+        <div class="text-xs text-gray-500 mt-1">为孩子找老师</div>
+      </div>
+      <div class="role-btn border-2 border-gray-200 rounded-xl p-4" onclick="window.location='tutor-signup.html'">
+        <div class="text-2xl mb-2">🎓</div>
+        <div class="role-title font-bold text-sm">我是老师</div>
+        <div class="text-xs text-gray-500 mt-1">招收学生，0抽成</div>
+      </div>
+    </div>
+
+    <form class="space-y-4" onsubmit="event.preventDefault(); window.location='dashboard-parent.html';">
+      <div>
+        <label class="text-xs font-semibold text-gray-600 mb-1 block">手机号</label>
+        <div class="flex gap-2">
+          <select class="px-3 py-2.5 border border-gray-200 rounded-lg text-sm bg-gray-50">
+            <option>+86</option>
+          </select>
+          <input type="tel" required placeholder="请输入手机号" value="138 0888 0000" class="flex-1 px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
+        </div>
+      </div>
+      <div>
+        <label class="text-xs font-semibold text-gray-600 mb-1 block">验证码</label>
+        <div class="flex gap-2">
+          <input type="text" required placeholder="6位短信验证码" value="••••••" class="flex-1 px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
+          <button type="button" class="px-4 py-2.5 border border-gray-200 rounded-lg text-sm text-gray-600 whitespace-nowrap">发送验证码</button>
+        </div>
+      </div>
+      <div class="flex items-center justify-between text-xs">
+        <label class="flex items-center gap-2 text-gray-600">
+          <input type="checkbox" checked class="accent-red-600"/>
+          <span>同意 <a href="#" class="brand">《用户协议》</a> 与 <a href="#" class="brand">《隐私政策》</a></span>
+        </label>
+      </div>
+      <button type="submit" class="w-full bg-brand text-white py-3 rounded-lg font-semibold text-sm">登录 / 注册</button>
+    </form>
+
+    <div class="my-6 flex items-center gap-3">
+      <div class="flex-1 h-px bg-gray-200"></div>
+      <span class="text-xs text-gray-400">其他方式</span>
+      <div class="flex-1 h-px bg-gray-200"></div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3">
+      <button class="border border-gray-200 py-2.5 rounded-lg text-xs flex items-center justify-center gap-1 hover:bg-gray-50">
+        <span class="text-green-600">●</span> 微信
+      </button>
+      <button class="border border-gray-200 py-2.5 rounded-lg text-xs flex items-center justify-center gap-1 hover:bg-gray-50">
+        <span class="text-red-500">●</span> QQ
+      </button>
+      <button class="border border-gray-200 py-2.5 rounded-lg text-xs flex items-center justify-center gap-1 hover:bg-gray-50">
+        <span class="text-blue-500">●</span> 支付宝
+      </button>
+    </div>
+
+    <div class="text-center text-xs text-gray-500 mt-6">
+      还没有账号？<a href="#" class="brand font-semibold">免费注册</a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.role-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.role-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

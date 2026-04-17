@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>家长中心 · 优师荟</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #f9fafb; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand { color: #C8102E; }
+  .bg-brand { background-color: #C8102E; }
+  .seal { display: inline-flex; align-items: center; justify-content: center; background: #C8102E; color: white; font-weight: 700; padding: 4px 10px; border-radius: 4px; letter-spacing: 2px; }
+  .nav-link { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; color: #4b5563; font-size: 14px; }
+  .nav-link:hover { background: #f3f4f6; }
+  .nav-link.active { background: #FEF2F2; color: #C8102E; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-60 bg-white border-r border-gray-200 p-4 flex flex-col">
+    <a href="index.html" class="flex items-center gap-2 mb-6 px-2">
+      <div class="seal serif">优</div>
+      <div>
+        <div class="serif font-bold brand">优师荟</div>
+        <div class="text-[10px] text-gray-500">家长中心</div>
+      </div>
+    </a>
+
+    <div class="mb-4 flex items-center gap-3 p-3 bg-red-50 rounded-lg">
+      <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold">王</div>
+      <div>
+        <div class="text-sm font-semibold">王女士</div>
+        <div class="text-[11px] text-gray-500">昆明 五华区 · VIP会员</div>
+      </div>
+    </div>
+
+    <nav class="space-y-1 flex-1">
+      <a href="dashboard-parent.html" class="nav-link active">🏠 <span>首页</span></a>
+      <a href="tutors.html" class="nav-link">🔍 <span>找老师</span></a>
+      <a href="#" class="nav-link">❤️ <span>我的收藏</span></a>
+      <a href="#" class="nav-link">📅 <span>我的课程</span></a>
+      <a href="messages.html" class="nav-link">💬 <span>消息</span> <span class="ml-auto bg-red-500 text-white text-[10px] px-1.5 rounded-full">3</span></a>
+      <a href="#" class="nav-link">👨‍👩‍👧 <span>孩子档案</span></a>
+      <a href="#" class="nav-link">💳 <span>会员中心</span></a>
+      <a href="#" class="nav-link">⚙️ <span>设置</span></a>
+    </nav>
+
+    <a href="index.html" class="text-xs text-gray-500 px-3 py-2 hover:text-gray-700">↗️ 退出登录</a>
+  </aside>
+
+  <!-- Main -->
+  <main class="flex-1 p-8 overflow-auto">
+
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="serif text-3xl font-bold">下午好，王女士 ☀️</h1>
+        <p class="text-sm text-gray-600 mt-1">2026年4月17日 · 周五</p>
+      </div>
+      <a href="tutors.html" class="bg-brand text-white px-5 py-2.5 rounded-lg font-semibold text-sm">+ 找新老师</a>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-4 gap-4 mb-6">
+      <div class="bg-white rounded-2xl p-5 border border-gray-100">
+        <div class="text-xs text-gray-500">合作老师</div>
+        <div class="serif text-3xl font-bold mt-1">3</div>
+        <div class="text-xs brand mt-1">3 位持续上课中</div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 border border-gray-100">
+        <div class="text-xs text-gray-500">本月课时</div>
+        <div class="serif text-3xl font-bold mt-1">12</div>
+        <div class="text-xs text-green-600 mt-1">↑ vs 上月 +3</div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 border border-gray-100">
+        <div class="text-xs text-gray-500">本月支出</div>
+        <div class="serif text-3xl font-bold mt-1">¥2,640</div>
+        <div class="text-xs text-gray-500 mt-1">平均 ¥220/课时</div>
+      </div>
+      <div class="bg-gradient-to-br from-red-50 to-amber-50 rounded-2xl p-5 border border-red-200">
+        <div class="text-xs text-red-800">您累计节省</div>
+        <div class="serif text-3xl font-bold brand mt-1">¥3,168</div>
+        <div class="text-xs text-red-700 mt-1">vs 30%抽成平台</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6">
+
+      <!-- Left column -->
+      <div class="col-span-2 space-y-6">
+
+        <!-- Upcoming -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="flex justify-between items-center mb-5">
+            <h2 class="serif text-xl font-bold">即将到来的课程</h2>
+            <a href="#" class="text-sm brand">查看全部日程 →</a>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center gap-4 p-4 bg-red-50 border border-red-100 rounded-xl">
+              <div class="text-center flex-shrink-0">
+                <div class="text-xs text-red-700 font-semibold">今天</div>
+                <div class="serif text-2xl font-bold brand">17</div>
+              </div>
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#C8102E,#7f1d1d)">李</div>
+              <div class="flex-1">
+                <div class="font-semibold">小明 · 数学 · 第7节课</div>
+                <div class="text-xs text-gray-500">李明 老师 · 19:00 - 20:30 · 上门</div>
+              </div>
+              <button class="text-xs bg-brand text-white px-4 py-2 rounded-lg">开始上课</button>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+              <div class="text-center flex-shrink-0">
+                <div class="text-xs text-gray-500">周六</div>
+                <div class="serif text-2xl font-bold">19</div>
+              </div>
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#E91E63,#AD1457)">王</div>
+              <div class="flex-1">
+                <div class="font-semibold">小明 · 英语 · 第12节课</div>
+                <div class="text-xs text-gray-500">王芳 老师 · 10:00 - 11:30 · 线上</div>
+              </div>
+              <button class="text-xs border border-gray-200 px-4 py-2 rounded-lg">详情</button>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+              <div class="text-center flex-shrink-0">
+                <div class="text-xs text-gray-500">周日</div>
+                <div class="serif text-2xl font-bold">20</div>
+              </div>
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#689F38,#33691E)">赵</div>
+              <div class="flex-1">
+                <div class="font-semibold">小明 · 语文 · 第5节课</div>
+                <div class="text-xs text-gray-500">赵娟 老师 · 15:00 - 16:30 · 上门</div>
+              </div>
+              <button class="text-xs border border-gray-200 px-4 py-2 rounded-lg">详情</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- My tutors -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="flex justify-between items-center mb-5">
+            <h2 class="serif text-xl font-bold">我的老师 (3)</h2>
+            <a href="tutors.html" class="text-sm brand">+ 添加新老师</a>
+          </div>
+          <div class="grid grid-cols-3 gap-4">
+
+            <div class="border border-gray-200 rounded-xl p-4">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#C8102E,#7f1d1d)">李</div>
+                <div class="flex-1">
+                  <div class="font-bold text-sm">李明 老师</div>
+                  <div class="text-xs text-gray-500">数学 · 7节课</div>
+                </div>
+              </div>
+              <div class="text-xs text-yellow-600 mb-2">⭐ 4.9 您的评分: ⭐⭐⭐⭐⭐</div>
+              <div class="text-xs text-gray-600 mb-3">下节课：今晚 19:00</div>
+              <div class="flex gap-1">
+                <a href="messages.html" class="flex-1 text-xs bg-red-50 brand py-1.5 rounded text-center">消息</a>
+                <a href="tutor.html?id=1" class="flex-1 text-xs bg-gray-100 py-1.5 rounded text-center">主页</a>
+              </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-xl p-4">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#E91E63,#AD1457)">王</div>
+                <div class="flex-1">
+                  <div class="font-bold text-sm">王芳 老师</div>
+                  <div class="text-xs text-gray-500">英语 · 12节课</div>
+                </div>
+              </div>
+              <div class="text-xs text-yellow-600 mb-2">⭐ 4.8 您的评分: ⭐⭐⭐⭐⭐</div>
+              <div class="text-xs text-gray-600 mb-3">下节课：周六 10:00</div>
+              <div class="flex gap-1">
+                <a href="messages.html" class="flex-1 text-xs bg-red-50 brand py-1.5 rounded text-center">消息</a>
+                <a href="tutor.html?id=2" class="flex-1 text-xs bg-gray-100 py-1.5 rounded text-center">主页</a>
+              </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-xl p-4">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#689F38,#33691E)">赵</div>
+                <div class="flex-1">
+                  <div class="font-bold text-sm">赵娟 老师</div>
+                  <div class="text-xs text-gray-500">语文 · 5节课</div>
+                </div>
+              </div>
+              <div class="text-xs text-yellow-600 mb-2">⭐ 5.0 您的评分: ⭐⭐⭐⭐⭐</div>
+              <div class="text-xs text-gray-600 mb-3">下节课：周日 15:00</div>
+              <div class="flex gap-1">
+                <a href="messages.html" class="flex-1 text-xs bg-red-50 brand py-1.5 rounded text-center">消息</a>
+                <a href="tutor.html?id=4" class="flex-1 text-xs bg-gray-100 py-1.5 rounded text-center">主页</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Learning progress -->
+        <div class="bg-white rounded-2xl p-6 border border-gray-100">
+          <h2 class="serif text-xl font-bold mb-5">小明的学习进度</h2>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="font-semibold">📐 数学 (李明老师)</span>
+                <span class="text-gray-500">7/20 课时</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full"><div class="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full" style="width:35%"></div></div>
+              <div class="text-xs text-gray-500 mt-1">平均测试分数 85 分 · ↑ 提升 12 分</div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="font-semibold">🗣️ 英语 (王芳老师)</span>
+                <span class="text-gray-500">12/20 课时</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full"><div class="h-full bg-gradient-to-r from-pink-500 to-pink-400 rounded-full" style="width:60%"></div></div>
+              <div class="text-xs text-gray-500 mt-1">口语等级 B1 · ↑ 从 A2</div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span class="font-semibold">📖 语文 (赵娟老师)</span>
+                <span class="text-gray-500">5/20 课时</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full"><div class="h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full" style="width:25%"></div></div>
+              <div class="text-xs text-gray-500 mt-1">作文评分 88 分 · ↑ 提升 8 分</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="space-y-6">
+
+        <!-- Savings summary -->
+        <div class="bg-gradient-to-br from-red-700 to-red-900 rounded-2xl p-6 text-white">
+          <div class="text-xs opacity-80 mb-2">🎉 0抽成为您节省</div>
+          <div class="serif text-4xl font-bold mb-1">¥3,168</div>
+          <p class="text-xs opacity-90 mb-4">相比抽成30%的平台，您累计节省这么多。</p>
+          <div class="bg-white/10 rounded-lg p-3 text-xs space-y-1">
+            <div class="flex justify-between"><span>已上课时</span><span class="font-bold">48</span></div>
+            <div class="flex justify-between"><span>支付总额</span><span class="font-bold">¥10,560</span></div>
+            <div class="flex justify-between border-t border-white/20 pt-1 mt-1"><span>全部归老师</span><span class="font-bold">¥10,560 ✓</span></div>
+          </div>
+        </div>
+
+        <!-- Recommended -->
+        <div class="bg-white rounded-2xl p-5 border border-gray-100">
+          <h3 class="font-bold mb-4">为您推荐</h3>
+          <div class="space-y-3">
+            <a href="tutor.html?id=5" class="flex gap-3 hover:bg-gray-50 p-2 rounded">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#5E35B1,#311B92)">陈</div>
+              <div class="flex-1 min-w-0">
+                <div class="font-semibold text-sm">陈刚 老师 · 钢琴</div>
+                <div class="text-xs text-gray-500">⭐ 4.9 · 央院毕业</div>
+              </div>
+              <div class="text-xs brand">¥300</div>
+            </a>
+            <a href="tutor.html?id=7" class="flex gap-3 hover:bg-gray-50 p-2 rounded">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#00897B,#004D40)">杨</div>
+              <div class="flex-1 min-w-0">
+                <div class="font-semibold text-sm">杨帆 老师 · 编程</div>
+                <div class="text-xs text-gray-500">⭐ 4.9 · 华为前端</div>
+              </div>
+              <div class="text-xs brand">¥200</div>
+            </a>
+            <a href="tutor.html?id=6" class="flex gap-3 hover:bg-gray-50 p-2 rounded">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,#8D6E63,#4E342E)">刘</div>
+              <div class="flex-1 min-w-0">
+                <div class="font-semibold text-sm">刘静 老师 · 书法</div>
+                <div class="text-xs text-gray-500">⭐ 4.8 · 省书协</div>
+              </div>
+              <div class="text-xs brand">¥120</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Recent messages -->
+        <div class="bg-white rounded-2xl p-5 border border-gray-100">
+          <h3 class="font-bold mb-4">最新消息</h3>
+          <div class="space-y-3 text-sm">
+            <a href="messages.html" class="flex gap-2 p-2 bg-red-50 rounded">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm flex-shrink-0" style="background:linear-gradient(135deg,#C8102E,#7f1d1d)">李</div>
+              <div class="flex-1 min-w-0">
+                <div class="flex justify-between">
+                  <span class="font-semibold text-xs">李明老师</span>
+                  <span class="text-[10px] text-gray-500">刚刚</span>
+                </div>
+                <p class="text-xs truncate text-gray-700">今晚记得让小明准备那套题...</p>
+              </div>
+            </a>
+            <a href="messages.html" class="flex gap-2 p-2 hover:bg-gray-50 rounded">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm flex-shrink-0" style="background:linear-gradient(135deg,#E91E63,#AD1457)">王</div>
+              <div class="flex-1 min-w-0">
+                <div class="flex justify-between">
+                  <span class="font-semibold text-xs">王芳老师</span>
+                  <span class="text-[10px] text-gray-500">2h</span>
+                </div>
+                <p class="text-xs truncate text-gray-500">本周测验结果已发</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

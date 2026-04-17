@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>消息 · 学伴</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #FDF9F0; color: #1f2937; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand-green { color: #1a5d3a; }
+  .bg-brand-green { background-color: #1a5d3a; }
+  .chat-me { background: #DCFCE7; border-radius: 16px 16px 4px 16px; }
+  .chat-them { background: white; border-radius: 16px 16px 16px 4px; border: 1px solid #e5e7eb; }
+</style>
+</head>
+<body>
+
+<nav class="border-b border-amber-100 bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-lg bg-brand-green text-white flex items-center justify-center font-bold serif text-xl">学</div>
+      <div class="serif font-bold text-lg brand-green">学伴</div>
+    </a>
+    <div class="hidden md:flex gap-6 text-sm">
+      <a href="index.html" class="text-gray-700">首页</a>
+      <a href="books.html" class="text-gray-700">教材库</a>
+      <a href="dashboard.html" class="text-gray-700">我的学伴</a>
+      <a href="messages.html" class="font-semibold brand-green">消息</a>
+    </div>
+    <div class="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold">王</div>
+  </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-6 py-6">
+  <div class="grid grid-cols-[320px_1fr] gap-4 bg-white rounded-2xl border border-amber-100 overflow-hidden" style="height: calc(100vh - 140px);">
+
+    <!-- Chat list -->
+    <aside class="border-r border-gray-200 flex flex-col">
+      <div class="p-4 border-b">
+        <h2 class="serif text-lg font-bold mb-3">消息</h2>
+        <input type="text" placeholder="🔍 搜索老师..." class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" />
+      </div>
+
+      <div class="flex-1 overflow-y-auto">
+        <!-- Active chat -->
+        <div class="p-4 bg-green-50 border-l-4 border-green-500 cursor-pointer">
+          <div class="flex items-start gap-3">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg flex-shrink-0" style="background:linear-gradient(135deg,#16a34a,#14532d)">赵</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm">赵娟 老师</span>
+                <span class="text-xs text-gray-400">刚刚</span>
+              </div>
+              <p class="text-xs text-gray-600 truncate">好的妈妈，那就周六下午 15:00 见~</p>
+              <div class="text-xs brand-green mt-1">📘 小学语文·五年级上</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 hover:bg-gray-50 cursor-pointer border-b">
+          <div class="flex items-start gap-3">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg flex-shrink-0" style="background:linear-gradient(135deg,#E91E63,#AD1457)">王</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm">王芳 老师</span>
+                <span class="text-xs text-gray-400">2小时前</span>
+              </div>
+              <p class="text-xs text-gray-600 truncate">本周英语单词测验结果已发送</p>
+              <div class="flex items-center gap-1 mt-1">
+                <div class="text-xs brand-green">📘 小学英语·五上</div>
+                <div class="bg-red-500 text-white text-[10px] px-1.5 rounded-full ml-auto">2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 hover:bg-gray-50 cursor-pointer border-b">
+          <div class="flex items-start gap-3">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg flex-shrink-0" style="background:linear-gradient(135deg,#1976D2,#0D47A1)">张</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm">张伟 老师</span>
+                <span class="text-xs text-gray-400">昨天</span>
+              </div>
+              <p class="text-xs text-gray-600 truncate">周六的首课试听已确认，期待见面！</p>
+              <div class="text-xs brand-green mt-1">📘 初中物理·八下</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 hover:bg-gray-50 cursor-pointer border-b">
+          <div class="flex items-start gap-3 opacity-60">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg flex-shrink-0 bg-gradient-to-br from-gray-400 to-gray-600">学</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm">学伴客服</span>
+                <span class="text-xs text-gray-400">3天前</span>
+              </div>
+              <p class="text-xs text-gray-600 truncate">欢迎使用学伴！您的会员已开通</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Chat window -->
+    <section class="flex flex-col">
+      <!-- Header -->
+      <div class="p-4 border-b flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg" style="background:linear-gradient(135deg,#16a34a,#14532d)">赵</div>
+        <div class="flex-1">
+          <div class="flex items-center gap-2">
+            <h2 class="font-bold">赵娟 老师</h2>
+            <span class="text-xs text-green-600">● 在线</span>
+          </div>
+          <div class="text-xs text-gray-500">云南师范大学 · 小学语文 · 10年经验</div>
+        </div>
+        <a href="tutor.html" class="text-xs text-gray-500 hover:brand-green">查看主页</a>
+        <a href="booking.html" class="text-xs bg-brand-green text-white px-3 py-1.5 rounded-lg">📅 预约</a>
+      </div>
+
+      <!-- Messages -->
+      <div class="flex-1 p-5 overflow-y-auto space-y-4 bg-gray-50">
+
+        <!-- Date divider -->
+        <div class="text-center text-xs text-gray-400 my-2">— 2026年4月14日 —</div>
+
+        <!-- Auto intro -->
+        <div class="chat-them px-4 py-3 max-w-md text-sm">
+          <div class="text-xs brand-green font-semibold mb-1">📘 系统</div>
+          <p class="text-gray-700">您通过《小学数学·五年级上册》二维码找到了<b>赵娟老师</b>。老师已教授这本教材 8 年，熟悉本册所有章节。</p>
+        </div>
+
+        <!-- Parent -->
+        <div class="flex justify-end">
+          <div class="chat-me px-4 py-2.5 max-w-md text-sm">
+            <p>赵老师您好，我是王小明的妈妈。他现在五年级，最近数学应用题总是卡壳，想请您帮忙辅导一下。</p>
+            <div class="text-[10px] text-gray-500 mt-1 text-right">14:22</div>
+          </div>
+        </div>
+
+        <!-- Tutor -->
+        <div class="flex justify-start gap-2">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm flex-shrink-0" style="background:linear-gradient(135deg,#16a34a,#14532d)">赵</div>
+          <div class="chat-them px-4 py-2.5 max-w-md text-sm">
+            <p>您好王妈妈！五年级数学应用题的难点主要在分数应用题和行程问题，这两块需要培养题感。</p>
+            <p class="mt-2">能告诉我小明最近一次单元测试的情况吗？我可以先看看他的薄弱点。</p>
+            <div class="text-[10px] text-gray-400 mt-1">14:35</div>
+          </div>
+        </div>
+
+        <!-- Date divider -->
+        <div class="text-center text-xs text-gray-400 my-2">— 今天 —</div>
+
+        <!-- Parent -->
+        <div class="flex justify-end">
+          <div class="chat-me px-4 py-2.5 max-w-md text-sm">
+            <p>老师我今天预约了周六下午15:00的首课，您方便吗？</p>
+            <div class="text-[10px] text-gray-500 mt-1 text-right">15:10</div>
+          </div>
+        </div>
+
+        <!-- Tutor -->
+        <div class="flex justify-start gap-2">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm flex-shrink-0" style="background:linear-gradient(135deg,#16a34a,#14532d)">赵</div>
+          <div class="chat-them px-4 py-2.5 max-w-md text-sm">
+            <p>好的妈妈，那就周六下午 15:00 见~ 首课我会先测试一下小明的基础，然后根据结果制定后续计划。</p>
+            <p class="mt-2">请帮忙准备：</p>
+            <ul class="list-disc pl-5 mt-1 text-xs">
+              <li>近期的数学作业本</li>
+              <li>上次月考的卷子（如果有）</li>
+              <li>草稿纸、铅笔</li>
+            </ul>
+            <div class="text-[10px] text-gray-400 mt-1">15:18</div>
+          </div>
+        </div>
+
+        <!-- Booking card -->
+        <div class="flex justify-start gap-2">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm flex-shrink-0" style="background:linear-gradient(135deg,#16a34a,#14532d)">赵</div>
+          <div class="bg-white border-l-4 border-green-500 rounded-lg p-4 max-w-md">
+            <div class="text-xs brand-green font-semibold mb-2">📅 预约确认</div>
+            <div class="text-sm space-y-1">
+              <div><b>日期：</b>2026年4月19日 (周六)</div>
+              <div><b>时间：</b>15:00 - 16:30</div>
+              <div><b>地点：</b>王小明家 (五华区)</div>
+              <div><b>科目：</b>小学数学 · 五年级</div>
+              <div class="text-xs text-gray-500 pt-2 border-t mt-2">🎁 首课 30 分钟免费试听</div>
+            </div>
+            <div class="flex gap-2 mt-3">
+              <button class="flex-1 text-xs bg-brand-green text-white py-2 rounded">已确认</button>
+              <button class="flex-1 text-xs border border-gray-200 py-2 rounded">改期</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input -->
+      <div class="p-4 border-t">
+        <div class="flex items-end gap-2">
+          <button class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">😊</button>
+          <button class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">📎</button>
+          <textarea class="flex-1 px-4 py-2 border border-gray-200 rounded-lg text-sm resize-none" rows="1" placeholder="发消息..."></textarea>
+          <button class="bg-brand-green text-white px-4 py-2 rounded-lg text-sm font-semibold">发送</button>
+        </div>
+        <div class="text-[10px] text-gray-400 mt-2">💡 学伴承诺：您与老师的联系始终保持畅通，我们不拦截、不过滤、不抽成</div>
+      </div>
+    </section>
+  </div>
+</div>
+</body>
+</html>

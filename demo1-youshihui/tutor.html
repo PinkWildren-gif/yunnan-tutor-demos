@@ -27,8 +27,8 @@
       <a href="#" class="hover:text-[#C8102E]">素质教育</a>
     </div>
     <div class="flex gap-3">
-      <a href="#" class="text-sm">登录</a>
-      <a href="#" class="text-sm px-4 py-2 bg-brand text-white rounded">注册</a>
+      <a href="login.html" class="text-sm">登录</a>
+      <a href="login.html" class="text-sm px-4 py-2 bg-brand text-white rounded">注册</a>
     </div>
   </div>
 </nav>
@@ -147,9 +147,12 @@
             <span class="brand">✓</span> 不满意随时终止
           </div>
         </div>
-        <button class="w-full bg-brand text-white py-3 rounded-lg font-semibold text-sm mb-2" onclick="alert('演示版本：扫码联系老师微信')">
-          📱 直接联系老师
-        </button>
+        <a href="messages.html" class="block text-center w-full bg-brand text-white py-3 rounded-lg font-semibold text-sm mb-2">
+          💬 直接联系老师
+        </a>
+        <a href="#" onclick="event.preventDefault(); alert('已添加到收藏');" class="block text-center w-full bg-amber-500 text-white py-3 rounded-lg font-semibold text-sm mb-2">
+          📅 预约首课试听
+        </a>
         <button class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-semibold text-sm mb-4">
           ❤️ 收藏老师
         </button>

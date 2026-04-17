@@ -185,23 +185,23 @@ TUTORS.forEach((t, i) => {
 
     <!-- side actions -->
     <div class="side-actions">
-      <div class="text-center">
+      <a href="tutor-profile.html" class="text-center">
         <div class="side-btn">👤</div>
-        <div class="side-count">关注</div>
-      </div>
-      <div class="text-center">
+        <div class="side-count">主页</div>
+      </a>
+      <div class="text-center like-btn" data-like="${i}" onclick="toggleLike(${i})">
         <div class="side-btn text-red-400">❤️</div>
         <div class="side-count">${t.likes}</div>
       </div>
-      <div class="text-center">
+      <a href="chat.html" class="text-center">
         <div class="side-btn">💬</div>
         <div class="side-count">${t.comments}</div>
-      </div>
+      </a>
       <div class="text-center">
         <div class="side-btn">📤</div>
         <div class="side-count">${t.shares}</div>
       </div>
-      <div class="text-center">
+      <div class="text-center save-btn" data-save="${i}" onclick="toggleSave(${i})">
         <div class="side-btn">⭐</div>
         <div class="side-count">收藏</div>
       </div>
@@ -211,29 +211,68 @@ TUTORS.forEach((t, i) => {
     <div class="bottom-bar">
       <div class="info-area">
         <div class="flex items-center gap-2 mb-2">
-          <div class="w-10 h-10 rounded-full bg-white/20 border-2 border-white flex items-center justify-center font-bold">${t.name[0]}</div>
-          <div class="font-bold text-lg">@${t.name}老师</div>
-          <button class="ml-1 px-3 py-0.5 border border-white rounded-full text-xs font-bold">+ 关注</button>
+          <a href="tutor-profile.html" class="w-10 h-10 rounded-full bg-white/20 border-2 border-white flex items-center justify-center font-bold">${t.name[0]}</a>
+          <a href="tutor-profile.html" class="font-bold text-lg">@${t.name}老师</a>
+          <button onclick="toggleFollow(${i})" data-follow="${i}" class="follow-btn ml-1 px-3 py-0.5 border border-white rounded-full text-xs font-bold">+ 关注</button>
         </div>
         <div class="text-sm font-semibold mb-1">${t.subject} · ${t.years}年经验</div>
         <div class="text-sm mb-2 leading-relaxed">「${t.quote}」</div>
         <div class="text-xs opacity-80 mb-3">${t.tags.join(' ')}</div>
         <div class="flex items-center gap-2">
-          <div class="bg-white text-black font-bold px-4 py-2 rounded-full text-sm">💬 联系 · ¥${t.price}/课时</div>
+          <a href="chat.html" class="bg-white text-black font-bold px-4 py-2 rounded-full text-sm">💬 联系 · ¥${t.price}/课时</a>
           <div class="text-[10px] opacity-70">老师定价 · 0抽成</div>
         </div>
       </div>
 
       <div class="nav-bar">
-        <div class="nav-item active"><span class="nav-icon">🏠</span>首页</div>
-        <div class="nav-item"><span class="nav-icon">🔍</span>发现</div>
-        <div class="nav-item"><span class="nav-icon">➕</span></div>
-        <div class="nav-item"><span class="nav-icon">💬</span>消息</div>
-        <div class="nav-item"><span class="nav-icon">👤</span>我的</div>
+        <a href="index.html" class="nav-item active"><span class="nav-icon">🏠</span>首页</a>
+        <a href="discover.html" class="nav-item"><span class="nav-icon">🔍</span>发现</a>
+        <a href="#" onclick="event.preventDefault();alert('老师才可发布作品~');" class="nav-item"><span class="nav-icon">➕</span></a>
+        <a href="messages.html" class="nav-item"><span class="nav-icon">💬</span>消息</a>
+        <a href="profile.html" class="nav-item"><span class="nav-icon">👤</span>我的</a>
       </div>
     </div>
   `;
   feed.appendChild(card);
+});
+
+// Persistence for likes/follows (localStorage)
+const storage = {
+  likes: new Set(JSON.parse(localStorage.getItem('shiyuan_likes') || '[]')),
+  follows: new Set(JSON.parse(localStorage.getItem('shiyuan_follows') || '[]')),
+  saves: new Set(JSON.parse(localStorage.getItem('shiyuan_saves') || '[]'))
+};
+
+function persist(key, set) {
+  localStorage.setItem('shiyuan_' + key, JSON.stringify([...set]));
+}
+
+function toggleLike(i) {
+  const btn = document.querySelector(`[data-like="${i}"] .side-btn`);
+  if (storage.likes.has(i)) { storage.likes.delete(i); btn.classList.remove('bg-red-500'); btn.innerHTML = '❤️'; }
+  else { storage.likes.add(i); btn.classList.add('bg-red-500'); btn.style.transform='scale(1.2)'; setTimeout(()=>btn.style.transform='',200); }
+  persist('likes', storage.likes);
+}
+
+function toggleFollow(i) {
+  const btn = document.querySelector(`[data-follow="${i}"]`);
+  if (storage.follows.has(i)) { storage.follows.delete(i); btn.textContent = '+ 关注'; btn.classList.remove('bg-white','text-black'); btn.classList.add('border','border-white'); }
+  else { storage.follows.add(i); btn.textContent = '✓ 已关注'; btn.classList.add('bg-white','text-black'); btn.classList.remove('border','border-white'); }
+  persist('follows', storage.follows);
+}
+
+function toggleSave(i) {
+  const btn = document.querySelector(`[data-save="${i}"] .side-btn`);
+  if (storage.saves.has(i)) { storage.saves.delete(i); btn.classList.remove('text-yellow-300'); }
+  else { storage.saves.add(i); btn.classList.add('text-yellow-300'); }
+  persist('saves', storage.saves);
+}
+
+// Initial state
+document.addEventListener('DOMContentLoaded', () => {
+  storage.likes.forEach(i => { const b = document.querySelector(`[data-like="${i}"] .side-btn`); if (b) b.classList.add('bg-red-500'); });
+  storage.follows.forEach(i => { const b = document.querySelector(`[data-follow="${i}"]`); if (b) { b.textContent = '✓ 已关注'; b.classList.add('bg-white','text-black'); b.classList.remove('border','border-white'); } });
+  storage.saves.forEach(i => { const b = document.querySelector(`[data-save="${i}"] .side-btn`); if (b) b.classList.add('text-yellow-300'); });
 });
 </script>
 </body>
