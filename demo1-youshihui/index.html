@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>优师荟 — 云南本地好老师，直接对接</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif; }
+  .hero-bg {
+    background:
+      radial-gradient(1200px 400px at 80% -10%, rgba(200,16,46,0.12), transparent),
+      radial-gradient(800px 400px at 10% 20%, rgba(212,175,55,0.10), transparent),
+      linear-gradient(180deg, #fff8f2 0%, #ffffff 100%);
+  }
+  .brand { color: #C8102E; }
+  .bg-brand { background-color: #C8102E; }
+  .bg-brand:hover { background-color: #a00d25; }
+  .border-brand { border-color: #C8102E; }
+  .gold { color: #B8860B; }
+  .serif { font-family: "Noto Serif SC", "STSong", serif; }
+  .seal {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #C8102E; color: white; font-weight: 700;
+    padding: 4px 10px; border-radius: 4px; letter-spacing: 2px;
+  }
+</style>
+</head>
+<body class="bg-white text-gray-800">
+
+<!-- Top bar -->
+<div class="bg-[#1a1a1a] text-gray-300 text-xs">
+  <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between">
+    <span>📍 云南 · 昆明站</span>
+    <span class="space-x-4">
+      <a href="#" class="hover:text-white">老师入驻</a>
+      <a href="#" class="hover:text-white">帮助中心</a>
+      <a href="#" class="hover:text-white">APP下载</a>
+    </span>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="border-b bg-white sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-10">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="seal serif">优</div>
+        <div>
+          <div class="font-bold text-lg serif">优师荟</div>
+          <div class="text-[10px] text-gray-500 -mt-1">YOUSHIHUI · 云南</div>
+        </div>
+      </a>
+      <div class="hidden md:flex gap-6 text-sm text-gray-700">
+        <a href="tutors.html" class="hover:text-[#C8102E]">找老师</a>
+        <a href="#" class="hover:text-[#C8102E]">学科辅导</a>
+        <a href="#" class="hover:text-[#C8102E]">素质教育</a>
+        <a href="#" class="hover:text-[#C8102E]">艺术音乐</a>
+        <a href="#" class="hover:text-[#C8102E]">高中冲刺</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#" class="text-sm text-gray-700">登录</a>
+      <a href="#" class="text-sm px-4 py-2 bg-brand text-white rounded">注册</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero-bg">
+  <div class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <div class="inline-flex items-center gap-2 bg-white border border-red-100 rounded-full px-3 py-1 text-xs text-[#C8102E] mb-6">
+        <span class="w-2 h-2 bg-[#C8102E] rounded-full animate-pulse"></span>
+        云南省首家 0 抽成家教平台
+      </div>
+      <h1 class="serif text-5xl md:text-6xl font-bold leading-tight mb-6">
+        找一位<span class="brand">懂孩子</span>的<br/>云南本地好老师
+      </h1>
+      <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+        平台<span class="font-bold text-[#C8102E]">不抽成、不加价</span>，学费100%归老师。<br/>
+        家长与老师<span class="font-bold">直接沟通</span>，价格透明，关系自主。
+      </p>
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-3 flex items-center gap-2">
+        <select class="px-3 py-3 text-sm border-0 focus:outline-none bg-gray-50 rounded-lg">
+          <option>📍 昆明</option>
+          <option>大理</option>
+          <option>曲靖</option>
+          <option>玉溪</option>
+          <option>丽江</option>
+        </select>
+        <input type="text" placeholder="搜索学科、老师姓名或学校..." class="flex-1 px-3 py-3 text-sm border-0 focus:outline-none" />
+        <a href="tutors.html" class="bg-brand text-white px-6 py-3 rounded-lg text-sm font-semibold">搜索老师</a>
+      </div>
+      <div class="flex flex-wrap gap-2 mt-4 text-xs">
+        <span class="text-gray-500">热门：</span>
+        <a href="tutors.html" class="text-gray-600 hover:text-[#C8102E]">高中数学</a>
+        <a href="tutors.html" class="text-gray-600 hover:text-[#C8102E]">初中英语</a>
+        <a href="tutors.html" class="text-gray-600 hover:text-[#C8102E]">小学语文</a>
+        <a href="tutors.html" class="text-gray-600 hover:text-[#C8102E]">钢琴</a>
+        <a href="tutors.html" class="text-gray-600 hover:text-[#C8102E]">书法</a>
+        <a href="tutors.html" class="text-gray-600 hover:text-[#C8102E]">少儿编程</a>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 rotate-1">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#C8102E] to-[#a00d25] text-white flex items-center justify-center font-bold text-xl">李</div>
+          <div>
+            <div class="font-bold">李明 老师</div>
+            <div class="text-xs text-gray-500">云南师范大学 · 数学研究生</div>
+          </div>
+          <div class="ml-auto">
+            <span class="text-xs bg-green-50 text-green-700 px-2 py-1 rounded">✓ 实名</span>
+          </div>
+        </div>
+        <div class="text-sm text-gray-600 mb-4">「我相信每个孩子都有自己的节奏。教学5年来，我帮助80+名学生提升了数学成绩。」</div>
+        <div class="flex gap-2 mb-4 text-xs">
+          <span class="px-2 py-1 bg-red-50 text-[#C8102E] rounded">初中数学</span>
+          <span class="px-2 py-1 bg-red-50 text-[#C8102E] rounded">高中数学</span>
+          <span class="px-2 py-1 bg-gray-100 rounded">昆明五华区</span>
+        </div>
+        <div class="flex items-end justify-between pt-4 border-t">
+          <div>
+            <div class="text-2xl font-bold serif">¥180<span class="text-sm text-gray-500 font-normal">/课时</span></div>
+            <div class="text-xs text-gray-400">老师定价 · 平台0抽成</div>
+          </div>
+          <button class="bg-brand text-white text-sm px-4 py-2 rounded">直接联系</button>
+        </div>
+      </div>
+      <div class="absolute -top-4 -left-4 bg-[#B8860B] text-white text-xs px-3 py-1 rounded-full shadow-lg">⭐ 好评 4.9</div>
+    </div>
+  </div>
+</section>
+
+<!-- Value props -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <div class="text-xs gold tracking-widest mb-2">WHY YOUSHIHUI</div>
+      <h2 class="serif text-3xl font-bold">为什么选择优师荟</h2>
+    </div>
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="p-6 rounded-xl border border-gray-100 hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center text-2xl mb-4">💰</div>
+        <h3 class="font-bold mb-2">0 平台抽成</h3>
+        <p class="text-sm text-gray-600">老师的课时费100%归老师，平台不截留、不加价。行业唯一。</p>
+      </div>
+      <div class="p-6 rounded-xl border border-gray-100 hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center text-2xl mb-4">🎓</div>
+        <h3 class="font-bold mb-2">云南本地老师</h3>
+        <p class="text-sm text-gray-600">云大、云师大、昆工在读研究生与在职教师，熟悉本地教材与考纲。</p>
+      </div>
+      <div class="p-6 rounded-xl border border-gray-100 hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center text-2xl mb-4">🛡️</div>
+        <h3 class="font-bold mb-2">实名+学历核验</h3>
+        <p class="text-sm text-gray-600">每位老师均经身份证、学信网、教师证三重验证，可查原件。</p>
+      </div>
+      <div class="p-6 rounded-xl border border-gray-100 hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center text-2xl mb-4">💬</div>
+        <h3 class="font-bold mb-2">直接对接，自主决定</h3>
+        <p class="text-sm text-gray-600">家长与老师直接沟通、试课、定价，平台不干预，不绑定。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How different -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="serif text-3xl font-bold text-center mb-10">和其他平台有什么不同？</h2>
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+      <table class="w-full text-sm">
+        <thead class="bg-gray-900 text-white">
+          <tr>
+            <th class="text-left p-4">对比项</th>
+            <th class="text-center p-4 bg-[#C8102E]">优师荟</th>
+            <th class="text-center p-4">掌门1对1</th>
+            <th class="text-center p-4">轻轻家教</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t">
+            <td class="p-4 font-semibold">平台抽成</td>
+            <td class="p-4 text-center text-[#C8102E] font-bold">0%</td>
+            <td class="p-4 text-center text-gray-500">约30-50%</td>
+            <td class="p-4 text-center text-gray-500">约25-35%</td>
+          </tr>
+          <tr class="border-t bg-gray-50">
+            <td class="p-4 font-semibold">老师定价权</td>
+            <td class="p-4 text-center text-[#C8102E] font-bold">✓ 老师自主</td>
+            <td class="p-4 text-center text-gray-500">平台统一</td>
+            <td class="p-4 text-center text-gray-500">平台审核</td>
+          </tr>
+          <tr class="border-t">
+            <td class="p-4 font-semibold">家长老师直接联系</td>
+            <td class="p-4 text-center text-[#C8102E] font-bold">✓ 支持</td>
+            <td class="p-4 text-center text-gray-500">受限</td>
+            <td class="p-4 text-center text-gray-500">受限</td>
+          </tr>
+          <tr class="border-t bg-gray-50">
+            <td class="p-4 font-semibold">云南本地师资</td>
+            <td class="p-4 text-center text-[#C8102E] font-bold">✓ 100%</td>
+            <td class="p-4 text-center text-gray-500">外地为主</td>
+            <td class="p-4 text-center text-gray-500">外地为主</td>
+          </tr>
+          <tr class="border-t">
+            <td class="p-4 font-semibold">教材版本匹配</td>
+            <td class="p-4 text-center text-[#C8102E] font-bold">✓ 人教/云南地方版</td>
+            <td class="p-4 text-center text-gray-500">全国通用</td>
+            <td class="p-4 text-center text-gray-500">全国通用</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Featured tutors -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-end mb-8">
+      <div>
+        <div class="text-xs gold tracking-widest mb-2">FEATURED</div>
+        <h2 class="serif text-3xl font-bold">本周推荐老师</h2>
+      </div>
+      <a href="tutors.html" class="text-sm brand hover:underline">查看全部 →</a>
+    </div>
+    <div id="tutorGrid" class="grid md:grid-cols-4 gap-5"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 bg-[#1a1a1a] text-white">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="serif text-3xl font-bold mb-4">是云南老师？加入我们，0抽成</h2>
+    <p class="text-gray-400 mb-8">让您的每一节课都物有所值。</p>
+    <a href="#" class="inline-block bg-brand text-white px-8 py-4 rounded-lg font-semibold">老师免费入驻 →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 text-sm py-10">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+    <div>
+      <div class="text-white font-bold mb-3 serif">优师荟 · 云南</div>
+      <p class="text-xs">云南本地家教信息服务平台<br/>滇ICP备 2026XXXXXX 号</p>
+    </div>
+    <div>
+      <div class="text-white font-semibold mb-3">平台</div>
+      <ul class="space-y-2 text-xs">
+        <li>找老师</li><li>老师入驻</li><li>帮助中心</li>
+      </ul>
+    </div>
+    <div>
+      <div class="text-white font-semibold mb-3">城市</div>
+      <ul class="space-y-2 text-xs">
+        <li>昆明</li><li>大理</li><li>曲靖</li><li>玉溪</li><li>丽江</li>
+      </ul>
+    </div>
+    <div>
+      <div class="text-white font-semibold mb-3">联系</div>
+      <ul class="space-y-2 text-xs">
+        <li>客服微信：youshihui_yn</li>
+        <li>邮箱：hi@youshihui.cn</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+  const grid = document.getElementById('tutorGrid');
+  TUTORS.slice(0, 4).forEach(t => {
+    const el = document.createElement('a');
+    el.href = `tutor.html?id=${t.id}`;
+    el.className = 'block bg-white rounded-xl border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition p-5';
+    el.innerHTML = `
+      <div class="flex items-start gap-3 mb-3">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center font-bold text-white text-xl" style="background:${t.color}">${t.name[0]}</div>
+        <div class="flex-1">
+          <div class="font-bold">${t.name} 老师</div>
+          <div class="text-xs text-gray-500">${t.school}</div>
+          <div class="text-xs text-yellow-600 mt-1">⭐ ${t.rating} · ${t.reviews}条评价</div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-1 mb-3">
+        ${t.tags.slice(0,2).map(tag => `<span class="text-xs px-2 py-0.5 bg-red-50 text-[#C8102E] rounded">${tag}</span>`).join('')}
+      </div>
+      <div class="flex items-end justify-between pt-3 border-t">
+        <div class="text-lg font-bold serif">¥${t.price}<span class="text-xs text-gray-400 font-normal">/课时</span></div>
+        <span class="text-xs text-gray-400">${t.district}</span>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
+</script>
+</body>
+</html>
