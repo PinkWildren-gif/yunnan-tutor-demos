@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>人教版 · 小学数学五上 · 学伴</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #FDF9F0; color: #1f2937; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand-green { color: #1a5d3a; }
+  .bg-brand-green { background-color: #1a5d3a; }
+  .brand-orange { color: #D97706; }
+  .bg-brand-orange { background-color: #D97706; }
+  .book-cover {
+    aspect-ratio: 3/4; border-radius: 4px 8px 8px 4px; padding: 20px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    color: white; position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2), -8px 6px 0 0 rgba(139,92,40,0.2);
+  }
+  .book-cover::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 12px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.4), transparent);
+    border-radius: 4px 0 0 4px;
+  }
+  .chapter-row { cursor: pointer; transition: all .15s; }
+  .chapter-row:hover { background: #F0FDF4; }
+</style>
+</head>
+<body>
+
+<nav class="bg-white border-b border-amber-100 sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-lg bg-brand-green text-white flex items-center justify-center font-bold serif text-xl">学</div>
+      <div class="serif font-bold text-lg brand-green">学伴</div>
+    </a>
+    <div class="hidden md:flex gap-6 text-sm">
+      <a href="index.html" class="text-gray-700">首页</a>
+      <a href="books.html" class="font-semibold brand-green">教材库</a>
+      <a href="dashboard.html" class="text-gray-700">我的学伴</a>
+      <a href="messages.html" class="text-gray-700">消息</a>
+    </div>
+    <div class="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold">王</div>
+  </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-6 py-8">
+
+  <div class="text-xs text-gray-500 mb-6">
+    <a href="index.html" class="hover:brand-green">首页</a> /
+    <a href="books.html" class="hover:brand-green">教材库</a> /
+    <span class="text-gray-700">小学数学 · 五年级上册</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="grid md:grid-cols-[280px_1fr] gap-10 mb-10">
+    <div>
+      <div class="book-cover" style="background:linear-gradient(135deg,#F59E0B,#B45309)">
+        <div>
+          <div class="text-xs opacity-80">人教版 · 云南地方课程</div>
+          <div class="serif text-3xl font-bold mt-4 leading-tight">小学数学</div>
+          <div class="serif text-xl opacity-90 mt-1">五年级 上册</div>
+        </div>
+        <div class="text-xs opacity-80">
+          云南出版集团<br/>ISBN 978-7-107-300428
+        </div>
+      </div>
+      <div class="mt-5 space-y-2 text-xs">
+        <div class="flex justify-between"><span class="text-gray-500">出版社</span><span class="font-semibold">人民教育出版社</span></div>
+        <div class="flex justify-between"><span class="text-gray-500">发行方</span><span class="font-semibold">云南出版集团</span></div>
+        <div class="flex justify-between"><span class="text-gray-500">适用年级</span><span class="font-semibold">小学五年级</span></div>
+        <div class="flex justify-between"><span class="text-gray-500">学期</span><span class="font-semibold">上学期</span></div>
+        <div class="flex justify-between"><span class="text-gray-500">章节数</span><span class="font-semibold">8 单元</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="inline-flex items-center gap-2 bg-green-100 border border-green-200 rounded-full px-3 py-1 text-xs brand-green mb-3">
+        🎯 学伴已接入 · 精准匹配老师
+      </div>
+      <h1 class="serif text-4xl font-bold mb-3">小学数学 · 五年级上册</h1>
+      <p class="text-gray-600 text-sm mb-5 leading-relaxed">
+        人教版小学数学五年级上册，配合云南地方课程标准。涵盖小数乘除法、位置坐标、多边形面积、统计与概率等核心内容，是云南省内大部分小学五年级的主流教材。
+      </p>
+
+      <!-- Key stats -->
+      <div class="grid grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-xl border border-amber-100">
+          <div class="text-xs text-gray-500">匹配老师</div>
+          <div class="serif text-2xl font-bold brand-green mt-1">12 位</div>
+          <div class="text-[10px] text-gray-400">昆明地区</div>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-amber-100">
+          <div class="text-xs text-gray-500">本月扫码</div>
+          <div class="serif text-2xl font-bold mt-1">3,840</div>
+          <div class="text-[10px] text-green-600">↑ 热门</div>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-amber-100">
+          <div class="text-xs text-gray-500">家长评分</div>
+          <div class="serif text-2xl font-bold mt-1">4.9</div>
+          <div class="text-[10px] text-yellow-600">⭐ 842 条</div>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-amber-100">
+          <div class="text-xs text-gray-500">平均提分</div>
+          <div class="serif text-2xl font-bold brand-orange mt-1">+14 分</div>
+          <div class="text-[10px] text-gray-400">月考成绩</div>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <a href="match.html" class="bg-brand-green text-white px-6 py-3 rounded-lg font-semibold text-sm flex items-center gap-2">
+          🎯 立即匹配老师 →
+        </a>
+        <a href="#" class="bg-white border border-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold text-sm flex items-center gap-2">
+          📄 查看完整大纲
+        </a>
+      </div>
+
+      <div class="mt-6 bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-4 text-sm">
+        <div class="flex items-start gap-3">
+          <div class="text-2xl">💡</div>
+          <div>
+            <div class="font-semibold text-amber-900 mb-1">为什么"按这本书找老师"很重要？</div>
+            <p class="text-xs text-gray-700 leading-relaxed">
+              小学数学五年级的教材在云南省有多个版本（人教版、北师大版、苏教版）。同一个"小数乘法"章节，不同版本的讲解顺序、例题深度都不同。
+              <b>选择教过您孩子这个版本的老师</b>，辅导能与课堂进度无缝衔接。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Curriculum -->
+  <div class="grid md:grid-cols-2 gap-6 mb-10">
+    <div class="bg-white rounded-2xl p-6 border border-amber-100">
+      <h2 class="serif text-xl font-bold mb-5">📖 课本目录</h2>
+      <div class="space-y-1">
+        <div class="chapter-row p-3 rounded-lg flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-xs bg-green-100 brand-green rounded px-2 py-0.5 font-bold">1</span>
+            <div>
+              <div class="font-semibold text-sm">小数乘法</div>
+              <div class="text-xs text-gray-500">12 课时 · 难点 ⭐⭐⭐</div>
+            </div>
+          </div>
+          <span class="text-xs text-gray-400">→</span>
+        </div>
+        <div class="chapter-row p-3 rounded-lg flex items-center justify-between bg-amber-50">
+          <div class="flex items-center gap-3">
+            <span class="text-xs bg-amber-200 text-amber-800 rounded px-2 py-0.5 font-bold">2</span>
+            <div>
+              <div class="font-semibold text-sm">位置</div>
+              <div class="text-xs text-gray-500">4 课时 · 难点 ⭐⭐</div>
+            </div>
+          </div>
+          <span class="text-xs brand-orange">📍 孩子当前进度</span>
+        </div>
+        <div class="chapter-row p-3 rounded-lg flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-xs bg-gray-100 text-gray-500 rounded px-2 py-0.5 font-bold">3</span>
+            <div>
+              <div class="font-semibold text-sm">小数除法</div>
+              <div class="text-xs text-gray-500">14 课时 · 难点 ⭐⭐⭐⭐</div>
+            </div>
+          </div>
+          <span class="text-xs text-gray-400">→</span>
+        </div>
+        <div class="chapter-row p-3 rounded-lg flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-xs bg-gray-100 text-gray-500 rounded px-2 py-0.5 font-bold">4</span>
+            <div>
+              <div class="font-semibold text-sm">可能性</div>
+              <div class="text-xs text-gray-500">4 课时 · 难点 ⭐</div>
+            </div>
+          </div>
+          <span class="text-xs text-gray-400">→</span>
+        </div>
+        <div class="chapter-row p-3 rounded-lg flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-xs bg-gray-100 text-gray-500 rounded px-2 py-0.5 font-bold">5</span>
+            <div>
+              <div class="font-semibold text-sm">简易方程</div>
+              <div class="text-xs text-gray-500">16 课时 · 难点 ⭐⭐⭐⭐⭐</div>
+            </div>
+          </div>
+          <span class="text-xs text-red-500">🔥 核心</span>
+        </div>
+        <div class="chapter-row p-3 rounded-lg flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-xs bg-gray-100 text-gray-500 rounded px-2 py-0.5 font-bold">6</span>
+            <div>
+              <div class="font-semibold text-sm">多边形的面积</div>
+              <div class="text-xs text-gray-500">12 课时 · 难点 ⭐⭐⭐</div>
+            </div>
+          </div>
+          <span class="text-xs text-gray-400">→</span>
+        </div>
+        <div class="chapter-row p-3 rounded-lg flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-xs bg-gray-100 text-gray-500 rounded px-2 py-0.5 font-bold">7</span>
+            <div>
+              <div class="font-semibold text-sm">数学广角 - 植树问题</div>
+              <div class="text-xs text-gray-500">6 课时 · 难点 ⭐⭐⭐</div>
+            </div>
+          </div>
+          <span class="text-xs text-gray-400">→</span>
+        </div>
+        <div class="chapter-row p-3 rounded-lg flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-xs bg-gray-100 text-gray-500 rounded px-2 py-0.5 font-bold">8</span>
+            <div>
+              <div class="font-semibold text-sm">综合实践</div>
+              <div class="text-xs text-gray-500">4 课时 · 期末总复习</div>
+            </div>
+          </div>
+          <span class="text-xs text-gray-400">→</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <div class="bg-white rounded-2xl p-6 border border-amber-100">
+        <h2 class="serif text-xl font-bold mb-5">🔥 本教材最难点</h2>
+        <div class="space-y-3">
+          <div class="p-3 bg-red-50 border border-red-100 rounded-lg">
+            <div class="flex items-center justify-between mb-1">
+              <div class="font-semibold text-sm">简易方程 · 方程意义与解法</div>
+              <span class="text-xs text-red-600">⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="text-xs text-gray-600">36% 学生在这里失分最多。建议提前补习。</p>
+          </div>
+          <div class="p-3 bg-orange-50 border border-orange-100 rounded-lg">
+            <div class="flex items-center justify-between mb-1">
+              <div class="font-semibold text-sm">小数除法 · 循环小数</div>
+              <span class="text-xs text-orange-600">⭐⭐⭐⭐</span>
+            </div>
+            <p class="text-xs text-gray-600">28% 学生概念混淆。需要反复练习。</p>
+          </div>
+          <div class="p-3 bg-amber-50 border border-amber-100 rounded-lg">
+            <div class="flex items-center justify-between mb-1">
+              <div class="font-semibold text-sm">多边形面积 · 梯形面积推导</div>
+              <span class="text-xs text-amber-700">⭐⭐⭐</span>
+            </div>
+            <p class="text-xs text-gray-600">18% 学生理解推导过程有困难。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-green-800 to-green-700 rounded-2xl p-6 text-white">
+        <div class="text-xs opacity-80 mb-2">💎 数据洞察</div>
+        <h3 class="serif text-lg font-bold mb-3">选择合适老师后，平均提升 14 分</h3>
+        <p class="text-xs opacity-90 leading-relaxed mb-4">
+          根据学伴用户数据，使用"按教材匹配"找到老师的家长，孩子的月考成绩在 3 个月内平均提升 14 分，明显高于通用平台用户。
+        </p>
+        <a href="match.html" class="inline-block bg-white text-green-800 px-4 py-2 rounded-lg font-bold text-xs">为孩子匹配老师 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tutors -->
+  <div class="mb-10">
+    <div class="flex justify-between items-end mb-6">
+      <div>
+        <h2 class="serif text-2xl font-bold">教过这本教材的老师 (12)</h2>
+        <p class="text-sm text-gray-500 mt-1">按距离 + 评分 + 匹配度综合排序</p>
+      </div>
+      <a href="match.html" class="text-sm brand-green">完整匹配 →</a>
+    </div>
+
+    <div id="tutors" class="grid md:grid-cols-3 gap-4"></div>
+  </div>
+
+  <!-- Related books -->
+  <div>
+    <h2 class="serif text-2xl font-bold mb-6">相关教材</h2>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <a href="#" class="block">
+        <div class="book-cover" style="background:linear-gradient(135deg,#F59E0B,#B45309)">
+          <div>
+            <div class="text-[9px] opacity-80">人教版</div>
+            <div class="serif text-base font-bold mt-2">小学数学</div>
+            <div class="text-xs opacity-90">五年级 下册</div>
+          </div>
+          <div class="text-[10px] opacity-80">8 位老师</div>
+        </div>
+      </a>
+      <a href="#" class="block">
+        <div class="book-cover" style="background:linear-gradient(135deg,#F59E0B,#B45309)">
+          <div>
+            <div class="text-[9px] opacity-80">人教版</div>
+            <div class="serif text-base font-bold mt-2">小学数学</div>
+            <div class="text-xs opacity-90">四年级 上册</div>
+          </div>
+          <div class="text-[10px] opacity-80">10 位老师</div>
+        </div>
+      </a>
+      <a href="#" class="block">
+        <div class="book-cover" style="background:linear-gradient(135deg,#F59E0B,#B45309)">
+          <div>
+            <div class="text-[9px] opacity-80">人教版</div>
+            <div class="serif text-base font-bold mt-2">小学数学</div>
+            <div class="text-xs opacity-90">六年级 上册</div>
+          </div>
+          <div class="text-[10px] opacity-80">11 位老师</div>
+        </div>
+      </a>
+      <a href="#" class="block">
+        <div class="book-cover" style="background:linear-gradient(135deg,#10B981,#047857)">
+          <div>
+            <div class="text-[9px] opacity-80">人教版</div>
+            <div class="serif text-base font-bold mt-2">小学语文</div>
+            <div class="text-xs opacity-90">五年级 上册</div>
+          </div>
+          <div class="text-[10px] opacity-80">8 位老师</div>
+        </div>
+      </a>
+      <a href="#" class="block">
+        <div class="book-cover" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9)">
+          <div>
+            <div class="text-[9px] opacity-80">云教版</div>
+            <div class="serif text-base font-bold mt-2">小学英语</div>
+            <div class="text-xs opacity-90">五年级 上册</div>
+          </div>
+          <div class="text-[10px] opacity-80">6 位老师</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+const TUTORS = [
+  { name:"赵娟", school:"云师大 · 一级教师", dist:"1.2km", match:98, rating:5.0, reviews:210, price:160, years:10, color:"linear-gradient(135deg,#16a34a,#14532d)" },
+  { name:"李明", school:"云师大 · 研究生", dist:"2.8km", match:92, rating:4.9, reviews:127, price:180, years:5, color:"linear-gradient(135deg,#C8102E,#7f1d1d)" },
+  { name:"王磊", school:"退休教师 · 25年经验", dist:"3.5km", match:89, rating:4.8, reviews:167, price:120, years:25, color:"linear-gradient(135deg,#ea580c,#9a3412)" }
+];
+
+const el = document.getElementById('tutors');
+TUTORS.forEach((t, i) => {
+  const card = document.createElement('a');
+  card.href = `tutor.html`;
+  card.className = 'bg-white rounded-2xl border border-amber-100 p-5 hover:shadow-lg transition';
+  card.innerHTML = `
+    <div class="flex items-start gap-3 mb-3">
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-white text-xl serif" style="background:${t.color}">${t.name[0]}</div>
+      <div class="flex-1">
+        <div class="flex items-center gap-2">
+          <div class="font-bold">${t.name} 老师</div>
+          ${i===0 ? '<span class="text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded">🏆 最佳</span>' : ''}
+        </div>
+        <div class="text-xs text-gray-500">${t.school}</div>
+      </div>
+    </div>
+    <div class="bg-amber-50 rounded-lg p-2.5 text-xs text-amber-900 mb-3">
+      📘 教过本教材 <b>${t.years >= 10 ? '8年' : '4年'}</b>
+    </div>
+    <div class="flex items-center justify-between text-xs mb-3">
+      <span class="text-yellow-600">⭐ ${t.rating} (${t.reviews})</span>
+      <span class="text-gray-500">📍 ${t.dist}</span>
+    </div>
+    <div class="flex items-end justify-between pt-3 border-t">
+      <div>
+        <div class="text-[10px] text-gray-500">匹配度</div>
+        <div class="serif text-xl font-bold brand-green">${t.match}%</div>
+      </div>
+      <div class="text-right">
+        <div class="serif text-xl font-bold">¥${t.price}</div>
+        <div class="text-[10px] text-gray-400">每课时</div>
+      </div>
+    </div>
+  `;
+  el.appendChild(card);
+});
+</script>
+</body>
+</html>

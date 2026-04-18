@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>会员与定价 · 学伴</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #FDF9F0; color: #1f2937; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand-green { color: #1a5d3a; }
+  .bg-brand-green { background-color: #1a5d3a; }
+  .brand-orange { color: #D97706; }
+  .bg-brand-orange { background-color: #D97706; }
+  .tier-card { transition: all .2s; }
+  .tier-card:hover { transform: translateY(-4px); }
+  .tier-featured { transform: scale(1.05); z-index: 10; }
+</style>
+</head>
+<body>
+
+<nav class="bg-white border-b border-amber-100 sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-lg bg-brand-green text-white flex items-center justify-center font-bold serif text-xl">学</div>
+      <div class="serif font-bold text-lg brand-green">学伴</div>
+    </a>
+    <div class="hidden md:flex gap-6 text-sm">
+      <a href="index.html" class="text-gray-700">首页</a>
+      <a href="books.html" class="text-gray-700">教材库</a>
+      <a href="pricing.html" class="font-semibold brand-green">会员定价</a>
+      <a href="about.html" class="text-gray-700">关于我们</a>
+    </div>
+    <div class="flex gap-2">
+      <a href="auth.html" class="text-sm text-gray-700 px-4 py-2">登录</a>
+      <a href="auth.html" class="text-sm px-4 py-2 bg-brand-green text-white rounded-lg">注册</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="text-center py-16 px-6">
+  <div class="inline-flex items-center gap-2 bg-green-100 border border-green-200 rounded-full px-4 py-1.5 text-xs brand-green mb-6">
+    💎 0% 平台抽成 · 全行业唯一
+  </div>
+  <h1 class="serif text-4xl md:text-5xl font-bold mb-4">透明定价 · 没有套路</h1>
+  <p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+    我们永远不从老师的课时费中抽成。<br/>
+    家长付给老师多少，老师就拿多少。
+  </p>
+</section>
+
+<!-- Parent pricing -->
+<section class="max-w-6xl mx-auto px-6 mb-20">
+  <div class="text-center mb-10">
+    <div class="text-xs brand-orange tracking-widest mb-2">FOR PARENTS</div>
+    <h2 class="serif text-3xl font-bold">家长会员</h2>
+    <p class="text-sm text-gray-500 mt-2">解锁更精准的匹配 · 更丰富的服务</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-5 items-center">
+
+    <!-- Free tier -->
+    <div class="tier-card bg-white rounded-2xl p-7 border-2 border-gray-100">
+      <div class="text-xs text-gray-500 mb-2">免费版</div>
+      <h3 class="serif text-2xl font-bold mb-1">体验版</h3>
+      <div class="flex items-baseline gap-1 mb-4">
+        <span class="serif text-4xl font-bold">¥0</span>
+        <span class="text-sm text-gray-500">/ 永久免费</span>
+      </div>
+      <p class="text-sm text-gray-600 mb-6">扫码教辅即可开通，适合想先体验的家长</p>
+      <button class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-semibold text-sm mb-6">当前计划</button>
+      <div class="space-y-2 text-sm">
+        <div class="flex gap-2"><span class="brand-green">✓</span><span>扫码匹配老师 (1 次)</span></div>
+        <div class="flex gap-2"><span class="brand-green">✓</span><span>查看 3 位推荐老师</span></div>
+        <div class="flex gap-2"><span class="brand-green">✓</span><span>基本老师信息</span></div>
+        <div class="flex gap-2 text-gray-400"><span>×</span><span>完整老师联系方式</span></div>
+        <div class="flex gap-2 text-gray-400"><span>×</span><span>多孩子档案管理</span></div>
+        <div class="flex gap-2 text-gray-400"><span>×</span><span>学习进度分析</span></div>
+      </div>
+    </div>
+
+    <!-- Premium tier - featured -->
+    <div class="tier-card tier-featured bg-gradient-to-br from-green-800 to-green-700 rounded-2xl p-7 text-white relative shadow-2xl">
+      <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-amber-900 text-xs px-4 py-1 rounded-full font-bold">⭐ 最受欢迎</div>
+      <div class="text-xs opacity-80 mb-2">高级会员</div>
+      <h3 class="serif text-2xl font-bold mb-1">家庭版</h3>
+      <div class="flex items-baseline gap-1 mb-1">
+        <span class="serif text-4xl font-bold">¥99</span>
+        <span class="text-sm opacity-80">/ 3个月</span>
+      </div>
+      <p class="text-xs opacity-80 mb-4">平均 ¥33/月 · 比课时费低 5 倍</p>
+      <div class="bg-white/10 rounded-lg p-2 text-xs mb-4 flex items-center gap-2">
+        🎁 买书送 1 个月免费会员（通过扫码激活）
+      </div>
+      <a href="auth.html" class="block w-full bg-white text-green-800 py-3 rounded-lg font-bold text-sm mb-6 text-center">开通家庭版</a>
+      <div class="space-y-2 text-sm">
+        <div class="flex gap-2"><span class="text-amber-300">✓</span><span>无限扫码匹配</span></div>
+        <div class="flex gap-2"><span class="text-amber-300">✓</span><span>解锁所有老师联系方式</span></div>
+        <div class="flex gap-2"><span class="text-amber-300">✓</span><span>最多 3 个孩子档案</span></div>
+        <div class="flex gap-2"><span class="text-amber-300">✓</span><span>完整学习进度分析</span></div>
+        <div class="flex gap-2"><span class="text-amber-300">✓</span><span>优先匹配（排名靠前）</span></div>
+        <div class="flex gap-2"><span class="text-amber-300">✓</span><span>专属客服支持</span></div>
+        <div class="flex gap-2 opacity-70"><span>×</span><span>B2B 出版社数据后台</span></div>
+      </div>
+    </div>
+
+    <!-- Annual tier -->
+    <div class="tier-card bg-white rounded-2xl p-7 border-2 border-amber-200">
+      <div class="text-xs brand-orange mb-2 flex items-center gap-2">年度会员 <span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded">省 ¥297</span></div>
+      <h3 class="serif text-2xl font-bold mb-1">无忧版</h3>
+      <div class="flex items-baseline gap-1 mb-1">
+        <span class="serif text-4xl font-bold">¥99</span>
+        <span class="text-sm text-gray-500">/ 年</span>
+      </div>
+      <p class="text-xs text-gray-500 mb-4 line-through">原价 ¥396/年</p>
+      <div class="bg-amber-50 rounded-lg p-2 text-xs brand-orange mb-4">
+        💎 最划算 · 平均 ¥8/月
+      </div>
+      <a href="auth.html" class="block w-full bg-brand-orange text-white py-3 rounded-lg font-bold text-sm mb-6 text-center">开通无忧版</a>
+      <div class="space-y-2 text-sm">
+        <div class="flex gap-2"><span class="brand-green">✓</span><span>包含家庭版所有权益</span></div>
+        <div class="flex gap-2"><span class="brand-green">✓</span><span>最多 5 个孩子档案</span></div>
+        <div class="flex gap-2"><span class="brand-green">✓</span><span>孩子学期报告（每月）</span></div>
+        <div class="flex gap-2"><span class="brand-green">✓</span><span>跨教材联合分析</span></div>
+        <div class="flex gap-2"><span class="brand-green">✓</span><span>1v1 家庭教育规划师</span></div>
+        <div class="flex gap-2"><span class="brand-green">✓</span><span>赠送配套教辅电子版</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What you're paying for -->
+  <div class="mt-12 bg-white rounded-2xl p-8 border border-amber-100">
+    <h3 class="serif text-xl font-bold mb-4 text-center">💡 您的会员费用在哪里？</h3>
+    <div class="grid md:grid-cols-4 gap-4 text-center text-sm">
+      <div>
+        <div class="w-16 h-16 bg-green-50 rounded-full mx-auto flex items-center justify-center text-2xl">🔒</div>
+        <div class="font-semibold mt-3">老师身份核验</div>
+        <p class="text-xs text-gray-500 mt-1">每位老师实名 + 学信网 + 教师证三重核验</p>
+      </div>
+      <div>
+        <div class="w-16 h-16 bg-green-50 rounded-full mx-auto flex items-center justify-center text-2xl">🎯</div>
+        <div class="font-semibold mt-3">精准匹配算法</div>
+        <p class="text-xs text-gray-500 mt-1">按教材版本、地域、年级精准推荐</p>
+      </div>
+      <div>
+        <div class="w-16 h-16 bg-green-50 rounded-full mx-auto flex items-center justify-center text-2xl">👥</div>
+        <div class="font-semibold mt-3">7×12 客服</div>
+        <p class="text-xs text-gray-500 mt-1">遇到问题随时联系客服团队</p>
+      </div>
+      <div>
+        <div class="w-16 h-16 bg-green-50 rounded-full mx-auto flex items-center justify-center text-2xl">📊</div>
+        <div class="font-semibold mt-3">持续产品投入</div>
+        <p class="text-xs text-gray-500 mt-1">数据分析工具、老师培训、教材维护</p>
+      </div>
+    </div>
+    <p class="text-xs text-gray-500 text-center mt-6 leading-relaxed">
+      我们不收课时费的抽成，是因为我们相信老师和家长之间的信任关系不应该被削弱。<br/>
+      会员费是我们唯一的收入来源之一（另一部分来自出版社合作）。
+    </p>
+  </div>
+</section>
+
+<!-- Tutor pricing -->
+<section class="bg-white py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="text-xs brand-orange tracking-widest mb-2">FOR TUTORS</div>
+      <h2 class="serif text-3xl font-bold">老师入驻</h2>
+      <p class="text-sm text-gray-500 mt-2">学伴永远 0 抽成 · 入驻只需要基本信息审核</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+      <div class="bg-green-50 rounded-2xl p-8 border-2 border-green-200">
+        <div class="text-xs text-green-700 font-semibold mb-2">基础入驻</div>
+        <h3 class="serif text-2xl font-bold mb-1">免费版</h3>
+        <div class="flex items-baseline gap-1 mb-6">
+          <span class="serif text-4xl font-bold brand-green">¥0</span>
+          <span class="text-sm text-gray-500">/ 永久</span>
+        </div>
+        <a href="onboard.html" class="block w-full bg-brand-green text-white py-3 rounded-lg font-bold text-sm mb-6 text-center">免费入驻 →</a>
+        <div class="space-y-2 text-sm">
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>完整个人主页</span></div>
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>接收匹配请求</span></div>
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>与家长直接沟通</span></div>
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>课程日程管理</span></div>
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>收入明细追踪</span></div>
+          <div class="flex gap-2 font-bold"><span class="brand-green">✓</span><span>课时费 <u>100%</u> 归您，永远不抽成</span></div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl p-8 text-white">
+        <div class="text-xs opacity-80 mb-2">👑 推荐老师</div>
+        <h3 class="serif text-2xl font-bold mb-1">增值版</h3>
+        <div class="flex items-baseline gap-1 mb-1">
+          <span class="serif text-4xl font-bold">¥199</span>
+          <span class="text-sm opacity-80">/ 月</span>
+        </div>
+        <p class="text-xs opacity-80 mb-5">平均每月多接 5-8 个学生，ROI 15 倍</p>
+        <button class="w-full bg-white text-orange-700 py-3 rounded-lg font-bold text-sm mb-6">升级为推荐老师</button>
+        <div class="space-y-2 text-sm">
+          <div class="flex gap-2"><span class="text-amber-200">✓</span><span>包含免费版所有权益</span></div>
+          <div class="flex gap-2"><span class="text-amber-200">✓</span><span>首页推荐位</span></div>
+          <div class="flex gap-2"><span class="text-amber-200">✓</span><span>搜索结果置顶</span></div>
+          <div class="flex gap-2"><span class="text-amber-200">✓</span><span>主页个性化皮肤</span></div>
+          <div class="flex gap-2"><span class="text-amber-200">✓</span><span>学生数据洞察</span></div>
+          <div class="flex gap-2"><span class="text-amber-200">✓</span><span>视频作品加权推荐</span></div>
+          <div class="flex gap-2"><span class="text-amber-200">✓</span><span>专属运营老师指导</span></div>
+        </div>
+        <div class="mt-4 bg-white/10 rounded-lg p-3 text-xs">
+          <b>💡 与其他平台对比：</b><br/>
+          在掌门1对1月入 ¥20,000，抽走 ¥8,000；<br/>
+          在学伴月入 ¥20,000，仅花 ¥199 升级费，<br/>
+          <b>净多赚 ¥7,801</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="max-w-4xl mx-auto px-6 py-16">
+  <h2 class="serif text-3xl font-bold text-center mb-10">常见问题</h2>
+  <div class="space-y-4">
+    <details class="bg-white rounded-xl p-5 border border-amber-100">
+      <summary class="font-semibold cursor-pointer">为什么学伴能做到 0 抽成？竞品都收 25%-50%</summary>
+      <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+        我们的商业模式不同。其他平台主要靠抽成盈利，而学伴主要靠两个来源：<br/>
+        (1) 家长会员费（¥99/年起），(2) 出版社合作分成。这让我们可以把课时费 100% 还给老师。
+      </p>
+    </details>
+    <details class="bg-white rounded-xl p-5 border border-amber-100">
+      <summary class="font-semibold cursor-pointer">家长会员过期后还能使用吗？</summary>
+      <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+        可以。已经匹配成功的老师和聊天记录都会保留，您仍可以联系老师。但新的扫码匹配和完整联系方式解锁会受限。
+      </p>
+    </details>
+    <details class="bg-white rounded-xl p-5 border border-amber-100">
+      <summary class="font-semibold cursor-pointer">老师不开通增值版会被降权吗？</summary>
+      <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+        不会。我们的匹配排序算法公平对待所有老师，基于教材匹配度、距离、评分、教龄等因素。增值版仅提供额外的展示位置（如首页推荐），不会压低未付费老师的基础曝光。
+      </p>
+    </details>
+    <details class="bg-white rounded-xl p-5 border border-amber-100">
+      <summary class="font-semibold cursor-pointer">扫书赠送的会员怎么用？</summary>
+      <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+        您每扫描一本合作出版社的教辅，系统会自动为您激活 1 个月的家庭版会员（首次）。之后再扫新书不会重复赠送，但会累计积分用于续费折扣。
+      </p>
+    </details>
+    <details class="bg-white rounded-xl p-5 border border-amber-100">
+      <summary class="font-semibold cursor-pointer">我是出版社，如何接入学伴？</summary>
+      <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+        出版社伙伴享受每本印码书 ¥5-20 的合作分成，并可查看 <a href="publisher.html" class="brand-green underline">完整 B2B 数据后台</a>。联系我们：partner@xueban.cn
+      </p>
+    </details>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-gradient-to-br from-green-800 via-green-700 to-emerald-900 text-white py-16 px-6">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="serif text-3xl font-bold mb-4">让您的孩子遇到合适的老师</h2>
+    <p class="opacity-80 mb-8">第一次扫码就匹配，第一节课就免费试听</p>
+    <a href="auth.html" class="inline-block bg-white text-green-800 px-8 py-4 rounded-lg font-bold">开始使用学伴 →</a>
+  </div>
+</section>
+
+<footer class="bg-gray-900 text-gray-400 text-xs py-8 text-center">
+  学伴 XUEBAN · 云南出版集团战略合作伙伴 · 滇ICP备 2026XXXXXX号
+</footer>
+
+</body>
+</html>

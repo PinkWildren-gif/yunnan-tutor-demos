@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第12节课 · 小数乘法应用题 · 学伴</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #FDF9F0; color: #1f2937; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand-green { color: #1a5d3a; }
+  .bg-brand-green { background-color: #1a5d3a; }
+  .brand-orange { color: #D97706; }
+  .bg-brand-orange { background-color: #D97706; }
+  .tab { cursor: pointer; padding: 12px 20px; border-bottom: 3px solid transparent; }
+  .tab.active { border-color: #1a5d3a; color: #1a5d3a; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav class="bg-white border-b border-amber-100 sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-lg bg-brand-green text-white flex items-center justify-center font-bold serif text-xl">学</div>
+      <div class="serif font-bold text-lg brand-green">学伴</div>
+    </a>
+    <div class="hidden md:flex gap-6 text-sm">
+      <a href="index.html" class="text-gray-700">首页</a>
+      <a href="books.html" class="text-gray-700">教材库</a>
+      <a href="dashboard.html" class="font-semibold brand-green">我的学伴</a>
+      <a href="messages.html" class="text-gray-700">消息</a>
+    </div>
+    <div class="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold">王</div>
+  </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-6 py-8">
+
+  <div class="text-xs text-gray-500 mb-4">
+    <a href="dashboard.html" class="hover:brand-green">我的学伴</a> /
+    <span>王小明的课程</span> /
+    <span class="text-gray-700">第12节 · 小数乘法应用题</span>
+  </div>
+
+  <div class="grid lg:grid-cols-[1fr_320px] gap-6">
+
+    <!-- Main -->
+    <div class="space-y-6">
+
+      <!-- Header card -->
+      <div class="bg-white rounded-2xl p-6 border border-amber-100">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-3 py-1 text-xs brand-green mb-2">
+              ✓ 已完成 · 刚刚结束
+            </div>
+            <h1 class="serif text-2xl font-bold">第12节课 · 小数乘法应用题</h1>
+            <p class="text-sm text-gray-500 mt-1">📘 人教版小学数学五年级上册 · 第1单元第12课时</p>
+          </div>
+          <div class="flex gap-2">
+            <button class="text-xs px-3 py-1.5 border border-gray-200 rounded-lg">📥 下载讲义</button>
+            <button class="text-xs px-3 py-1.5 bg-brand-green text-white rounded-lg">⭐ 评价老师</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4 pt-4 border-t">
+          <div>
+            <div class="text-xs text-gray-500">授课老师</div>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-white text-xs" style="background:linear-gradient(135deg,#16a34a,#14532d)">赵</div>
+              <a href="tutor.html" class="font-semibold text-sm brand-green hover:underline">赵娟 老师</a>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500">学生</div>
+            <div class="font-semibold text-sm mt-1">王小明 · 五年级</div>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500">上课方式</div>
+            <div class="font-semibold text-sm mt-1">🏠 上门 · 五华区</div>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500">时长 / 费用</div>
+            <div class="font-semibold text-sm mt-1">1.5h · ¥240</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="bg-white rounded-2xl border border-amber-100 overflow-hidden">
+        <div class="flex border-b">
+          <div class="tab active">📝 课堂笔记</div>
+          <div class="tab">📚 本节作业</div>
+          <div class="tab">🎥 视频回放</div>
+          <div class="tab">💬 课后沟通</div>
+          <div class="tab">📊 学习分析</div>
+        </div>
+
+        <div class="p-6">
+
+          <!-- Class notes -->
+          <div class="mb-6">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:linear-gradient(135deg,#16a34a,#14532d)">赵</div>
+              <div>
+                <div class="font-semibold text-sm">赵老师的课堂笔记</div>
+                <div class="text-xs text-gray-500">课后自动生成 · 家长可查看</div>
+              </div>
+            </div>
+
+            <div class="prose prose-sm max-w-none bg-gray-50 rounded-xl p-5 space-y-4">
+              <div>
+                <h3 class="font-bold text-base brand-green mb-2">📌 本节学习目标</h3>
+                <ul class="list-disc pl-5 text-sm space-y-1 text-gray-700">
+                  <li>掌握小数乘小数的竖式计算方法</li>
+                  <li>能分析应用题中的数量关系，建立乘法模型</li>
+                  <li>培养估算习惯，避免小数点位置错误</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="font-bold text-base brand-green mb-2">✏️ 课堂重点</h3>
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                  <div class="text-sm text-gray-700 leading-relaxed">
+                    <p class="mb-2"><b>例题：</b>一箱苹果 8.5 公斤，每公斤 6.4 元，一箱苹果多少钱？</p>
+                    <p class="mb-2"><b>解题思路：</b></p>
+                    <ol class="list-decimal pl-5 space-y-1">
+                      <li>找单位：每公斤 6.4 元（单价）</li>
+                      <li>找数量：8.5 公斤</li>
+                      <li>列式：<code class="bg-amber-100 px-2 py-0.5 rounded">6.4 × 8.5</code></li>
+                      <li>竖式计算：先按整数计算 64 × 85 = 5440</li>
+                      <li>确定小数点：两个乘数共 2 位小数，结果也是 2 位小数</li>
+                      <li>结果：<b>54.40 元</b>（去掉末尾 0，可写为 54.4 元）</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-bold text-base brand-green mb-2">⚠️ 易错点</h3>
+                <div class="space-y-2">
+                  <div class="bg-red-50 border-l-4 border-red-400 p-3 rounded text-sm">
+                    <b class="text-red-800">错误 1：</b>小数点位置数错（将 54.40 写成 5.44 或 544）
+                    <div class="text-xs text-gray-600 mt-1">记忆口诀：乘数几位小数，积就是几位小数</div>
+                  </div>
+                  <div class="bg-red-50 border-l-4 border-red-400 p-3 rounded text-sm">
+                    <b class="text-red-800">错误 2：</b>先对齐小数点再相乘（小数乘法不同于加法！）
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-bold text-base brand-green mb-2">🎯 小明今天表现</h3>
+                <div class="bg-green-50 border border-green-100 rounded-lg p-4 text-sm">
+                  <p class="text-gray-700 leading-relaxed">
+                    小明今天的课堂参与度很高，能独立完成前 3 道例题。在小数点位置的判断上，
+                    <b class="brand-green">比上节课有明显进步</b>——只错了 1 题，上次错了 4 题。
+                    建议课后加强估算练习，培养"数感"。
+                  </p>
+                  <div class="mt-3 flex gap-4 text-xs">
+                    <div class="bg-white px-3 py-1 rounded-full">✓ 课堂表现：优秀</div>
+                    <div class="bg-white px-3 py-1 rounded-full">✓ 作业正确率：85%</div>
+                    <div class="bg-white px-3 py-1 rounded-full">⚠️ 需加强：估算</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Homework -->
+          <div>
+            <h3 class="serif text-lg font-bold mb-3">📚 布置作业</h3>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between p-3 bg-amber-50 rounded-lg border border-amber-100">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" class="accent-green-700" />
+                  <div>
+                    <div class="font-semibold text-sm">课本 P18 · 练习三 第 1、3、5 题</div>
+                    <div class="text-xs text-gray-500">截止：明天 19:00</div>
+                  </div>
+                </div>
+                <span class="text-xs brand-orange">必做</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-amber-50 rounded-lg border border-amber-100">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" class="accent-green-700" />
+                  <div>
+                    <div class="font-semibold text-sm">练习册 P14 · 应用题 5 道</div>
+                    <div class="text-xs text-gray-500">截止：周日 18:00</div>
+                  </div>
+                </div>
+                <span class="text-xs brand-orange">必做</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" class="accent-green-700" />
+                  <div>
+                    <div class="font-semibold text-sm">估算练习 10 题（老师发的 PDF）</div>
+                    <div class="text-xs text-gray-500">截止：周日 18:00</div>
+                  </div>
+                </div>
+                <span class="text-xs text-gray-500">选做</span>
+              </div>
+            </div>
+            <button class="mt-4 text-sm bg-brand-green text-white px-5 py-2 rounded-lg font-semibold">📷 上传作业拍照</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next lesson preview -->
+      <div class="bg-gradient-to-br from-green-800 to-green-700 rounded-2xl p-6 text-white">
+        <div class="flex items-center gap-5">
+          <div class="text-5xl">📅</div>
+          <div class="flex-1">
+            <div class="text-xs opacity-80 mb-1">下一节课</div>
+            <div class="serif text-xl font-bold mb-1">第13节 · 小数乘法综合练习</div>
+            <div class="text-xs opacity-90">周六 4月20日 15:00 - 16:30 · 上门 (五华区)</div>
+          </div>
+          <div class="flex gap-2">
+            <button class="bg-white/10 px-4 py-2 rounded-lg text-xs backdrop-blur">改期</button>
+            <button class="bg-white text-green-800 px-4 py-2 rounded-lg text-xs font-bold">查看详情</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="space-y-4">
+
+      <!-- Progress -->
+      <div class="bg-white rounded-2xl p-5 border border-amber-100">
+        <h3 class="font-bold mb-3">📈 小明的学习进度</h3>
+        <div class="mb-4">
+          <div class="flex justify-between text-xs mb-1">
+            <span>本册课程完成度</span>
+            <span class="font-semibold">12/72 课时</span>
+          </div>
+          <div class="h-2 bg-gray-100 rounded-full">
+            <div class="h-full bg-gradient-to-r from-green-500 to-amber-500 rounded-full" style="width:17%"></div>
+          </div>
+        </div>
+        <div class="space-y-2 text-xs">
+          <div class="flex justify-between">
+            <span>✅ 第1单元 小数乘法</span>
+            <span class="text-green-600 font-semibold">进行中 12/12</span>
+          </div>
+          <div class="flex justify-between text-gray-500">
+            <span>⏳ 第2单元 位置</span>
+            <span>0/4</span>
+          </div>
+          <div class="flex justify-between text-gray-500">
+            <span>⏳ 第3单元 小数除法</span>
+            <span>0/14</span>
+          </div>
+          <div class="flex justify-between text-gray-500">
+            <span>⏳ 第4-8单元</span>
+            <span>0/42</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent tests -->
+      <div class="bg-white rounded-2xl p-5 border border-amber-100">
+        <h3 class="font-bold mb-3">📊 近期测验</h3>
+        <div class="space-y-3">
+          <div class="p-3 bg-green-50 rounded-lg">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-sm font-semibold">月考 · 4月</span>
+              <span class="serif text-lg font-bold brand-green">92</span>
+            </div>
+            <div class="text-xs text-gray-600">比上月 <b class="text-green-600">+14 分</b></div>
+          </div>
+          <div class="p-3 bg-gray-50 rounded-lg">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-sm font-semibold">月考 · 3月</span>
+              <span class="serif text-lg">78</span>
+            </div>
+            <div class="text-xs text-gray-600">开始辅导前基础</div>
+          </div>
+        </div>
+        <div class="mt-4 p-3 bg-amber-50 rounded-lg text-xs">
+          <b class="brand-orange">🎉 进步显著！</b>
+          <p class="mt-1 text-gray-700">辅导一个月，小明的数学从 78 分提到了 92 分。学伴为您节省了 <b class="brand-green">¥720</b> 抽成费。</p>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="bg-white rounded-2xl p-5 border border-amber-100">
+        <h3 class="font-bold mb-3">⚡ 快捷操作</h3>
+        <div class="space-y-2">
+          <a href="messages.html" class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded">
+            <span class="text-xl">💬</span>
+            <span class="text-sm">联系赵老师</span>
+          </a>
+          <a href="booking.html" class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded">
+            <span class="text-xl">📅</span>
+            <span class="text-sm">预约下节课</span>
+          </a>
+          <a href="book-detail.html" class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded">
+            <span class="text-xl">📘</span>
+            <span class="text-sm">查看教材目录</span>
+          </a>
+          <a href="#" class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded">
+            <span class="text-xl">⭐</span>
+            <span class="text-sm">写评价</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>老师入驻 · 学伴</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #FDF9F0; color: #1f2937; margin: 0; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand-green { color: #1a5d3a; }
+  .bg-brand-green { background-color: #1a5d3a; }
+  .brand-orange { color: #D97706; }
+  .bg-brand-orange { background-color: #D97706; }
+  .step-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .step.pending .step-dot { background: #e5e7eb; color: #9ca3af; }
+  .step.active .step-dot { background: #1a5d3a; color: white; box-shadow: 0 0 0 6px rgba(26,93,58,0.15); }
+  .step.done .step-dot { background: #22c55e; color: white; }
+  .step.pending .step-label { color: #9ca3af; }
+  .step.active .step-label { color: #1a5d3a; font-weight: 700; }
+  .step.done .step-label { color: #6b7280; }
+  .step-bar { height: 2px; flex: 1; background: #e5e7eb; margin: 0 8px; align-self: center; }
+  .step-bar.done { background: #22c55e; }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fadeIn .3s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
+  .book-chip { cursor: pointer; transition: all .15s; }
+  .book-chip:hover { transform: translateY(-2px); }
+  .book-chip.selected { box-shadow: 0 0 0 3px #1a5d3a, 0 0 0 5px rgba(26,93,58,0.2); }
+  .tag-input { cursor: pointer; border: 1px dashed #d1d5db; padding: 8px 14px; border-radius: 999px; font-size: 13px; transition: all .15s; }
+  .tag-input:hover, .tag-input.selected { border-color: #1a5d3a; background: #F0FDF4; color: #1a5d3a; border-style: solid; }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<nav class="bg-white border-b border-amber-100">
+  <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-lg bg-brand-green text-white flex items-center justify-center font-bold serif text-xl">学</div>
+      <div class="serif font-bold text-lg brand-green">学伴 · 老师入驻</div>
+    </a>
+    <div class="text-xs text-gray-500">已有账户？<a href="auth.html" class="brand-green font-semibold">登录</a></div>
+  </div>
+</nav>
+
+<div class="max-w-5xl mx-auto px-6 py-10">
+
+  <!-- Header -->
+  <div class="text-center mb-10">
+    <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-4 py-1.5 text-xs brand-green mb-4">
+      🎁 首批 500 位老师享一年免费推荐位
+    </div>
+    <h1 class="serif text-3xl md:text-4xl font-bold mb-3">加入学伴 · 您的课时费 100% 归您</h1>
+    <p class="text-gray-600 text-sm">4 步完成入驻，最快 24 小时审核通过开始接单</p>
+  </div>
+
+  <!-- Stepper -->
+  <div class="flex items-center mb-8 max-w-3xl mx-auto">
+    <div class="step done flex items-center gap-2">
+      <div class="step-dot">✓</div>
+      <div class="step-label text-xs">基本信息</div>
+    </div>
+    <div class="step-bar done"></div>
+    <div class="step active flex items-center gap-2">
+      <div class="step-dot">2</div>
+      <div class="step-label text-xs">资质认证</div>
+    </div>
+    <div class="step-bar"></div>
+    <div class="step pending flex items-center gap-2">
+      <div class="step-dot">3</div>
+      <div class="step-label text-xs">教材能力</div>
+    </div>
+    <div class="step-bar"></div>
+    <div class="step pending flex items-center gap-2">
+      <div class="step-dot">4</div>
+      <div class="step-label text-xs">定价 · 完成</div>
+    </div>
+  </div>
+
+  <!-- Step 2 panel (active) -->
+  <div class="bg-white rounded-2xl border border-amber-100 overflow-hidden">
+    <div class="p-8">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center text-2xl flex-shrink-0">🎓</div>
+        <div>
+          <div class="text-xs brand-orange font-semibold mb-1">STEP 2 / 4</div>
+          <h2 class="serif text-2xl font-bold">资质认证</h2>
+          <p class="text-sm text-gray-500 mt-1">真实的资质让家长更信任您。所有信息仅用于学伴内部审核，绝不对外公开。</p>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="mb-6">
+        <label class="text-sm font-semibold mb-3 block">🎓 学历背景 (必填)</label>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs text-gray-500 mb-1 block">毕业院校</label>
+            <input type="text" value="云南师范大学" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
+          </div>
+          <div>
+            <label class="text-xs text-gray-500 mb-1 block">专业</label>
+            <input type="text" value="数学教育" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
+          </div>
+          <div>
+            <label class="text-xs text-gray-500 mb-1 block">学历</label>
+            <select class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm bg-white">
+              <option>本科</option>
+              <option selected>硕士研究生</option>
+              <option>博士</option>
+              <option>在读研究生</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs text-gray-500 mb-1 block">毕业年份</label>
+            <input type="number" value="2021" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload -->
+      <div class="mb-6">
+        <label class="text-sm font-semibold mb-3 block">📄 证件上传 (必填)</label>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="border-2 border-green-300 bg-green-50 rounded-xl p-4 text-center">
+            <div class="text-3xl mb-2">✅</div>
+            <div class="text-sm font-semibold brand-green">身份证</div>
+            <div class="text-xs text-gray-500 mt-1">已上传 · 核验通过</div>
+            <div class="text-[10px] mt-2 text-gray-400">身份证.jpg · 1.2MB</div>
+          </div>
+          <div class="border-2 border-green-300 bg-green-50 rounded-xl p-4 text-center">
+            <div class="text-3xl mb-2">✅</div>
+            <div class="text-sm font-semibold brand-green">学历证书</div>
+            <div class="text-xs text-gray-500 mt-1">已上传 · 学信网核验中</div>
+            <div class="text-[10px] mt-2 text-gray-400">学位证.pdf · 2.1MB</div>
+          </div>
+          <div class="border-2 border-dashed border-gray-200 rounded-xl p-4 text-center cursor-pointer hover:border-green-300 hover:bg-green-50/50 transition">
+            <div class="text-3xl mb-2 opacity-40">📎</div>
+            <div class="text-sm font-semibold text-gray-700">教师资格证 <span class="text-xs text-gray-400 font-normal">(选填)</span></div>
+            <div class="text-xs text-gray-500 mt-1">+15% 推荐权重</div>
+            <div class="text-[10px] mt-2 brand-orange">点击上传</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teaching experience -->
+      <div class="mb-6">
+        <label class="text-sm font-semibold mb-3 block">💼 教学经历</label>
+        <div class="space-y-3">
+          <div class="grid grid-cols-[140px_1fr_120px] gap-3 bg-gray-50 p-4 rounded-lg">
+            <input type="text" value="2021 - 至今" class="px-3 py-2 border border-gray-200 rounded text-sm" />
+            <input type="text" value="昆明春城小学 · 数学教师" class="px-3 py-2 border border-gray-200 rounded text-sm" />
+            <input type="text" value="在职" class="px-3 py-2 border border-gray-200 rounded text-sm" />
+          </div>
+          <div class="grid grid-cols-[140px_1fr_120px] gap-3 bg-gray-50 p-4 rounded-lg">
+            <input type="text" value="2019 - 2021" class="px-3 py-2 border border-gray-200 rounded text-sm" />
+            <input type="text" value="云师大附中 · 实习教师" class="px-3 py-2 border border-gray-200 rounded text-sm" />
+            <input type="text" value="兼职" class="px-3 py-2 border border-gray-200 rounded text-sm" />
+          </div>
+          <button class="text-sm brand-green hover:underline">+ 添加经历</button>
+        </div>
+      </div>
+
+      <!-- Specialties -->
+      <div class="mb-6">
+        <label class="text-sm font-semibold mb-3 block">🎯 教学特长 (多选)</label>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag-input selected">奥数</span>
+          <span class="tag-input selected">中考冲刺</span>
+          <span class="tag-input selected">思维训练</span>
+          <span class="tag-input">应用题</span>
+          <span class="tag-input selected">一对一</span>
+          <span class="tag-input">小组课</span>
+          <span class="tag-input">作文指导</span>
+          <span class="tag-input">阅读理解</span>
+          <span class="tag-input">高考冲刺</span>
+          <span class="tag-input">艺考文化课</span>
+          <span class="tag-input text-gray-400">+ 自定义</span>
+        </div>
+      </div>
+
+      <!-- Tier preview -->
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-5 mb-6">
+        <div class="flex items-start gap-3">
+          <div class="text-2xl">🎖️</div>
+          <div class="flex-1">
+            <div class="text-sm font-semibold text-amber-900">当前资质等级：<span class="brand-green">优秀</span></div>
+            <p class="text-xs text-gray-700 mt-1 leading-relaxed">基于您的学历（硕士）+ 在职教师身份，预计匹配推荐权重 <b>92%</b>。补充教师资格证可提升至 <b>98%</b>。</p>
+            <div class="mt-3 flex gap-4 text-xs">
+              <div><span class="text-gray-500">学历权重</span> <b class="brand-green">+30%</b></div>
+              <div><span class="text-gray-500">在职认证</span> <b class="brand-green">+25%</b></div>
+              <div><span class="text-gray-500">经验年限</span> <b class="brand-green">+20%</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <div class="flex justify-between items-center pt-6 border-t">
+        <a href="#" class="text-sm text-gray-500 hover:brand-green">← 上一步</a>
+        <div class="flex gap-2">
+          <button class="px-5 py-2.5 border border-gray-200 rounded-lg text-sm">保存草稿</button>
+          <a href="#" onclick="event.preventDefault();goNext()" class="px-6 py-2.5 bg-brand-green text-white rounded-lg text-sm font-semibold">下一步 · 教材能力 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3 preview (hidden) -->
+  <div id="step3" class="hidden bg-white rounded-2xl border border-amber-100 overflow-hidden mt-6">
+    <div class="p-8">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-2xl flex-shrink-0">📚</div>
+        <div>
+          <div class="text-xs brand-orange font-semibold mb-1">STEP 3 / 4 · 预览</div>
+          <h2 class="serif text-2xl font-bold">您教过哪些教材？</h2>
+          <p class="text-sm text-gray-500 mt-1">学伴的核心优势就是"按教材匹配"。选择您真实教过的教材版本，系统会把相应的学生精准推给您。</p>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex gap-2 mb-4 flex-wrap">
+        <button class="px-3 py-1.5 bg-brand-green text-white rounded-full text-xs font-semibold">人教版</button>
+        <button class="px-3 py-1.5 bg-gray-100 rounded-full text-xs">云教版</button>
+        <button class="px-3 py-1.5 bg-gray-100 rounded-full text-xs">北师大版</button>
+        <button class="px-3 py-1.5 bg-gray-100 rounded-full text-xs">苏教版</button>
+      </div>
+
+      <!-- Book grid -->
+      <div class="grid grid-cols-6 gap-3 mb-6" id="bookSelect"></div>
+
+      <div class="bg-green-50 border border-green-200 rounded-xl p-4 flex items-start gap-3 text-sm">
+        <div class="text-xl">💡</div>
+        <div>
+          <div class="font-semibold text-green-900">您已选择 4 本教材 · 预计覆盖 280+ 位学生</div>
+          <p class="text-xs text-gray-700 mt-1">选择越精准，推荐越匹配。如遇新学年教材更新，我们会自动提醒您同步。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teacher benefits callout -->
+  <div class="mt-8 grid md:grid-cols-3 gap-4">
+    <div class="bg-white rounded-xl p-5 border border-amber-100">
+      <div class="text-2xl mb-2">💰</div>
+      <h3 class="font-bold mb-1">0% 平台抽成</h3>
+      <p class="text-xs text-gray-600">您收的每一分钱全归您。平台靠会员和出版社合作盈利，不从您的课时费中抽成。</p>
+    </div>
+    <div class="bg-white rounded-xl p-5 border border-amber-100">
+      <div class="text-2xl mb-2">🎯</div>
+      <h3 class="font-bold mb-1">精准匹配</h3>
+      <p class="text-xs text-gray-600">家长扫课本时，系统优先推荐教过这本教材的您。被选中的概率比通用平台高 8 倍。</p>
+    </div>
+    <div class="bg-white rounded-xl p-5 border border-amber-100">
+      <div class="text-2xl mb-2">🤝</div>
+      <h3 class="font-bold mb-1">学生归您</h3>
+      <p class="text-xs text-gray-600">您和家长直接对接，可以随时交换微信、建立长期关系。我们不绑定、不拦截。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const BOOKS = [
+  { name:"数学·五上", color:"linear-gradient(135deg,#F59E0B,#B45309)", selected:true },
+  { name:"数学·六上", color:"linear-gradient(135deg,#F59E0B,#B45309)", selected:true },
+  { name:"数学·七上", color:"linear-gradient(135deg,#F59E0B,#B45309)", selected:true },
+  { name:"数学·八下", color:"linear-gradient(135deg,#F59E0B,#B45309)", selected:true },
+  { name:"数学·九上", color:"linear-gradient(135deg,#F59E0B,#B45309)" },
+  { name:"语文·五上", color:"linear-gradient(135deg,#10B981,#047857)" },
+  { name:"物理·八下", color:"linear-gradient(135deg,#3B82F6,#1E40AF)" },
+  { name:"英语·五上", color:"linear-gradient(135deg,#8B5CF6,#6D28D9)" },
+  { name:"数学·必修一", color:"linear-gradient(135deg,#F59E0B,#B45309)" },
+  { name:"化学·必修一", color:"linear-gradient(135deg,#EC4899,#9F1239)" },
+  { name:"物理·必修一", color:"linear-gradient(135deg,#3B82F6,#1E40AF)" },
+  { name:"生物·必修一", color:"linear-gradient(135deg,#14B8A6,#065F46)" }
+];
+
+const grid = document.getElementById('bookSelect');
+BOOKS.forEach(b => {
+  const d = document.createElement('div');
+  d.className = `book-chip rounded-lg p-2 text-white text-center ${b.selected ? 'selected' : 'opacity-60'}`;
+  d.style.background = b.color;
+  d.innerHTML = `
+    <div class="text-[10px] opacity-80">人教版</div>
+    <div class="text-xs font-bold serif leading-tight mt-1">${b.name}</div>
+    ${b.selected ? '<div class="text-[10px] mt-1">✓ 已选</div>' : '<div class="text-[10px] mt-1">点击添加</div>'}
+  `;
+  d.addEventListener('click', () => {
+    d.classList.toggle('selected');
+    d.classList.toggle('opacity-60');
+  });
+  grid.appendChild(d);
+});
+
+function goNext() {
+  document.getElementById('step3').classList.remove('hidden');
+  document.getElementById('step3').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

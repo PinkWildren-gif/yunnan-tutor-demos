@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>平台管理后台 · 学伴</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #0F172A; color: #E2E8F0; margin: 0; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .nav-link { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; color: #94A3B8; font-size: 14px; }
+  .nav-link:hover { background: rgba(255,255,255,0.05); color: white; }
+  .nav-link.active { background: #1E40AF; color: white; font-weight: 600; }
+  .card { background: #1E293B; border-radius: 16px; padding: 20px; border: 1px solid #334155; }
+  table { width: 100%; font-size: 13px; }
+  th { text-align: left; padding: 10px 14px; color: #94A3B8; font-weight: 600; font-size: 11px; background: #0F172A; border-bottom: 1px solid #334155; }
+  td { padding: 14px; border-bottom: 1px solid #1E293B; color: #CBD5E1; }
+  tr:hover td { background: rgba(59,130,246,0.05); }
+  .badge-green { background: rgba(34,197,94,0.2); color: #4ADE80; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+  .badge-red { background: rgba(239,68,68,0.2); color: #F87171; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+  .badge-amber { background: rgba(245,158,11,0.2); color: #FBBF24; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+</style>
+</head>
+<body>
+
+<div class="flex min-h-screen">
+
+  <aside class="w-60 bg-slate-900 border-r border-slate-800 p-4 flex flex-col">
+    <a href="index.html" class="flex items-center gap-2 mb-6 px-2">
+      <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center font-bold serif text-xl">学</div>
+      <div>
+        <div class="serif font-bold">学伴 · 平台后台</div>
+        <div class="text-[10px] text-slate-500">Internal Admin</div>
+      </div>
+    </a>
+
+    <div class="mb-4 bg-blue-900/30 border border-blue-800/40 rounded-lg p-3">
+      <div class="text-[10px] text-blue-300">当前登录</div>
+      <div class="text-sm font-bold mt-0.5">陆安迪</div>
+      <div class="text-[10px] text-slate-400">超级管理员 · 创始人</div>
+    </div>
+
+    <nav class="space-y-1 flex-1">
+      <a href="admin.html" class="nav-link active">📊 <span>总览</span></a>
+      <a href="#" class="nav-link">👨‍👩‍👧 <span>家长管理</span></a>
+      <a href="#" class="nav-link">🎓 <span>老师管理</span> <span class="ml-auto bg-red-500 text-white text-[10px] px-1.5 rounded-full">8</span></a>
+      <a href="#" class="nav-link">📘 <span>教材管理</span></a>
+      <a href="publisher.html" class="nav-link">🏢 <span>出版社合作</span></a>
+      <a href="#" class="nav-link">💰 <span>财务流水</span></a>
+      <a href="#" class="nav-link">💬 <span>客服工单</span> <span class="ml-auto bg-amber-500 text-white text-[10px] px-1.5 rounded-full">3</span></a>
+      <a href="#" class="nav-link">⚠️ <span>风控与投诉</span></a>
+      <a href="#" class="nav-link">🎯 <span>运营活动</span></a>
+      <a href="#" class="nav-link">⚙️ <span>系统设置</span></a>
+    </nav>
+  </aside>
+
+  <main class="flex-1 p-8 overflow-auto">
+
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="serif text-3xl font-bold text-white">平台总览</h1>
+        <p class="text-sm text-slate-400 mt-1">2026年4月18日 · 实时数据</p>
+      </div>
+      <div class="flex gap-2">
+        <select class="bg-slate-800 border border-slate-700 text-white rounded-lg px-3 py-2 text-sm">
+          <option>本月</option><option>本季度</option><option>本年</option>
+        </select>
+        <button class="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg text-sm font-semibold">📥 导出数据</button>
+      </div>
+    </div>
+
+    <!-- KPI row -->
+    <div class="grid grid-cols-4 gap-4 mb-6">
+      <div class="card">
+        <div class="text-xs text-slate-400">总家长数</div>
+        <div class="serif text-3xl font-bold text-white mt-1">12,094</div>
+        <div class="text-xs text-green-400 mt-1">↑ 本月 +3,582</div>
+      </div>
+      <div class="card">
+        <div class="text-xs text-slate-400">总老师数</div>
+        <div class="serif text-3xl font-bold text-white mt-1">2,417</div>
+        <div class="text-xs text-green-400 mt-1">↑ 本月 +147</div>
+      </div>
+      <div class="card">
+        <div class="text-xs text-slate-400">活跃学生</div>
+        <div class="serif text-3xl font-bold text-white mt-1">8,236</div>
+        <div class="text-xs text-green-400 mt-1">活跃率 68%</div>
+      </div>
+      <div class="card bg-gradient-to-br from-blue-900 to-indigo-900 border-blue-700">
+        <div class="text-xs text-blue-200">本月平台收入</div>
+        <div class="serif text-3xl font-bold text-white mt-1">¥487,320</div>
+        <div class="text-xs text-blue-300 mt-1">↑ 42% vs 上月</div>
+      </div>
+    </div>
+
+    <!-- Revenue breakdown -->
+    <div class="grid grid-cols-3 gap-4 mb-6">
+      <div class="col-span-2 card">
+        <div class="flex justify-between items-center mb-5">
+          <h2 class="serif text-lg font-bold text-white">收入构成 · 本月</h2>
+          <div class="text-xs text-slate-400">累计：<b class="text-white">¥487,320</b></div>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div>
+            <div class="flex justify-between mb-1">
+              <span>家长会员</span>
+              <span class="font-bold text-white">¥281,130 · 58%</span>
+            </div>
+            <div class="h-3 bg-slate-700 rounded-full"><div class="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style="width:58%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1">
+              <span>出版社分成</span>
+              <span class="font-bold text-white">¥124,280 · 25%</span>
+            </div>
+            <div class="h-3 bg-slate-700 rounded-full"><div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full" style="width:25%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1">
+              <span>老师增值服务</span>
+              <span class="font-bold text-white">¥56,830 · 12%</span>
+            </div>
+            <div class="h-3 bg-slate-700 rounded-full"><div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width:12%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1">
+              <span>其他（内容、B2B）</span>
+              <span class="font-bold text-white">¥25,080 · 5%</span>
+            </div>
+            <div class="h-3 bg-slate-700 rounded-full"><div class="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full" style="width:5%"></div></div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700 text-xs text-slate-400">
+            💡 <b class="text-white">没有一分钱来自课时费抽成</b>。这是我们和其他平台最本质的区别。
+          </div>
+        </div>
+      </div>
+
+      <!-- Cities breakdown -->
+      <div class="card">
+        <h2 class="serif text-lg font-bold text-white mb-4">城市活跃度</h2>
+        <div class="space-y-3 text-sm">
+          <div class="flex items-center gap-2">
+            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+            <span class="flex-1">昆明</span>
+            <span class="text-white font-bold">8,420</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2 h-2 rounded-full bg-cyan-500"></div>
+            <span class="flex-1">大理</span>
+            <span class="text-white font-bold">1,830</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2 h-2 rounded-full bg-amber-500"></div>
+            <span class="flex-1">曲靖</span>
+            <span class="text-white font-bold">1,120</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+            <span class="flex-1">玉溪</span>
+            <span class="text-white font-bold">420</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+            <span class="flex-1">丽江</span>
+            <span class="text-white font-bold">220</span>
+          </div>
+          <div class="flex items-center gap-2 opacity-60">
+            <div class="w-2 h-2 rounded-full bg-slate-500"></div>
+            <span class="flex-1">其他</span>
+            <span class="font-bold">84</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pending tutor reviews -->
+    <div class="card mb-6">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="serif text-lg font-bold text-white">🎓 待审核老师 (8)</h2>
+        <a href="#" class="text-xs text-blue-400">查看全部 →</a>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>申请人</th>
+            <th>学校/背景</th>
+            <th>科目</th>
+            <th>资质</th>
+            <th>自评分</th>
+            <th>提交时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-purple-700 flex items-center justify-center font-bold text-white text-xs">黄</div><span>黄思远</span></div></td>
+            <td class="text-slate-400 text-xs">云南大学 · 物理硕士</td>
+            <td>高中物理</td>
+            <td><span class="badge-green">学历 ✓ 身份 ✓</span></td>
+            <td><b class="text-white">92</b></td>
+            <td class="text-slate-400 text-xs">2小时前</td>
+            <td class="flex gap-2">
+              <button class="text-xs bg-green-600 hover:bg-green-500 px-3 py-1 rounded">通过</button>
+              <button class="text-xs border border-slate-600 text-slate-400 px-3 py-1 rounded">详情</button>
+            </td>
+          </tr>
+          <tr>
+            <td><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-pink-700 flex items-center justify-center font-bold text-white text-xs">周</div><span>周雅芝</span></div></td>
+            <td class="text-slate-400 text-xs">云师大 · 英语本科</td>
+            <td>小初英语</td>
+            <td><span class="badge-green">学历 ✓ 身份 ✓</span></td>
+            <td><b class="text-white">86</b></td>
+            <td class="text-slate-400 text-xs">5小时前</td>
+            <td class="flex gap-2">
+              <button class="text-xs bg-green-600 hover:bg-green-500 px-3 py-1 rounded">通过</button>
+              <button class="text-xs border border-slate-600 text-slate-400 px-3 py-1 rounded">详情</button>
+            </td>
+          </tr>
+          <tr>
+            <td><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-amber-700 flex items-center justify-center font-bold text-white text-xs">吴</div><span>吴建华</span></div></td>
+            <td class="text-slate-400 text-xs">昆明第一中学 · 在职</td>
+            <td>高中数学</td>
+            <td><span class="badge-green">学历 ✓ 在职 ✓</span></td>
+            <td><b class="text-green-400">98</b></td>
+            <td class="text-slate-400 text-xs">昨天</td>
+            <td class="flex gap-2">
+              <button class="text-xs bg-green-600 hover:bg-green-500 px-3 py-1 rounded">通过</button>
+              <button class="text-xs border border-slate-600 text-slate-400 px-3 py-1 rounded">详情</button>
+            </td>
+          </tr>
+          <tr>
+            <td><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-red-700 flex items-center justify-center font-bold text-white text-xs">李</div><span>李建立</span></div></td>
+            <td class="text-slate-400 text-xs">未核验院校</td>
+            <td>初中数学</td>
+            <td><span class="badge-red">学历待核验</span></td>
+            <td><b class="text-white">42</b></td>
+            <td class="text-slate-400 text-xs">2天前</td>
+            <td class="flex gap-2">
+              <button class="text-xs border border-amber-600 text-amber-400 px-3 py-1 rounded">补材料</button>
+              <button class="text-xs border border-slate-600 text-slate-400 px-3 py-1 rounded">详情</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Two column -->
+    <div class="grid grid-cols-2 gap-4 mb-6">
+      <!-- Recent tickets -->
+      <div class="card">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="serif text-lg font-bold text-white">💬 最新客服工单</h2>
+          <span class="badge-amber">3 待处理</span>
+        </div>
+        <div class="space-y-3">
+          <div class="p-3 bg-amber-900/20 border border-amber-700/30 rounded-lg">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <div class="text-sm font-semibold">家长反馈：老师迟到 20 分钟</div>
+                <div class="text-xs text-slate-400 mt-1">#4218 · 王妈妈 · 赵老师 · 刚刚</div>
+              </div>
+              <button class="text-xs bg-amber-600 px-3 py-1 rounded">处理</button>
+            </div>
+          </div>
+          <div class="p-3 bg-slate-800 rounded-lg">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <div class="text-sm font-semibold">老师询问：微信结算到账时间</div>
+                <div class="text-xs text-slate-400 mt-1">#4217 · 李老师 · 2小时前</div>
+              </div>
+              <button class="text-xs bg-slate-700 px-3 py-1 rounded">处理</button>
+            </div>
+          </div>
+          <div class="p-3 bg-slate-800 rounded-lg">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <div class="text-sm font-semibold">扫码识别不出教材</div>
+                <div class="text-xs text-slate-400 mt-1">#4215 · 刘妈妈 · 4小时前</div>
+              </div>
+              <button class="text-xs bg-slate-700 px-3 py-1 rounded">处理</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Risk alerts -->
+      <div class="card">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="serif text-lg font-bold text-white">⚠️ 风控提醒</h2>
+          <span class="badge-red">2 高优先级</span>
+        </div>
+        <div class="space-y-3">
+          <div class="p-3 bg-red-900/20 border border-red-700/30 rounded-lg">
+            <div class="text-sm font-semibold">🚨 疑似重复账号</div>
+            <div class="text-xs text-slate-400 mt-1">用户 "xxxxx8732" 与 "xxxxx8733" 手机号一字之差，行为模式相同。</div>
+            <button class="text-xs text-red-400 mt-2">审查详情 →</button>
+          </div>
+          <div class="p-3 bg-red-900/20 border border-red-700/30 rounded-lg">
+            <div class="text-sm font-semibold">🚨 异常高频扫码</div>
+            <div class="text-xs text-slate-400 mt-1">IP 182.xxx.xxx.xxx 在 10 分钟内扫描 42 次，疑似爬虫。</div>
+            <button class="text-xs text-red-400 mt-2">封禁 IP →</button>
+          </div>
+          <div class="p-3 bg-slate-800 rounded-lg">
+            <div class="text-sm font-semibold">⚠️ 新老师聊天关键词命中</div>
+            <div class="text-xs text-slate-400 mt-1">"陈老师" 在聊天中使用"微信交易"敏感词，但初步判断是正常沟通。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity chart -->
+    <div class="card">
+      <div class="flex justify-between items-center mb-5">
+        <h2 class="serif text-lg font-bold text-white">平台活跃度 · 近 14 天</h2>
+        <div class="flex gap-4 text-xs">
+          <span class="flex items-center gap-1"><span class="w-3 h-3 bg-blue-500 rounded"></span> DAU 家长</span>
+          <span class="flex items-center gap-1"><span class="w-3 h-3 bg-amber-500 rounded"></span> DAU 老师</span>
+          <span class="flex items-center gap-1"><span class="w-3 h-3 bg-green-500 rounded"></span> 新增注册</span>
+        </div>
+      </div>
+      <svg viewBox="0 0 1200 220" class="w-full">
+        <g id="chart"></g>
+      </svg>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const days = ['4/5','4/6','4/7','4/8','4/9','4/10','4/11','4/12','4/13','4/14','4/15','4/16','4/17','4/18'];
+const parents = [2800,2920,3100,3240,3180,3420,3580,3720,3840,3920,4100,4240,4380,4520];
+const tutors = [480,510,540,560,580,620,640,660,680,700,720,740,760,780];
+const signups = [82,94,110,125,120,138,156,172,184,192,210,228,240,258];
+
+const chartW = 1200, chartH = 200, padL = 50, padR = 20, padT = 20, padB = 40;
+const colW = (chartW - padL - padR) / days.length;
+const max = 5000;
+
+const chart = document.getElementById('chart');
+let html = '';
+
+for (let i = 0; i <= 4; i++) {
+  const y = padT + (chartH - padT - padB) * i / 4;
+  const v = Math.round(max * (1 - i / 4));
+  html += `<line x1="${padL}" y1="${y}" x2="${chartW - padR}" y2="${y}" stroke="#334155"/>`;
+  html += `<text x="${padL - 6}" y="${y + 4}" text-anchor="end" font-size="10" fill="#64748B">${v}</text>`;
+}
+
+// Build area paths
+function pathFor(values, color) {
+  let pts = '';
+  values.forEach((v, i) => {
+    const x = padL + i * colW + colW/2;
+    const y = padT + (chartH - padT - padB) - (v/max) * (chartH - padT - padB);
+    pts += `${x},${y} `;
+  });
+  return pts;
+}
+
+html += `<polyline points="${pathFor(parents)}" fill="none" stroke="#3B82F6" stroke-width="2.5"/>`;
+html += `<polyline points="${pathFor(tutors)}" fill="none" stroke="#F59E0B" stroke-width="2.5"/>`;
+html += `<polyline points="${pathFor(signups)}" fill="none" stroke="#10B981" stroke-width="2.5"/>`;
+
+parents.forEach((v, i) => {
+  const x = padL + i * colW + colW/2;
+  const y = padT + (chartH - padT - padB) - (v/max) * (chartH - padT - padB);
+  html += `<circle cx="${x}" cy="${y}" r="3" fill="#3B82F6"/>`;
+  html += `<text x="${x}" y="${chartH - padB + 16}" text-anchor="middle" font-size="10" fill="#64748B">${days[i]}</text>`;
+});
+tutors.forEach((v, i) => {
+  const x = padL + i * colW + colW/2;
+  const y = padT + (chartH - padT - padB) - (v/max) * (chartH - padT - padB);
+  html += `<circle cx="${x}" cy="${y}" r="3" fill="#F59E0B"/>`;
+});
+signups.forEach((v, i) => {
+  const x = padL + i * colW + colW/2;
+  const y = padT + (chartH - padT - padB) - (v/max) * (chartH - padT - padB);
+  html += `<circle cx="${x}" cy="${y}" r="3" fill="#10B981"/>`;
+});
+chart.innerHTML = html;
+</script>
+</body>
+</html>
