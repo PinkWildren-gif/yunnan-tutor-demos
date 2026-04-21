@@ -330,17 +330,22 @@
   </div>
 </div>
 
+<script src="data.js"></script>
 <script>
-const TUTORS = [
-  { name:"赵娟", school:"云师大 · 一级教师", dist:"1.2km", match:98, rating:5.0, reviews:210, price:160, years:10, color:"linear-gradient(135deg,#16a34a,#14532d)" },
-  { name:"李明", school:"云师大 · 研究生", dist:"2.8km", match:92, rating:4.9, reviews:127, price:180, years:5, color:"linear-gradient(135deg,#C8102E,#7f1d1d)" },
-  { name:"王磊", school:"退休教师 · 25年经验", dist:"3.5km", match:89, rating:4.8, reviews:167, price:120, years:25, color:"linear-gradient(135deg,#ea580c,#9a3412)" }
-];
+// Find all tutors who have taught this book (数学·五上)
+const relevantTutors = TUTORS
+  .filter(t => t.books.some(b => b.includes('数学·五上') || b.includes('数学·四上') || b.includes('数学·五下')))
+  .sort((a,b) => b.rating - a.rating)
+  .slice(0, 3);
+
+const distances = { '西山区': 1.2, '五华区': 2.8, '盘龙区': 3.5, '官渡区': 4.1, '呈贡区': 5.6 };
 
 const el = document.getElementById('tutors');
-TUTORS.forEach((t, i) => {
+relevantTutors.forEach((t, i) => {
+  const match = t.books.includes('人教·数学·五上') ? 98 : 92;
+  const dist = (distances[t.district] || 4.0).toFixed(1);
   const card = document.createElement('a');
-  card.href = `tutor.html`;
+  card.href = `tutor.html?id=${t.id}`;
   card.className = 'bg-white rounded-2xl border border-amber-100 p-5 hover:shadow-lg transition';
   card.innerHTML = `
     <div class="flex items-start gap-3 mb-3">
@@ -354,16 +359,16 @@ TUTORS.forEach((t, i) => {
       </div>
     </div>
     <div class="bg-amber-50 rounded-lg p-2.5 text-xs text-amber-900 mb-3">
-      📘 教过本教材 <b>${t.years >= 10 ? '8年' : '4年'}</b>
+      📘 教过本教材 <b>${Math.min(t.years, 8)}年</b>
     </div>
     <div class="flex items-center justify-between text-xs mb-3">
       <span class="text-yellow-600">⭐ ${t.rating} (${t.reviews})</span>
-      <span class="text-gray-500">📍 ${t.dist}</span>
+      <span class="text-gray-500">📍 ${dist}km</span>
     </div>
     <div class="flex items-end justify-between pt-3 border-t">
       <div>
         <div class="text-[10px] text-gray-500">匹配度</div>
-        <div class="serif text-xl font-bold brand-green">${t.match}%</div>
+        <div class="serif text-xl font-bold brand-green">${match}%</div>
       </div>
       <div class="text-right">
         <div class="serif text-xl font-bold">¥${t.price}</div>

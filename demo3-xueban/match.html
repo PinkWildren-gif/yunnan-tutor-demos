@@ -69,14 +69,15 @@
   <!-- Results header -->
   <div class="flex items-end justify-between mb-5">
     <div>
-      <h2 class="serif text-xl font-bold">为您精选的 <span class="brand-green">5</span> 位老师</h2>
+      <h2 class="serif text-xl font-bold">为您精选的 <span id="matchCount" class="brand-green">0</span> 位老师</h2>
       <p class="text-sm text-gray-500 mt-1">按教材匹配度 + 距离 + 评分排序，0平台抽成</p>
     </div>
-    <select class="text-sm border border-amber-200 rounded-lg px-3 py-2 bg-white">
-      <option>综合推荐</option>
-      <option>距离最近</option>
-      <option>好评最高</option>
-      <option>价格由低到高</option>
+    <select id="matchSort" class="text-sm border border-amber-200 rounded-lg px-3 py-2 bg-white">
+      <option value="match">综合推荐</option>
+      <option value="dist">距离最近</option>
+      <option value="rating">好评最高</option>
+      <option value="priceAsc">价格由低到高</option>
+      <option value="priceDesc">价格由高到低</option>
     </select>
   </div>
 
@@ -93,64 +94,66 @@
   </div>
 </div>
 
+<script src="data.js"></script>
 <script>
-const MATCHES = [
-  {
-    name: "赵娟", subject: "小学语数", dist: "1.2km",
-    school: "云师大 · 汉语言文学 · 在职一级教师",
-    match: 98, price: 160, rating: 5.0, reviews: 210, years: 10,
-    bookExp: "教授人教版小学数学5年级 8年",
-    highlight: "曾任教昆明春城小学，深度参与人教版数学教辅编写",
-    tags: ["人教版精通", "西山区", "一级教师", "🎁 首课免费"],
-    color: "linear-gradient(135deg,#16a34a,#14532d)"
-  },
-  {
-    name: "李明", subject: "小初数学", dist: "2.8km",
-    school: "云南师范大学 · 数学研究生",
-    match: 92, price: 180, rating: 4.9, reviews: 127,
-    years: 5, bookExp: "熟悉人教版小学数学各册",
-    highlight: "擅长知识体系梳理，用思维导图帮孩子理清概念",
-    tags: ["人教版", "五华区", "云师大", "🎁 首课免费"],
-    color: "linear-gradient(135deg,#C8102E,#7f1d1d)"
-  },
-  {
-    name: "王磊", subject: "小学数学", dist: "3.5km",
-    school: "云南民族大学 · 退休教师",
-    match: 89, price: 120, rating: 4.8, reviews: 167,
-    years: 25, bookExp: "教授人教版小学数学 20+ 年",
-    highlight: "退休返聘，耐心好，价格亲民，深受家长信赖",
-    tags: ["经验丰富", "盘龙区", "25年教龄", "🎁 首课免费"],
-    color: "linear-gradient(135deg,#ea580c,#9a3412)"
-  },
-  {
-    name: "陈莹", subject: "小学全科", dist: "4.1km",
-    school: "云南大学 · 教育学硕士",
-    match: 85, price: 150, rating: 4.7, reviews: 92,
-    years: 4, bookExp: "熟悉人教版 + 北师大版",
-    highlight: "善于沟通，家长反馈孩子学习积极性明显提升",
-    tags: ["教育学硕士", "官渡区", "🎁 首课免费"],
-    color: "linear-gradient(135deg,#0ea5e9,#075985)"
-  },
-  {
-    name: "刘洋", subject: "小学数学", dist: "5.6km",
-    school: "华中师大 · 教育技术本科",
-    match: 80, price: 140, rating: 4.8, reviews: 68,
-    years: 3, bookExp: "教过人教版小学数学5-6年级",
-    highlight: "年轻老师，擅长用游戏和 iPad 工具教学",
-    tags: ["年轻活力", "呈贡区", "🎁 首课免费"],
-    color: "linear-gradient(135deg,#8b5cf6,#4c1d95)"
-  }
-];
+// Find tutors who have taught 人教·数学·五上 (the book we just "scanned")
+const targetBook = '人教·数学·五上';
+const distances = { '西山区': 1.2, '五华区': 2.8, '盘龙区': 3.5, '官渡区': 4.1, '呈贡区': 5.6 };
 
-const list = document.getElementById('matchList');
-MATCHES.forEach((t, i) => {
-  const card = document.createElement('div');
-  card.className = 'bg-white rounded-2xl border border-amber-100 p-5 hover:shadow-lg transition';
-  card.innerHTML = `
+// Enrich matched tutors with match % and distance
+let MATCHES = TUTORS
+  .filter(t => t.books.some(b => b.includes('人教·数学') && (b.includes('五上') || b.includes('五下') || b.includes('四上') || b.includes('六上'))))
+  .map(t => {
+    // Calculate match %
+    const exactBook = t.books.includes(targetBook);
+    const closeBook = t.books.some(b => b.includes('人教·数学'));
+    let match = 60;
+    if (exactBook) match += 30;
+    else if (closeBook) match += 20;
+    if (t.verified.includes('一级教师')) match += 5;
+    if (t.verified.includes('特级教师')) match += 5;
+    if (t.rating >= 4.9) match += 3;
+    match = Math.min(98, match);
+
+    const bookExp = exactBook
+      ? `教授 ${targetBook} ${Math.min(t.years, 8)} 年`
+      : `教过人教版数学 ${Math.min(t.years, 10)}+ 年`;
+
+    return {
+      ...t,
+      match,
+      dist: distances[t.district] || 5.0,
+      bookExp,
+      highlight: t.bio.split('。')[0] + '。'
+    };
+  });
+
+let currentSort = 'match';
+
+function renderMatches() {
+  let sorted = MATCHES.slice();
+  switch (currentSort) {
+    case 'match':      sorted.sort((a,b) => b.match - a.match); break;
+    case 'dist':       sorted.sort((a,b) => a.dist - b.dist); break;
+    case 'rating':     sorted.sort((a,b) => b.rating - a.rating); break;
+    case 'priceAsc':   sorted.sort((a,b) => a.price - b.price); break;
+    case 'priceDesc':  sorted.sort((a,b) => b.price - a.price); break;
+  }
+
+  document.getElementById('matchCount').textContent = sorted.length;
+  const list = document.getElementById('matchList');
+  list.innerHTML = '';
+
+  sorted.forEach((t, i) => {
+    const card = document.createElement('div');
+    card.className = 'bg-white rounded-2xl border border-amber-100 p-5 hover:shadow-lg transition';
+    card.innerHTML = `
     <div class="flex gap-5">
       <!-- Avatar -->
       <div class="flex-shrink-0 text-center">
-        <div class="w-20 h-20 rounded-2xl flex items-center justify-center font-bold text-white text-3xl serif" style="background:${t.color}">${t.name[0]}</div>
+        <a href="tutor.html?id=${t.id}">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center font-bold text-white text-3xl serif" style="background:${t.color}">${t.name[0]}</div>
+        </a>
         <div class="mt-2">
           <div class="text-[10px] text-gray-500">匹配度</div>
           <div class="text-lg font-bold brand-green">${t.match}%</div>
@@ -181,19 +184,27 @@ MATCHES.forEach((t, i) => {
 
         <div class="flex items-end justify-between pt-3 border-t">
           <div>
-            <div class="text-xs text-yellow-600">⭐ ${t.rating} (${t.reviews}) · 教龄 ${t.years}年</div>
+            <div class="text-xs text-yellow-600">⭐ ${t.rating} (${t.reviews}) · 教龄 ${t.years}年 · 距离 ${t.dist}km</div>
             <div class="text-xl font-bold serif mt-1">¥${t.price}<span class="text-xs text-gray-400 font-normal">/课时 · 老师自主定价</span></div>
           </div>
           <div class="flex gap-2">
-            <button class="text-sm px-4 py-2 border border-gray-200 rounded-lg">查看详情</button>
-            <button class="text-sm px-4 py-2 bg-brand-green text-white rounded-lg font-semibold" onclick="alert('演示版本：扫码添加${t.name}老师微信')">💬 直接联系</button>
+            <a href="tutor.html?id=${t.id}" class="text-sm px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50">查看详情</a>
+            <a href="messages.html?id=${t.id}" class="text-sm px-4 py-2 bg-brand-green text-white rounded-lg font-semibold">💬 直接联系</a>
           </div>
         </div>
       </div>
     </div>
-  `;
-  list.appendChild(card);
+    `;
+    list.appendChild(card);
+  });
+}
+
+document.getElementById('matchSort').addEventListener('change', e => {
+  currentSort = e.target.value;
+  renderMatches();
 });
+
+renderMatches();
 </script>
 </body>
 </html>
