@@ -170,51 +170,130 @@
       <p class="text-sm text-gray-500 mt-2">学伴永远 0 抽成 · 入驻只需要基本信息审核</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-      <div class="bg-green-50 rounded-2xl p-8 border-2 border-green-200">
-        <div class="text-xs text-green-700 font-semibold mb-2">基础入驻</div>
+    <div class="grid md:grid-cols-3 gap-5 items-center">
+      <!-- Free tier -->
+      <div class="bg-white rounded-2xl p-7 border-2 border-gray-100">
+        <div class="text-xs text-gray-500 mb-2">基础入驻</div>
         <h3 class="serif text-2xl font-bold mb-1">免费版</h3>
-        <div class="flex items-baseline gap-1 mb-6">
-          <span class="serif text-4xl font-bold brand-green">¥0</span>
+        <div class="flex items-baseline gap-1 mb-4">
+          <span class="serif text-4xl font-bold">¥0</span>
           <span class="text-sm text-gray-500">/ 永久</span>
         </div>
-        <a href="onboard.html" class="block w-full bg-brand-green text-white py-3 rounded-lg font-bold text-sm mb-6 text-center">免费入驻 →</a>
+        <p class="text-xs text-gray-500 mb-5">适合刚加入学伴的新老师</p>
+        <a href="onboard.html" class="block w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-semibold text-sm mb-6 text-center">免费入驻</a>
         <div class="space-y-2 text-sm">
           <div class="flex gap-2"><span class="brand-green">✓</span><span>完整个人主页</span></div>
           <div class="flex gap-2"><span class="brand-green">✓</span><span>接收匹配请求</span></div>
           <div class="flex gap-2"><span class="brand-green">✓</span><span>与家长直接沟通</span></div>
           <div class="flex gap-2"><span class="brand-green">✓</span><span>课程日程管理</span></div>
           <div class="flex gap-2"><span class="brand-green">✓</span><span>收入明细追踪</span></div>
-          <div class="flex gap-2 font-bold"><span class="brand-green">✓</span><span>课时费 <u>100%</u> 归您，永远不抽成</span></div>
+          <div class="flex gap-2 font-bold"><span class="brand-green">✓</span><span>课时费 <u>100%</u> 归您</span></div>
+          <div class="flex gap-2 text-gray-400"><span>×</span><span>首页推荐曝光</span></div>
+          <div class="flex gap-2 text-gray-400"><span>×</span><span>搜索结果置顶</span></div>
         </div>
       </div>
 
-      <div class="bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl p-8 text-white">
+      <!-- Featured tier -->
+      <div class="bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl p-7 text-white relative shadow-2xl scale-105 z-10">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-orange-700 text-xs px-4 py-1 rounded-full font-bold">⭐ 老师最爱</div>
         <div class="text-xs opacity-80 mb-2">👑 推荐老师</div>
-        <h3 class="serif text-2xl font-bold mb-1">增值版</h3>
+        <h3 class="serif text-2xl font-bold mb-1">推荐版</h3>
         <div class="flex items-baseline gap-1 mb-1">
-          <span class="serif text-4xl font-bold">¥199</span>
-          <span class="text-sm opacity-80">/ 月</span>
+          <span class="serif text-4xl font-bold">¥45</span>
+          <span class="text-sm opacity-80">/ 30 天</span>
         </div>
-        <p class="text-xs opacity-80 mb-5">平均每月多接 5-8 个学生，ROI 15 倍</p>
-        <button class="w-full bg-white text-orange-700 py-3 rounded-lg font-bold text-sm mb-6">升级为推荐老师</button>
+        <p class="text-xs opacity-80 mb-4">每天 1.5 元 · 约 1 节课回本</p>
+        <div class="bg-white/15 rounded-lg p-2 text-xs mb-4">
+          📈 或 <b>¥98 / 90天</b>（七折）· <b>¥168 / 一年</b>（三折）
+        </div>
+        <button class="w-full bg-white text-orange-700 py-3 rounded-lg font-bold text-sm mb-5">升级为推荐老师</button>
         <div class="space-y-2 text-sm">
           <div class="flex gap-2"><span class="text-amber-200">✓</span><span>包含免费版所有权益</span></div>
           <div class="flex gap-2"><span class="text-amber-200">✓</span><span>首页推荐位</span></div>
           <div class="flex gap-2"><span class="text-amber-200">✓</span><span>搜索结果置顶</span></div>
+          <div class="flex gap-2"><span class="text-amber-200">✓</span><span>附近新学员短信提醒</span></div>
           <div class="flex gap-2"><span class="text-amber-200">✓</span><span>主页个性化皮肤</span></div>
           <div class="flex gap-2"><span class="text-amber-200">✓</span><span>学生数据洞察</span></div>
-          <div class="flex gap-2"><span class="text-amber-200">✓</span><span>视频作品加权推荐</span></div>
-          <div class="flex gap-2"><span class="text-amber-200">✓</span><span>专属运营老师指导</span></div>
         </div>
-        <div class="mt-4 bg-white/10 rounded-lg p-3 text-xs">
-          <b>💡 与其他平台对比：</b><br/>
-          在掌门1对1月入 ¥20,000，抽走 ¥8,000；<br/>
-          在学伴月入 ¥20,000，仅花 ¥199 升级费，<br/>
-          <b>净多赚 ¥7,801</b>
+      </div>
+
+      <!-- Pro tier -->
+      <div class="bg-white rounded-2xl p-7 border-2 border-green-200">
+        <div class="text-xs brand-green font-semibold mb-2 flex items-center gap-2">专业版 <span class="bg-green-100 text-[10px] px-2 py-0.5 rounded">最大收益</span></div>
+        <h3 class="serif text-2xl font-bold mb-1">Pro 版</h3>
+        <div class="flex items-baseline gap-1 mb-4">
+          <span class="serif text-4xl font-bold brand-green">¥199</span>
+          <span class="text-sm text-gray-500">/ 月</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-5">适合全职老师，平均多接 5-8 个学生</p>
+        <a href="#" class="block w-full bg-brand-green text-white py-3 rounded-lg font-bold text-sm mb-5 text-center">升级为 Pro 老师</a>
+        <div class="space-y-2 text-sm">
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>包含推荐版所有权益</span></div>
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>视频作品加权推荐</span></div>
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>专属运营老师 1v1 指导</span></div>
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>跨区域优先匹配</span></div>
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>家长视频号导流</span></div>
+          <div class="flex gap-2"><span class="brand-green">✓</span><span>优先资讯 / 培训活动</span></div>
         </div>
       </div>
     </div>
+
+    <!-- Competitor comparison -->
+    <div class="mt-12 max-w-4xl mx-auto bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border border-green-200">
+      <h3 class="serif text-xl font-bold mb-4 text-center">💡 横向对比 · 同样月入 ¥20,000，学伴让您多赚多少？</h3>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-gray-200">
+            <th class="text-left py-2 text-xs text-gray-500">平台</th>
+            <th class="text-center py-2 text-xs text-gray-500">抽成 / 费用</th>
+            <th class="text-right py-2 text-xs text-gray-500">实际到手</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-gray-100">
+            <td class="py-3">掌门1对1</td>
+            <td class="text-center text-gray-500">抽 40%</td>
+            <td class="text-right font-semibold text-gray-500">¥12,000</td>
+          </tr>
+          <tr class="border-b border-gray-100">
+            <td class="py-3">VIPKID</td>
+            <td class="text-center text-gray-500">抽 35%</td>
+            <td class="text-right font-semibold text-gray-500">¥13,000</td>
+          </tr>
+          <tr class="border-b border-gray-100">
+            <td class="py-3">轻轻家教</td>
+            <td class="text-center text-gray-500">抽 30%</td>
+            <td class="text-right font-semibold text-gray-500">¥14,000</td>
+          </tr>
+          <tr class="border-b border-gray-100">
+            <td class="py-3">上课啦家教</td>
+            <td class="text-center text-gray-500">¥45-168 VIP 费</td>
+            <td class="text-right font-semibold">¥19,832</td>
+          </tr>
+          <tr class="bg-green-50 -mx-2 rounded-lg">
+            <td class="py-3 pl-2 font-bold brand-green">学伴 · 推荐版</td>
+            <td class="text-center brand-green font-semibold">仅 ¥45/月</td>
+            <td class="text-right font-bold brand-green text-lg">¥19,955</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-center text-xs text-gray-500 mt-4">
+        学伴比抽成平台多赚 <b class="brand-green">¥5,955-7,955</b> / 月 · 比其他 VIP 类平台也有小幅优势（更好匹配 + 更精准教材）
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Referral CTA -->
+<section class="bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 py-16 px-6 text-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="text-5xl mb-4">🎁</div>
+    <h2 class="serif text-3xl md:text-4xl font-bold mb-4">邀请好友，双方各得 30 天会员</h2>
+    <p class="opacity-90 mb-8 max-w-2xl mx-auto">
+      已成为会员的家长通过邀请好友可以无限延长会员期。<br/>
+      邀请 12 位朋友 = 终身家庭版会员免费。
+    </p>
+    <a href="referral.html" class="inline-block bg-white text-orange-600 px-8 py-4 rounded-lg font-bold">查看邀请计划 →</a>
   </div>
 </section>
 

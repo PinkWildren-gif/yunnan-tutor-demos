@@ -244,6 +244,136 @@
       </table>
     </div>
 
+    <!-- Content moderation queue (Double Reduction compliance) -->
+    <div class="card mb-6">
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <h2 class="serif text-lg font-bold text-white flex items-center gap-2">
+            🛡️ "双减"合规审核队列
+            <span class="badge-red">12 待处理</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">AI 关键词自动标记 · 人工 4 小时内响应 · 参考 <a href="compliance.html" class="text-blue-400 underline">合规披露页</a></p>
+        </div>
+        <div class="flex gap-2 text-xs">
+          <button class="px-3 py-1.5 bg-red-600/20 text-red-300 rounded-full border border-red-600/30">全部 12</button>
+          <button class="px-3 py-1.5 bg-slate-800 rounded-full">学科类 8</button>
+          <button class="px-3 py-1.5 bg-slate-800 rounded-full">时段违规 3</button>
+          <button class="px-3 py-1.5 bg-slate-800 rounded-full">其他 1</button>
+        </div>
+      </div>
+
+      <!-- Keyword filter summary -->
+      <div class="grid grid-cols-4 gap-3 mb-5">
+        <div class="bg-slate-800/50 rounded-lg p-3">
+          <div class="text-[10px] text-slate-500">今日扫描内容</div>
+          <div class="serif text-xl font-bold text-white">2,184</div>
+        </div>
+        <div class="bg-slate-800/50 rounded-lg p-3">
+          <div class="text-[10px] text-slate-500">AI 自动拦截</div>
+          <div class="serif text-xl font-bold text-amber-400">47</div>
+        </div>
+        <div class="bg-slate-800/50 rounded-lg p-3">
+          <div class="text-[10px] text-slate-500">人工确认违规</div>
+          <div class="serif text-xl font-bold text-red-400">12</div>
+        </div>
+        <div class="bg-slate-800/50 rounded-lg p-3">
+          <div class="text-[10px] text-slate-500">平均响应时长</div>
+          <div class="serif text-xl font-bold text-green-400">2.1h</div>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <!-- Flagged item 1: subject tutoring on weekend -->
+        <div class="p-4 bg-red-900/20 border-l-4 border-red-600 rounded-lg">
+          <div class="flex items-start justify-between mb-2">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="badge-red">🚫 义务教育学科 · 周末</span>
+                <span class="text-[10px] text-slate-500">家长发布 · 23 分钟前 · 工单 #M4231</span>
+              </div>
+              <div class="text-sm bg-slate-900/50 rounded p-3 font-mono">
+                "周六周日想找一位老师给我家小学<span class="bg-red-600/30 text-red-300 px-1">五年级数学</span>补课，每周 <span class="bg-red-600/30 text-red-300 px-1">一对一</span> 2 小时..."
+              </div>
+              <div class="text-xs text-slate-400 mt-2">
+                触发关键词：<b class="text-red-300">"五年级数学"</b> + <b class="text-red-300">"一对一"</b> + <b class="text-red-300">"周末"</b> → 违反《双减》政策义务教育学科类周末培训限制
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-2 text-xs">
+            <button class="bg-red-600 hover:bg-red-500 px-3 py-1.5 rounded font-semibold">拒绝发布 + 通知家长</button>
+            <button class="bg-amber-600 hover:bg-amber-500 px-3 py-1.5 rounded">建议改为素质教育</button>
+            <button class="border border-slate-600 text-slate-400 px-3 py-1.5 rounded">查看上下文</button>
+          </div>
+        </div>
+
+        <!-- Flagged item 2: "live-in teacher" -->
+        <div class="p-4 bg-red-900/20 border-l-4 border-red-600 rounded-lg">
+          <div class="flex items-start justify-between mb-2">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="badge-red">🚫 隐形变异培训</span>
+                <span class="text-[10px] text-slate-500">教师发布 · 1 小时前 · 工单 #M4229</span>
+              </div>
+              <div class="text-sm bg-slate-900/50 rounded p-3 font-mono">
+                "本人可提供初三数理化 <span class="bg-red-600/30 text-red-300 px-1">住家教师</span> 服务，一对一全天陪伴，包吃住..."
+              </div>
+              <div class="text-xs text-slate-400 mt-2">
+                触发关键词：<b class="text-red-300">"住家教师"</b> → 《双减》明确禁止的隐形变异培训形式
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-2 text-xs">
+            <button class="bg-red-600 hover:bg-red-500 px-3 py-1.5 rounded font-semibold">拒绝 + 警告教师</button>
+            <button class="border border-slate-600 text-slate-400 px-3 py-1.5 rounded">查看历史违规</button>
+          </div>
+        </div>
+
+        <!-- Flagged item 3: holiday period -->
+        <div class="p-4 bg-amber-900/20 border-l-4 border-amber-600 rounded-lg">
+          <div class="flex items-start justify-between mb-2">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="badge-amber">⚠️ 暑假期间 · 学科类</span>
+                <span class="text-[10px] text-slate-500">家长发布 · 2 小时前 · 工单 #M4226</span>
+              </div>
+              <div class="text-sm bg-slate-900/50 rounded p-3 font-mono">
+                "暑假期间想给女儿补<span class="bg-amber-600/30 text-amber-300 px-1">初中英语</span>..."
+              </div>
+              <div class="text-xs text-slate-400 mt-2">
+                注意：暑假期间义务教育学科类培训受限。建议引导改为英语素质/口语兴趣班。
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-2 text-xs">
+            <button class="bg-amber-600 hover:bg-amber-500 px-3 py-1.5 rounded font-semibold">转至素质教育分类</button>
+            <button class="bg-red-600/20 text-red-300 border border-red-600/30 px-3 py-1.5 rounded">拒绝发布</button>
+            <button class="border border-slate-600 text-slate-400 px-3 py-1.5 rounded">查看详情</button>
+          </div>
+        </div>
+
+        <!-- Non-academic (safe, auto-approved) -->
+        <div class="p-4 bg-green-900/10 border-l-4 border-green-600/50 rounded-lg">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-green">✓ 素质教育 · 自动通过</span>
+            <span class="text-[10px] text-slate-500">家长发布 · 3 小时前</span>
+          </div>
+          <div class="text-sm text-slate-300">"想给孩子找一位<b>钢琴</b>老师，初学者，每周 1 次..."</div>
+          <div class="text-xs text-slate-500 mt-1">素质教育类（音乐）不受《双减》限制，已自动通过审核。</div>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-4 border-t border-slate-700 flex justify-between items-center text-xs">
+        <div class="text-slate-500">
+          显示最近 4 条 · 全部 12 条待处理 ·
+          <a href="#" class="text-blue-400">查看关键词库 →</a>
+        </div>
+        <div class="flex gap-2">
+          <button class="text-blue-400 hover:underline">批量审核</button>
+          <button class="text-blue-400 hover:underline">导出工单</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Two column -->
     <div class="grid grid-cols-2 gap-4 mb-6">
       <!-- Recent tickets -->

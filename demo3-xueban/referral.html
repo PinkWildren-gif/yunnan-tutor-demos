@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>邀请好友 · 学伴</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #FDF9F0; color: #1f2937; }
+  .serif { font-family: "Noto Serif SC", serif; }
+  .brand-green { color: #1a5d3a; }
+  .bg-brand-green { background-color: #1a5d3a; }
+  .brand-orange { color: #D97706; }
+  .bg-brand-orange { background-color: #D97706; }
+  .gradient-bg {
+    background:
+      radial-gradient(800px 400px at 20% 20%, rgba(251,191,36,0.15), transparent),
+      radial-gradient(600px 400px at 80% 80%, rgba(16,185,129,0.1), transparent),
+      linear-gradient(180deg, #FFFBEB 0%, #FDF9F0 60%);
+  }
+  .coin-badge {
+    background: linear-gradient(135deg, #FCD34D, #F59E0B);
+    color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700;
+  }
+  .share-btn { transition: transform .15s; }
+  .share-btn:hover { transform: translateY(-2px); }
+</style>
+</head>
+<body class="gradient-bg">
+
+<nav class="bg-white/80 backdrop-blur border-b border-amber-100 sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-lg bg-brand-green text-white flex items-center justify-center font-bold serif text-xl">学</div>
+      <div class="serif font-bold text-lg brand-green">学伴</div>
+    </a>
+    <div class="hidden md:flex gap-6 text-sm">
+      <a href="dashboard.html" class="text-gray-700">我的学伴</a>
+      <a href="pricing.html" class="text-gray-700">会员定价</a>
+      <a href="referral.html" class="font-semibold brand-orange">邀请好友</a>
+    </div>
+    <div class="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold">王</div>
+  </div>
+</nav>
+
+<section class="max-w-5xl mx-auto px-6 py-12">
+
+  <div class="text-center mb-12">
+    <div class="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 rounded-full px-4 py-1.5 text-xs brand-orange mb-4">
+      🎁 限时加码 · 邀请越多奖励越多
+    </div>
+    <h1 class="serif text-5xl md:text-6xl font-bold leading-tight mb-4">
+      邀请一位朋友，<br/>
+      <span class="brand-orange">双方都得 30 天会员</span>
+    </h1>
+    <p class="text-gray-600 text-lg leading-relaxed">
+      您推荐的朋友注册并首次扫码成功后，您和朋友<strong>各得 30 天家庭版会员</strong>。<br/>
+      推荐 4 人 = 您免费用一整年。
+    </p>
+  </div>
+
+  <!-- Invitation card -->
+  <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl border border-amber-100 p-8 mb-10">
+    <div class="flex items-center gap-4 mb-6">
+      <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 text-white flex items-center justify-center text-2xl">🔗</div>
+      <div>
+        <div class="text-xs text-gray-500 mb-1">您的专属邀请码</div>
+        <div class="serif text-3xl font-bold tracking-widest">WANG8X2K</div>
+      </div>
+      <div class="ml-auto text-right">
+        <div class="text-xs text-gray-500">已邀请</div>
+        <div class="serif text-2xl font-bold brand-green">3 / 12</div>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-4 flex items-center gap-3 mb-6">
+      <div class="text-sm text-gray-600 flex-1">邀请链接：</div>
+      <code class="bg-white px-3 py-1.5 rounded border border-amber-200 text-xs flex-1 truncate">https://xueban.cn/r/WANG8X2K</code>
+      <button onclick="copyLink()" class="bg-brand-orange text-white px-4 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap">复制</button>
+    </div>
+
+    <!-- Share methods -->
+    <div class="grid grid-cols-4 gap-3">
+      <button class="share-btn bg-green-500 hover:bg-green-600 text-white p-4 rounded-xl text-center">
+        <div class="text-2xl mb-1">💬</div>
+        <div class="text-xs font-semibold">微信</div>
+      </button>
+      <button class="share-btn bg-green-400 hover:bg-green-500 text-white p-4 rounded-xl text-center">
+        <div class="text-2xl mb-1">📷</div>
+        <div class="text-xs font-semibold">朋友圈</div>
+      </button>
+      <button class="share-btn bg-red-500 hover:bg-red-600 text-white p-4 rounded-xl text-center">
+        <div class="text-2xl mb-1">🐧</div>
+        <div class="text-xs font-semibold">QQ</div>
+      </button>
+      <button class="share-btn bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl text-center">
+        <div class="text-2xl mb-1">📄</div>
+        <div class="text-xs font-semibold">海报</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Progress tracker -->
+  <div class="max-w-3xl mx-auto mb-12">
+    <div class="bg-white rounded-2xl border border-amber-100 p-6">
+      <div class="flex justify-between items-center mb-5">
+        <h3 class="font-bold text-lg">🏆 推荐进度</h3>
+        <div class="text-xs text-gray-500">距离下一档奖励还差 <b class="brand-orange">2 人</b></div>
+      </div>
+
+      <!-- Milestones -->
+      <div class="relative">
+        <div class="absolute left-0 right-0 top-6 h-1 bg-gray-100 rounded-full">
+          <div class="h-full bg-gradient-to-r from-amber-400 to-orange-600 rounded-full" style="width:30%"></div>
+        </div>
+        <div class="grid grid-cols-5 gap-0 relative">
+          <div class="text-center">
+            <div class="coin-badge w-12 h-12 rounded-full mx-auto text-white">✓</div>
+            <div class="text-[10px] mt-2 font-semibold brand-green">1 人</div>
+            <div class="text-[10px] text-gray-500">30 天</div>
+          </div>
+          <div class="text-center">
+            <div class="coin-badge w-12 h-12 rounded-full mx-auto text-white">✓</div>
+            <div class="text-[10px] mt-2 font-semibold brand-green">3 人</div>
+            <div class="text-[10px] text-gray-500">90 天</div>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full mx-auto bg-gray-200 flex items-center justify-center text-gray-500 font-bold">5</div>
+            <div class="text-[10px] mt-2 font-semibold">5 人</div>
+            <div class="text-[10px] text-gray-500">半年会员</div>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full mx-auto bg-gray-200 flex items-center justify-center text-gray-500 font-bold">8</div>
+            <div class="text-[10px] mt-2 font-semibold">8 人</div>
+            <div class="text-[10px] text-gray-500">+¥100 红包</div>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full mx-auto bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-white font-bold">👑</div>
+            <div class="text-[10px] mt-2 font-semibold brand-orange">12 人</div>
+            <div class="text-[10px] text-gray-500">终身免费</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <h2 class="serif text-2xl font-bold text-center mb-8">📖 怎么玩</h2>
+  <div class="grid md:grid-cols-3 gap-5 mb-12">
+    <div class="bg-white rounded-2xl p-6 border border-amber-100 text-center">
+      <div class="text-5xl mb-3">📮</div>
+      <div class="text-xs brand-orange font-semibold mb-2">STEP 1</div>
+      <h3 class="font-bold mb-2">分享邀请链接</h3>
+      <p class="text-xs text-gray-600 leading-relaxed">通过微信、朋友圈或海报分享您的专属邀请链接给好友。</p>
+    </div>
+    <div class="bg-white rounded-2xl p-6 border border-amber-100 text-center">
+      <div class="text-5xl mb-3">📱</div>
+      <div class="text-xs brand-orange font-semibold mb-2">STEP 2</div>
+      <h3 class="font-bold mb-2">好友注册学伴</h3>
+      <p class="text-xs text-gray-600 leading-relaxed">好友通过您的链接注册。注册时邀请码会自动填入。</p>
+    </div>
+    <div class="bg-white rounded-2xl p-6 border border-amber-100 text-center">
+      <div class="text-5xl mb-3">🎁</div>
+      <div class="text-xs brand-orange font-semibold mb-2">STEP 3</div>
+      <h3 class="font-bold mb-2">双方各得 30 天</h3>
+      <p class="text-xs text-gray-600 leading-relaxed">好友完成首次扫码匹配后，您和好友<strong>立即各得 30 天</strong>家庭版会员。</p>
+    </div>
+  </div>
+
+  <!-- Invited friends list -->
+  <h2 class="serif text-2xl font-bold mb-6">👥 我邀请的朋友</h2>
+  <div class="bg-white rounded-2xl border border-amber-100 overflow-hidden mb-10">
+    <div class="p-5 flex justify-between items-center border-b border-gray-100">
+      <div class="text-sm font-semibold">共邀请 3 人 · 获得 90 天会员</div>
+      <div class="flex gap-2 text-xs">
+        <button class="px-3 py-1 bg-brand-green text-white rounded-full">全部</button>
+        <button class="px-3 py-1 bg-gray-100 rounded-full">已奖励</button>
+        <button class="px-3 py-1 bg-gray-100 rounded-full">待确认</button>
+      </div>
+    </div>
+    <div class="divide-y divide-gray-100">
+      <div class="p-4 flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center font-bold text-blue-700">李</div>
+        <div class="flex-1">
+          <div class="font-semibold text-sm">李**妈妈</div>
+          <div class="text-xs text-gray-500">2026-04-12 注册 · 已完成首次匹配</div>
+        </div>
+        <div class="text-right">
+          <div class="text-xs text-green-600 font-semibold">+30 天</div>
+          <div class="text-[10px] text-gray-400">已到账</div>
+        </div>
+      </div>
+      <div class="p-4 flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-pink-200 flex items-center justify-center font-bold text-pink-700">陈</div>
+        <div class="flex-1">
+          <div class="font-semibold text-sm">陈**爸爸</div>
+          <div class="text-xs text-gray-500">2026-04-08 注册 · 已完成首次匹配</div>
+        </div>
+        <div class="text-right">
+          <div class="text-xs text-green-600 font-semibold">+30 天</div>
+          <div class="text-[10px] text-gray-400">已到账</div>
+        </div>
+      </div>
+      <div class="p-4 flex items-center gap-4">
+        <div class="w-10 h-10 rounded-full bg-green-200 flex items-center justify-center font-bold text-green-700">周</div>
+        <div class="flex-1">
+          <div class="font-semibold text-sm">周**妈妈</div>
+          <div class="text-xs text-gray-500">2026-04-02 注册 · 已完成首次匹配</div>
+        </div>
+        <div class="text-right">
+          <div class="text-xs text-green-600 font-semibold">+30 天</div>
+          <div class="text-[10px] text-gray-400">已到账</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Poster preview -->
+  <div class="max-w-md mx-auto mb-10">
+    <h3 class="text-center font-bold mb-4">🎨 精美海报（点击下载）</h3>
+    <div class="bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 rounded-3xl p-8 text-white text-center shadow-2xl">
+      <div class="text-5xl mb-3">📚 🎁</div>
+      <div class="serif text-2xl font-bold mb-2">学伴 · 扫书找老师</div>
+      <div class="text-sm opacity-90 mb-4">王**妈妈邀请您加入学伴</div>
+      <div class="bg-white/20 backdrop-blur rounded-xl p-4 mb-4">
+        <div class="text-xs opacity-80 mb-1">限时福利</div>
+        <div class="serif text-xl font-bold">注册即得 30 天会员</div>
+      </div>
+      <div class="bg-white text-orange-600 rounded-lg p-4 mb-2">
+        <div class="text-xs mb-1">扫描下方二维码注册</div>
+        <div class="w-24 h-24 mx-auto bg-black"
+             style="background-image: linear-gradient(45deg, #fff 25%, transparent 25%), linear-gradient(-45deg, #fff 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #fff 75%), linear-gradient(-45deg, transparent 75%, #fff 75%); background-size: 8px 8px;"></div>
+      </div>
+      <div class="text-[10px] opacity-80">邀请码：WANG8X2K</div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="max-w-3xl mx-auto">
+    <h3 class="serif text-xl font-bold mb-5">常见问题</h3>
+    <div class="space-y-3">
+      <details class="bg-white rounded-xl p-4 border border-amber-100">
+        <summary class="font-semibold text-sm cursor-pointer">什么情况下我能得到奖励？</summary>
+        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+          您的好友通过您的链接注册，并在 30 天内完成<strong>至少一次扫码匹配</strong>（即真正成为学伴用户），您和他各得 30 天家庭版会员。
+        </p>
+      </details>
+      <details class="bg-white rounded-xl p-4 border border-amber-100">
+        <summary class="font-semibold text-sm cursor-pointer">如果好友已经是学伴用户还能算吗？</summary>
+        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+          不能。邀请奖励仅限<strong>全新注册用户</strong>。已有账号的用户即使通过您的链接访问，也不计入邀请数。
+        </p>
+      </details>
+      <details class="bg-white rounded-xl p-4 border border-amber-100">
+        <summary class="font-semibold text-sm cursor-pointer">我已经是会员了，奖励的 30 天怎么算？</summary>
+        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+          自动顺延。例如：您的会员到期日是 6 月 1 日，邀请成功后到期日变为 7 月 1 日。
+        </p>
+      </details>
+      <details class="bg-white rounded-xl p-4 border border-amber-100">
+        <summary class="font-semibold text-sm cursor-pointer">终身免费是什么意思？真的终身吗？</summary>
+        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+          邀请满 12 位真实用户，您的学伴家庭版会员<strong>终身有效</strong>（只要学伴还在运营）。这是我们对超级推广者的感谢。
+        </p>
+      </details>
+    </div>
+  </div>
+
+</section>
+
+<footer class="bg-gray-900 text-gray-400 text-xs py-6 text-center mt-10">
+  © 2026 云南学伴科技有限公司 · 滇ICP备 2026XXXXXX 号
+</footer>
+
+<script>
+function copyLink() {
+  navigator.clipboard.writeText('https://xueban.cn/r/WANG8X2K').catch(() => {});
+  alert('邀请链接已复制！快分享给朋友吧 🎉');
+}
+</script>
+
+</body>
+</html>

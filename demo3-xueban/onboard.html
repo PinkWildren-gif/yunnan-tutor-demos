@@ -56,7 +56,7 @@
   </div>
 
   <!-- Stepper -->
-  <div class="flex items-center mb-8 max-w-3xl mx-auto">
+  <div class="flex items-center mb-8 max-w-4xl mx-auto">
     <div class="step done flex items-center gap-2">
       <div class="step-dot">✓</div>
       <div class="step-label text-xs">基本信息</div>
@@ -74,7 +74,12 @@
     <div class="step-bar"></div>
     <div class="step pending flex items-center gap-2">
       <div class="step-dot">4</div>
-      <div class="step-label text-xs">定价 · 完成</div>
+      <div class="step-label text-xs">定价</div>
+    </div>
+    <div class="step-bar"></div>
+    <div class="step pending flex items-center gap-2">
+      <div class="step-dot">5</div>
+      <div class="step-label text-xs">合规承诺</div>
     </div>
   </div>
 
@@ -239,6 +244,104 @@
     </div>
   </div>
 
+  <!-- Step 5 preview: Compliance (hidden, shows after step 3) -->
+  <div id="step5" class="hidden bg-white rounded-2xl border border-red-200 overflow-hidden mt-6">
+    <div class="p-8">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-2xl flex-shrink-0">📜</div>
+        <div>
+          <div class="text-xs brand-orange font-semibold mb-1">STEP 5 / 5 · 必须完成</div>
+          <h2 class="serif text-2xl font-bold">"双减"政策合规承诺</h2>
+          <p class="text-sm text-gray-500 mt-1">作为在学伴入驻的老师，您须了解并承诺遵守以下合规规则。</p>
+        </div>
+      </div>
+
+      <div class="bg-red-50 border-l-4 border-red-500 rounded p-4 mb-6">
+        <div class="font-bold text-red-900 mb-2">🚫 作为教师，您承诺不在学伴平台进行以下行为：</div>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex gap-2"><span class="text-red-500">×</span>
+            <span>在<b>国家法定节假日、周末、寒暑假</b>为小学 1-6 年级、初中 1-3 年级学生提供<b>语文、数学、英语、物理、化学、生物、历史、地理、道德与法治</b>等学科类家教</span>
+          </li>
+          <li class="flex gap-2"><span class="text-red-500">×</span>
+            <span>以"<b>一对一</b>"、"<b>住家教师</b>"、"<b>小班课</b>"、"<b>集中辅导</b>"等隐形变异形式开展义务教育学科类培训</span>
+          </li>
+          <li class="flex gap-2"><span class="text-red-500">×</span>
+            <span>诱导家长通过学伴之外的渠道达成违反上述限制的协议</span>
+          </li>
+          <li class="flex gap-2"><span class="text-red-500">×</span>
+            <span>为学生提供超纲、拔高、应试性质的义务教育学科超前培训</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-green-50 border-l-4 border-green-500 rounded p-4 mb-6">
+        <div class="font-bold text-green-900 mb-2">✅ 您可以自由开展以下类别的教学：</div>
+        <div class="grid md:grid-cols-2 gap-3 text-sm text-gray-700">
+          <div>🎨 <b>素质教育类：</b>音乐、美术、书法、舞蹈、体育、演讲等</div>
+          <div>💻 <b>兴趣类：</b>编程（非应试）、围棋、象棋、科学实验等</div>
+          <div>🎓 <b>高中辅导：</b>10-12 年级学科类培训（不受限）</div>
+          <div>👨‍💼 <b>成人教育：</b>语言、职业技能、兴趣爱好</div>
+          <div>🌐 <b>外语类：</b>非义务教育阶段学生的口语、考试培训</div>
+          <div>📖 <b>义务教育阶段素质：</b>阅读、写作、演讲、思维训练等</div>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 border-l-4 border-amber-500 rounded p-4 mb-6">
+        <div class="font-bold text-amber-900 mb-2">⚠️ 学伴平台的合规措施：</div>
+        <ul class="space-y-1.5 text-sm text-gray-700">
+          <li>• AI 关键词扫描 + 人工审核，任何违规内容会被立即拦截</li>
+          <li>• 系统自动禁止在节假日时段发布/承接义务教育学科订单</li>
+          <li>• 所有聊天、发布记录保存 60 天以满足监管要求</li>
+          <li>• 初次违规 → 警告；二次违规 → 限期整改；三次违规 → 永久封禁</li>
+          <li>• 严重违规将报告监管部门（国家网信办、教育部）</li>
+        </ul>
+      </div>
+
+      <!-- Commitments checklist -->
+      <div class="space-y-3 mb-6">
+        <label class="flex items-start gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl cursor-pointer">
+          <input type="checkbox" class="commit-check mt-0.5 accent-green-700 w-5 h-5" />
+          <span class="text-sm text-gray-700">我已认真阅读《<a href="terms.html#doublereduction" target="_blank" class="brand-green underline">学伴服务条款》第 5 条"双减"政策合规条款</a>，并完全理解其内容。</span>
+        </label>
+        <label class="flex items-start gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl cursor-pointer">
+          <input type="checkbox" class="commit-check mt-0.5 accent-green-700 w-5 h-5" />
+          <span class="text-sm text-gray-700">我承诺作为学伴平台入驻教师，严格遵守"双减"政策，不在节假日/周末/寒暑假为义务教育阶段学生提供学科类家教。</span>
+        </label>
+        <label class="flex items-start gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl cursor-pointer">
+          <input type="checkbox" class="commit-check mt-0.5 accent-green-700 w-5 h-5" />
+          <span class="text-sm text-gray-700">我承诺不使用"一对一"、"住家教师"等隐形变异培训描述，不绕过平台私下达成违规协议。</span>
+        </label>
+        <label class="flex items-start gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl cursor-pointer">
+          <input type="checkbox" class="commit-check mt-0.5 accent-green-700 w-5 h-5" />
+          <span class="text-sm text-gray-700">我已阅读并同意《<a href="privacy.html" target="_blank" class="brand-green underline">学伴隐私政策</a>》，包括对未成年学生信息的特别保护条款。</span>
+        </label>
+        <label class="flex items-start gap-3 p-4 bg-red-50 hover:bg-red-100 rounded-xl cursor-pointer border border-red-200">
+          <input type="checkbox" class="commit-check mt-0.5 accent-red-700 w-5 h-5" />
+          <span class="text-sm text-gray-700"><b>我理解：</b>违反以上承诺将导致警告、限期整改直至永久封禁账号，情节严重者学伴有权配合监管部门调查。</span>
+        </label>
+      </div>
+
+      <!-- Digital signature -->
+      <div class="bg-white border-2 border-dashed border-gray-200 rounded-xl p-5 mb-6">
+        <div class="text-xs text-gray-500 mb-2">电子签名（请输入您的真实姓名以完成承诺）</div>
+        <input type="text" placeholder="请输入您的姓名" class="w-full px-4 py-3 border border-gray-200 rounded-lg font-semibold serif text-lg" value="李明" />
+        <div class="text-[10px] text-gray-400 mt-2">签名时间：2026-04-18 · IP 属地：云南 · 设备指纹已记录</div>
+      </div>
+
+      <!-- Submit -->
+      <div class="flex justify-between items-center pt-6 border-t">
+        <a href="#" class="text-sm text-gray-500 hover:brand-green">← 上一步</a>
+        <button onclick="submitOnboard()" id="submitBtn" class="px-8 py-3 bg-brand-green text-white rounded-lg text-sm font-semibold opacity-50 cursor-not-allowed" disabled>
+          ✓ 确认承诺 · 提交入驻申请
+        </button>
+      </div>
+
+      <p class="text-xs text-gray-500 text-center mt-4">
+        提交后，学伴团队将在 <b>24 小时</b>内完成审核。审核通过后您即可接单。
+      </p>
+    </div>
+  </div>
+
   <!-- Teacher benefits callout -->
   <div class="mt-8 grid md:grid-cols-3 gap-4">
     <div class="bg-white rounded-xl p-5 border border-amber-100">
@@ -294,7 +397,25 @@ BOOKS.forEach(b => {
 
 function goNext() {
   document.getElementById('step3').classList.remove('hidden');
-  document.getElementById('step3').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('step5').classList.remove('hidden');
+  document.getElementById('step5').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Enable submit button only when all checkboxes ticked
+document.addEventListener('change', () => {
+  const boxes = document.querySelectorAll('.commit-check');
+  const all = Array.from(boxes).every(b => b.checked);
+  const btn = document.getElementById('submitBtn');
+  if (btn) {
+    btn.disabled = !all;
+    btn.classList.toggle('opacity-50', !all);
+    btn.classList.toggle('cursor-not-allowed', !all);
+  }
+});
+
+function submitOnboard() {
+  alert('恭喜！入驻申请已提交。学伴审核团队将在 24 小时内联系您。\n\n（演示：点击后将跳转到老师工作台）');
+  window.location.href = 'tutor-dashboard.html';
 }
 </script>
 </body>

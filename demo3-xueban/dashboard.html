@@ -16,6 +16,92 @@
 </head>
 <body>
 
+<!-- Double Reduction Policy Acknowledgment Modal -->
+<div id="shuangjianModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+  <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+    <div class="p-8">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="w-14 h-14 rounded-2xl bg-red-100 flex items-center justify-center text-3xl flex-shrink-0">📜</div>
+        <div>
+          <div class="text-xs" style="color:#D97706;font-weight:600">合规重要声明</div>
+          <h2 style="font-family:'Noto Serif SC',serif" class="text-2xl font-bold">"双减"政策使用须知</h2>
+          <p class="text-sm text-gray-500 mt-1">请仔细阅读，您的确认是继续使用学伴的前提</p>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded mb-5">
+        <p class="text-sm text-gray-700 leading-relaxed">
+          根据国务院《关于进一步减轻义务教育阶段学生作业负担和校外培训负担的意见》（"<b>双减</b>"政策），
+          <b>义务教育阶段（小学 1-6 年级 + 初中 1-3 年级）</b>学生的<b>学科类</b>家教存在严格限制。
+        </p>
+      </div>
+
+      <h3 class="font-bold mb-3 text-gray-800">🚫 在学伴平台，下列情形禁止：</h3>
+      <ul class="space-y-2 mb-5 text-sm text-gray-700">
+        <li class="flex gap-2"><span class="text-red-500 font-bold">×</span><span>在国家法定节假日、周末、寒暑假期间为义务教育阶段学生发布<b>语数英、物化生、史地政</b>等学科类家教需求</span></li>
+        <li class="flex gap-2"><span class="text-red-500 font-bold">×</span><span>使用"一对一"、"住家教师"、"小班课"等隐形变异培训形式描述</span></li>
+        <li class="flex gap-2"><span class="text-red-500 font-bold">×</span><span>绕过平台私下达成违反以上规则的协议</span></li>
+      </ul>
+
+      <h3 class="font-bold mb-3 text-gray-800">✅ 下列情形不受以上限制：</h3>
+      <ul class="space-y-2 mb-5 text-sm text-gray-700">
+        <li class="flex gap-2"><span style="color:#1a5d3a" class="font-bold">✓</span><span><b>素质教育类：</b>音乐、美术、书法、舞蹈、体育、编程、演讲等</span></li>
+        <li class="flex gap-2"><span style="color:#1a5d3a" class="font-bold">✓</span><span><b>高中阶段辅导：</b>10-12 年级学生的学科类培训</span></li>
+        <li class="flex gap-2"><span style="color:#1a5d3a" class="font-bold">✓</span><span><b>成人教育：</b>语言学习、职业技能、兴趣爱好</span></li>
+      </ul>
+
+      <p class="text-xs text-gray-500 mb-6 leading-relaxed">
+        详细条款请参阅 <a href="terms.html#doublereduction" style="color:#1a5d3a" class="underline">《服务条款》第 5 条</a> 与
+        <a href="compliance.html" style="color:#1a5d3a" class="underline">《合规披露》</a>。
+        我们设有 AI + 人工双重审核，任何违反此规则的发布都会被立即拦截。
+      </p>
+
+      <label class="flex items-start gap-3 p-3 bg-gray-50 rounded-xl mb-5 cursor-pointer">
+        <input type="checkbox" id="ackCheck" class="mt-0.5 accent-green-700 w-5 h-5" />
+        <span class="text-sm text-gray-700">我已认真阅读并理解"双减"政策相关要求，承诺在学伴平台使用过程中严格遵守上述规则。我理解违规将导致账号限制或封禁。</span>
+      </label>
+
+      <div class="flex gap-3">
+        <button onclick="declineShuangjian()" class="flex-1 border border-gray-200 text-gray-600 py-3 rounded-lg font-semibold text-sm hover:bg-gray-50">稍后再说</button>
+        <button onclick="confirmShuangjian()" id="confirmBtn" style="background:#1a5d3a" class="flex-1 text-white py-3 rounded-lg font-semibold text-sm opacity-50 cursor-not-allowed" disabled>确认并继续使用</button>
+      </div>
+
+      <p class="text-[11px] text-gray-400 text-center mt-4">
+        您的确认将被记录并保存至少 60 天以满足监管要求
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  if (!localStorage.getItem('xueban_shuangjian_ack')) {
+    setTimeout(() => document.getElementById('shuangjianModal').classList.remove('hidden'), 800);
+  }
+  document.addEventListener('change', (e) => {
+    if (e.target && e.target.id === 'ackCheck') {
+      const btn = document.getElementById('confirmBtn');
+      if (e.target.checked) {
+        btn.disabled = false;
+        btn.classList.remove('opacity-50','cursor-not-allowed');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('opacity-50','cursor-not-allowed');
+      }
+    }
+  });
+})();
+function confirmShuangjian() {
+  localStorage.setItem('xueban_shuangjian_ack', new Date().toISOString());
+  document.getElementById('shuangjianModal').classList.add('hidden');
+}
+function declineShuangjian() {
+  if (confirm('您需要确认"双减"政策以继续使用学伴。是否仍要退出？')) {
+    window.location.href = 'index.html';
+  }
+}
+</script>
+
 <nav class="border-b border-amber-100 bg-white sticky top-0 z-40">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-2">
